@@ -615,8 +615,41 @@
   "carts": [
     {
       "userId": "1",
-      "totalBooksInCart": 0,
-      "cartBooks": [],
+      "totalBooksInCart": 2,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "1984",
+            "authorName": "George Orwell",
+            "price": "12.50",
+            "quantity": "8",
+            "description": "A dystopian novel set in a totalitarian society under the surveillance of Big Brother.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8jT8OYBTYR48fkbE9rQIoI16sxgf6lSyWc55CKdvUw&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "3527"
+          }
+        },
+        {
+          "bookQuantity": 2,
+          "book": {
+            "categoryId": "1",
+            "bookName": "Pride and Prejudice",
+            "authorName": "Jane Austen",
+            "price": "9.99",
+            "quantity": "12",
+            "description": "A romantic novel of manners that critiques the British landed gentry.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1nYuThqsnJ_iI0px-yuof3kVF-MgjqcOLeGUwjJokgA&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": true,
+            "id": "dc17"
+          }
+        }
+      ],
       "id": "c601"
     },
     {
@@ -1164,6 +1197,29 @@
             "rejectionCounts": 0,
             "isApprovalSent": false,
             "id": "41ac"
+          }
+        }
+      ]
+    },
+    {
+      "id": "e772",
+      "userId": "1",
+      "totalBooksInCart": 1,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "1984",
+            "authorName": "George Orwell",
+            "price": "12.50",
+            "quantity": "8",
+            "description": "A dystopian novel set in a totalitarian society under the surveillance of Big Brother.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8jT8OYBTYR48fkbE9rQIoI16sxgf6lSyWc55CKdvUw&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "3527"
           }
         }
       ]
