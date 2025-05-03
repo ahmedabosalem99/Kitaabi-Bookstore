@@ -1,0 +1,105 @@
+<div class="container mt-4">
+  <h2>Your Shopping Cart</h2>
+
+  <!-- Loading State -->
+  <div *ngIf="cartService.loading()" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="cartService.error()" class="alert alert-danger my-4">
+    {{ cartService.error() }}
+  </div>
+
+  <!-- Empty Cart -->
+  <div
+    *ngIf="
+      !cartService.currentCart()?.cartBooks?.length && !cartService.loading()
+    "
+    class="alert alert-info mt-3"
+  >
+    Your cart is empty
+  </div>
+
+  <!-- Cart Items -->
+  <div *ngIf="cartService.currentCart()?.cartBooks?.length" class="mt-4">
+    <div
+      class="card mb-3"
+      *ngFor="let item of cartService.currentCart()?.cartBooks"
+    >
+      <div class="row g-0">
+        <div class="col-md-2">
+          <img
+            [src]="item.book.imageURL"
+            class="img-fluid rounded-start"
+            [alt]="item.book.bookName"
+            style="max-height: 200px; object-fit: cover"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.book.bookName }}</h5>
+            <p class="card-text text-muted">{{ item.book.authorName }}</p>
+            <div class="d-flex align-items-center gap-3">
+              <span class="badge bg-primary"
+                >Quantity: {{ item.bookQuantity }}</span
+              >
+              <p class="card-text mb-0">
+                Price: {{ item.book.price | currency }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 d-flex align-items-center justify-content-end">
+          <p class="h5 me-3">
+            {{ calculateItemTotal(item) | currency }}
+          </p>
+          <!-- Inside the card-body div -->
+          <div class="d-flex align-items-center gap-3">
+            <div class="btn-group">
+              <button
+                class="btn btn-outline-primary btn-sm"
+                (click)="updateQuantity(item.book.id, item.bookQuantity - 1)"
+                [disabled]="item.bookQuantity <= 1"
+              >
+                -
+              </button>
+              <button class="btn btn-outline-primary btn-sm" disabled>
+                {{ item.bookQuantity }}
+              </button>
+              <button
+                class="btn btn-outline-primary btn-sm"
+                (click)="updateQuantity(item.book.id, item.bookQuantity + 1)"
+              >
+                +
+              </button>
+            </div>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="removeItem(item.book.id)"
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Update the total section in cart.component.html -->
+    <div class="text-end mt-4 border-top pt-3">
+      <h4>Total: {{ cartService.getTotal() | currency }}</h4>
+      <button
+        class="btn btn-success btn-lg mt-3"
+        routerLink="/checkout"
+        [disabled]="!cartService.currentCart()?.cartBooks?.length"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Add items to cart before checking out"
+      >
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
+</div>

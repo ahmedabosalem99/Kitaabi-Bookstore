@@ -1,0 +1,13 @@
+.star-rating {
+  font-size: 1.2rem;
+  color: #ffc107;
+}
+
+.bi-star-fill {
+  margin-right: 2px;
+}
+
+.badge-secondary {
+  background-color: #6c757d !important;
+  color: white !important;
+}

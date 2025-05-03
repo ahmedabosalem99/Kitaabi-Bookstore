@@ -1,0 +1,76 @@
+<div class="container mt-4">
+  <h2>Order History</h2>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="alert alert-danger my-4">
+    {{ error }}
+  </div>
+
+  <!-- Orders List -->
+  <div *ngIf="!loading && !error">
+    <div *ngFor="let order of orders" class="card mb-3">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <div>
+          <h5 class="mb-0">Order #{{ order.id }}</h5>
+          <small class="text-muted">{{ order.orderDate | date:'medium' }}</small>
+        </div>
+        <span class="badge"
+              [ngClass]="{
+                'bg-warning': order.status === 'pending',
+                'bg-primary': order.status === 'shipped',
+                'bg-success': order.status === 'delivered'
+              }">
+          {{ order.status | titlecase }}
+        </span>
+      </div>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h6>Items:</h6>
+            <ul class="list-group">
+              <li *ngFor="let item of order.items" class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <span>{{ item.quantity }} x {{ item.book?.bookName || 'Unknown Book' }}</span>
+                  <span>{{ item.price * item.quantity | currency }}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 mt-3 mt-md-0">
+            <h6>Shipping Details:</h6>
+            <address>
+              {{ order.shippingAddress.name }}<br>
+              {{ order.shippingAddress.street }}<br>
+              {{ order.shippingAddress.city }}, {{ order.shippingAddress.state }}<br>
+              {{ order.shippingAddress.country }} {{ order.shippingAddress.zip }}
+            </address>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12 text-end">
+            <p class="h5">
+              Total: {{ order.totalPrice | currency }}
+            </p>
+            <a [routerLink]="['/orders', order.id]" class="btn btn-outline-primary btn-sm">
+              View Details
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!orders.length" class="alert alert-info">
+      No orders found. Start shopping!
+    </div>
+  </div>
+</div>
