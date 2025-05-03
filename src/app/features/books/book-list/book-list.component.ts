@@ -15,6 +15,7 @@ export class BookListComponent {
   books: Book[] = [];
   isLoading = true;
   error: string | null = null;
+  router: any;
 
   constructor(private bookService: BookService) {}
 
@@ -30,5 +31,18 @@ export class BookListComponent {
         console.log(err);
       }
     });
+  }
+
+    // Add to existing component
+  deleteBook(id: string) {
+    if (confirm('Are you sure you want to delete this book?')) {
+      this.bookService.deleteBook(id).subscribe(() => {
+        this.books = this.books.filter(b => b.id !== id);
+      });
+    }
+  }
+
+  navigateToAdd() {
+    this.router.navigate(['/books/new']);
   }
 }

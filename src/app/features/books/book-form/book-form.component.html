@@ -1,0 +1,143 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div class="container mt-4">
+    <h2>{{ isEditMode ? "Edit Book" : "Add New Book" }}</h2>
+
+    <!-- Book Name -->
+    <div class="mb-3">
+      <label class="form-label">Book Name</label>
+      <input type="text" class="form-control" formControlName="bookName" />
+      <div
+        *ngIf="
+          bookForm.get('bookName')?.invalid && bookForm.get('bookName')?.touched
+        "
+        class="text-danger"
+      >
+        Book name is required
+      </div>
+    </div>
+
+    <!-- Author Name -->
+    <div class="mb-3">
+      <label class="form-label">Author Name</label>
+      <input type="text" class="form-control" formControlName="authorName" />
+      <div
+        *ngIf="
+          bookForm.get('authorName')?.invalid &&
+          bookForm.get('authorName')?.touched
+        "
+        class="text-danger"
+      >
+        Author name is required
+      </div>
+    </div>
+
+    <!-- Price -->
+    <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input type="text" class="form-control" formControlName="price" />
+      <div
+        *ngIf="bookForm.get('price')?.errors?.['required']"
+        class="text-danger"
+      >
+        Price is required
+      </div>
+      <div
+        *ngIf="bookForm.get('price')?.errors?.['pattern']"
+        class="text-danger"
+      >
+        Invalid price format (e.g., 15.99)
+      </div>
+    </div>
+
+    <!-- Quantity -->
+    <div class="mb-3">
+      <label class="form-label">Quantity</label>
+      <input type="text" class="form-control" formControlName="quantity" />
+      <div
+        *ngIf="bookForm.get('quantity')?.errors?.['required']"
+        class="text-danger"
+      >
+        Quantity is required
+      </div>
+      <div
+        *ngIf="bookForm.get('quantity')?.errors?.['pattern']"
+        class="text-danger"
+      >
+        Must be a whole number (e.g., 5)
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        formControlName="description"
+        rows="4"
+      ></textarea>
+    </div>
+
+    <!-- Image URL -->
+    <div class="mb-3">
+      <label class="form-label">Cover Image URL</label>
+      <input type="url" class="form-control" formControlName="imageURL" />
+      <div
+        *ngIf="
+          bookForm.get('imageURL')?.invalid && bookForm.get('imageURL')?.touched
+        "
+        class="text-danger"
+      >
+        Image URL is required
+      </div>
+    </div>
+
+    <!-- Category -->
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <select class="form-select" formControlName="categoryId">
+        <option value="">Select Category</option>
+        <option value="1">Fiction</option>
+        <option value="2">Non-Fiction</option>
+        <option value="3">Science Fiction</option>
+        <option value="4">Classics</option>
+      </select>
+      <div
+        *ngIf="
+          bookForm.get('categoryId')?.invalid &&
+          bookForm.get('categoryId')?.touched
+        "
+        class="text-danger"
+      >
+        Category is required
+      </div>
+    </div>
+
+    <!-- Approval Status -->
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        formControlName="isApproved"
+      />
+      <label class="form-check-label">Approved for publication</label>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="d-grid gap-2">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="bookForm.invalid"
+      >
+        {{ isEditMode ? "Update Book" : "Add Book" }}
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        (click)="router.navigate(['/books'])"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</form>
