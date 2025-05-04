@@ -1,0 +1,214 @@
+/* Dark Theme Styles */
+.dark-theme {
+    background-color: #ffffff;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Container for Search */
+.search-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Search Bar Layout */
+.search-bar {
+    display: flex;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Search Input */
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid #444;
+    border-radius: 4px 0 0 4px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-input:focus {
+    border-color: #7c4dff;
+    box-shadow: 0 0 0 2px rgba(124, 77, 255, 0.3);
+}
+
+/* Search Button */
+.search-button {
+    padding: 0 1.5rem;
+    background-color:rgba(254, 203, 83, 0.953);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-button:hover {
+    background-color:rgb(252, 251, 254);
+}
+
+/* Search Results Header */
+.results-header {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+/* Grid for Results */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Book Card */
+.book-card {
+    background-color: #ebe3e3;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(216, 151, 151, 0.4);
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(180, 145, 76, 0.5);
+}
+
+/* Image Container */
+.card-image-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.book-card:hover .card-image {
+    transform: scale(1.05);
+}
+
+/* Image Overlay */
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 219, 148, 0.85);
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.book-card:hover .card-overlay {
+    transform: translateY(0);
+}
+
+/* Card Inner Content */
+.card-details {
+    padding: 1rem;
+}
+
+.book-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #000000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.book-category {
+    font-size: 0.875rem;
+    color: #000000;
+    margin-bottom: 1rem;
+}
+
+.price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.book-price {
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+    width: 100%;
+    padding: 0.5rem;
+    background-color:rgb(74, 77, 75);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-to-cart-btn:hover {
+    background-color:rgb(207, 218, 208);
+}
+
+/* Wishlist Button */
+.wishlist-btn {
+    background: none;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.wishlist-btn:hover {
+    color: #ff7043;
+}
+
+/* No Results Section */
+.no-results {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.no-results-icon {
+    font-size: 3rem;
+    color: #b6b3ba;
+    margin-bottom: 1rem;
+}
+
+.no-results h3 {
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
+}
+
+.no-results p {
+    color: #aaaaaa;
+}
+
+/* Error Message */
+.error-message {
+    color: #f44336;
+    padding: 1rem;
+    background-color: rgba(244, 67, 54, 0.1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}

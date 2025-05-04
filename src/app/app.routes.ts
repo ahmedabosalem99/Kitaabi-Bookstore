@@ -8,6 +8,8 @@ import { OrderConfirmationComponent } from './features/order-confirmation/order-
 import { OrderHistoryComponent } from './features/order-history/order-history.component';
 import { OrderDetailsComponent } from './features/order-details/order-details.component';
 import { BookFormComponent } from './features/books/book-form/book-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +23,7 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'order-confirmation/:id', component: OrderConfirmationComponent },
   { path: 'orders', component: OrderHistoryComponent },
+    { path: 'dashboard', component: DashboardComponent },
   { path: 'orders/:id', component: OrderDetailsComponent  },
   { path: '**', redirectTo: '' }
 ];

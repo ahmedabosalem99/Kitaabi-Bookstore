@@ -1,0 +1,24 @@
+<div class="transactions">
+  <div class="title">Top 3 Best-Selling Books</div>
+
+  <div class="transaction-wrapper">
+    <div class="transaction" *ngFor="let transaction of topBooks">
+
+      <div class="image">
+        <img [src]="transaction.imageURL" alt="{{ transaction.bookName }}" />
+      </div>
+
+      <div class="title">{{ transaction.bookName }}</div>
+
+      <div class="price">${{ transaction.price }}</div>
+
+      <div class="shop-location">
+        <div class="shop">{{ transaction.authorName }}</div>
+     
+      </div>
+
+      <div class="status">Sold: {{ transaction.quantity }}</div>
+
+    </div>
+  </div>
+</div>
