@@ -597,22 +597,41 @@
       "isApprovalSent": false
     },
     {
-      "id": "e325",
-      "bookName": "Harry Potter and the Order of the Phoenix",
-      "authorName": "J.K. Rowling ,  Mary GrandPré",
-      "price": "5.0",
+      "categoryId": "2",
+      "id": "f3da",
+      "bookName": "test",
+      "authorName": "abdo",
+      "price": 20,
       "quantity": "1",
-      "description": "Harry Potter is about to start his fifth year at Hogwarts School of Witchcraft and Wizardry. Unlike most schoolboys, Harry never enjoys his summer holidays, but this summer is even worse than usual. The Dursleys, of course, are making his life a misery, but even his best friends, Ron and Hermione, seem to be neglecting him.",
-      "imageURL": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546910265i/2.jpg",
-      "categoryId": "1",
-      "isApproved": true
-    }
+      "description": "",
+      "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS8pFfOTkLg5DytccMj2FCRmxZ6b6QXuuZosKf6XErog&s&ec=72940543",
+      "isApproved": false,
+      "rejectionCounts": 0,
+      "isApprovalSent": false
+    },
   ],
   "carts": [
     {
       "userId": "1",
-      "totalBooksInCart": 0,
-      "cartBooks": [],
+      "totalBooksInCart": 7,
+      "cartBooks": [
+        {
+          "bookQuantity": 7,
+          "book": {
+            "categoryId": "2",
+            "bookName": "Frankenstein",
+            "authorName": "Mary Shelley",
+            "price": "10.99",
+            "quantity": "9",
+            "description": "Gothic novel about creating life and its unintended consequences.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTHG4DWWYpijmiOOZVV6aCu9IA_1y4m5dZaEjyW5O3Xw&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "7aaa"
+          }
+        }
+      ],
       "id": "c601"
     },
     {
@@ -1165,22 +1184,24 @@
       ]
     },
     {
-      "id": "38be",
+      "id": "15e6",
       "userId": "1",
       "totalBooksInCart": 1,
       "cartBooks": [
         {
           "bookQuantity": 1,
           "book": {
-            "id": "41ac",
-            "bookName": "The Great Gatsby",
-            "authorName": "F. Scott Fitzgerald",
-            "price": "20.99",
-            "quantity": "5",
-            "description": "A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhElj8570pLWt3-1C89RVBBmCL8EP85nsVw-kOKplM1Q&s&ec=72940543",
-            "categoryId": "1",
-            "isApproved": true
+            "categoryId": "2",
+            "bookName": "Frankenstein",
+            "authorName": "Mary Shelley",
+            "price": "10.99",
+            "quantity": "9",
+            "description": "Gothic novel about creating life and its unintended consequences.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTHG4DWWYpijmiOOZVV6aCu9IA_1y4m5dZaEjyW5O3Xw&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "7aaa"
           }
         }
       ]
