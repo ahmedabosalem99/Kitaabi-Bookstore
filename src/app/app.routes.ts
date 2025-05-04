@@ -23,7 +23,7 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'order-confirmation/:id', component: OrderConfirmationComponent },
   { path: 'orders', component: OrderHistoryComponent },
-    { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'orders/:id', component: OrderDetailsComponent  },
   { path: '**', redirectTo: '' }
 ];
