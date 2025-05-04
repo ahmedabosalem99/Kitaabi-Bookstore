@@ -7,6 +7,7 @@ import { CheckoutComponent } from './features/checkout/checkout.component';
 import { OrderConfirmationComponent } from './features/order-confirmation/order-confirmation.component';
 import { OrderHistoryComponent } from './features/order-history/order-history.component';
 import { OrderDetailsComponent } from './features/order-details/order-details.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'order-confirmation/:id', component: OrderConfirmationComponent },
   { path: 'orders', component: OrderHistoryComponent },
+    { path: 'dashboard', component: DashboardComponent },
   { path: 'orders/:id', component: OrderDetailsComponent  },
   { path: '**', redirectTo: '' }
 ];

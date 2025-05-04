@@ -7,4 +7,5 @@ export interface Book {
   description: string;
   imageURL: string;
   isApproved: boolean;
+ categoryId: string;
 }
