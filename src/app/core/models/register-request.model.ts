@@ -1,7 +1,11 @@
+import { UserRole } from './UserRole';
+
 export interface RegisterRequest {
-  firstName: string;
-  lastName: string;
+  Fname: string;
+  Lname: string;
   email: string;
   password: string;
   mobileNumber: string;
+  role: UserRole;
+  isVerify: boolean;
 }

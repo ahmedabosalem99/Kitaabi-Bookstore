@@ -63,6 +63,8 @@ export class LoginComponent {
         next: (res) => {
           _form.reset();
           this.errorMessage.set('');
+          this.authService.redirectToHome();
+          console.log('Login successful', res);
         },
         error: (err) => {
           console.error('Failed', err);

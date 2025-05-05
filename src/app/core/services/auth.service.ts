@@ -13,31 +13,39 @@ export class AuthService {
   private apiUrl = 'http://localhost:3000/users';
 
   register<T = unknown>(payload: RegisterRequest): Observable<T> {
-    // Check if the email already exists
-
-    const newUser: User = {
-      id: '3',
-      email: payload.email,
-      Fname: payload.firstName,
-      Lname: payload.lastName,
-      password: payload.password,
-      mobileNumber: payload.mobileNumber,
-      role: UserRole.User,
-      isVerify: false,
-    };
-
-    this.http
-      .get<User[]>(`${this.apiUrl}?email=${newUser.email}`)
-      .subscribe((users) => {
-        const user = users[0]; // your matched user
-        if (user) {
-          console.log('Email already exists!');
-          alert('Email already exists!');
-          return; // or handle the error as needed
-        }
+    return new Observable<T>((observer) => {
+      // Check if the email already exists
+      this.http.get<User[]>(`${this.apiUrl}?email=${payload.email}`).subscribe({
+        next: (users) => {
+          const user = users[0]; // your matched user
+          if (user) {
+            console.log('Email already exists!');
+            alert('Email already exists!');
+            observer.error('Email already exists!');
+            observer.complete();
+          } else {
+            this.http.post<T>(this.apiUrl, payload).subscribe({
+              next: (response) => {
+                localStorage.setItem('user', JSON.stringify(response));
+                console.log('Registration successful');
+                this.redirectToHome();
+                alert('Registration successful!');
+                observer.next(response);
+                observer.complete();
+              },
+              error: (err) => {
+                alert('Registration failed!');
+                observer.error(err);
+              },
+            });
+          }
+        },
+        error: (err) => {
+          alert('Error checking email!');
+          observer.error(err);
+        },
       });
-
-    return this.http.post<T>(this.apiUrl, newUser);
+    });
   }
 
   login<T = unknown>(payload: loginRequest): Observable<T> {
@@ -64,5 +72,27 @@ export class AuthService {
           },
         });
     });
+  }
+
+  logout(): void {
+    localStorage.removeItem('user');
+    console.log('Logout successful');
+  }
+  getUser(): User | null {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
+  isLoggedIn(): boolean {
+    return this.getUser() !== null;
+  }
+  redirectToLogin(): void {
+    window.location.href = '/login'; // Redirect to the login page
+  }
+  redirectToHome(): void {
+    window.location.href = ''; // Redirect to the home page
+  }
+  isAdmin(): boolean {
+    const user = this.getUser();
+    return user !== null && user.role === UserRole.Admin; // Check if the user is an admin
   }
 }

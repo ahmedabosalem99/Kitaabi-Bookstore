@@ -13,6 +13,7 @@ import { AuthService } from '../../core/services/auth.service';
 import { ConfirmPasswordValidatorDirective } from '../../core/validators/confirm-password-validator.directive';
 import { debounceTime, first } from 'rxjs';
 import { RouterLink } from '@angular/router';
+import { UserRole } from '../../core/models/UserRole';
 
 @Component({
   selector: 'app-registeration-form',
@@ -98,11 +99,13 @@ export class RegisterationFormComponent implements AfterViewInit {
     }
     const IsEmailCreatedState = this.authService
       .register({
-        firstName: _form.value.firstName,
-        lastName: _form.value.lastName,
+        Fname: _form.value.firstName,
+        Lname: _form.value.lastName,
         email: _form.value.email,
         password: _form.value.password,
         mobileNumber: _form.value.mobileNumber,
+        role: UserRole.User,
+        isVerify: false,
       })
       .subscribe({
         next: (response) => {
@@ -110,7 +113,6 @@ export class RegisterationFormComponent implements AfterViewInit {
         },
         error: (error) => {
           console.log(error);
-          alert('"error occurred, please try again later"');
         },
       });
 
