@@ -10,6 +10,8 @@ import { OrderDetailsComponent } from './features/order-details/order-details.co
 import { BookFormComponent } from './features/books/book-form/book-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { RegisterationFormComponent } from './Auth/registeration-form/registeration-form.component';
+import { LoginComponent } from './Auth/login/login.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +26,10 @@ export const routes: Routes = [
   { path: 'order-confirmation/:id', component: OrderConfirmationComponent },
   { path: 'orders', component: OrderHistoryComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'orders/:id', component: OrderDetailsComponent  },
-  { path: '**', redirectTo: '' }
+  { path: 'orders/:id', component: OrderDetailsComponent },
+  { path: 'orders/:id', component: OrderDetailsComponent },
+  { path: 'register', component: RegisterationFormComponent },
+  { path: 'login', component: LoginComponent },
+
+  { path: '**', redirectTo: '' },
 ];
