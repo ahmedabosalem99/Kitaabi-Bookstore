@@ -91,9 +91,17 @@
           <p class="book-category">{{ book.description }}</p>
           <div class="price-container">
             <span class="book-price">${{ book.price}}</span>
-            <button class="wishlist-btn">
+            <!-- <button class="wishlist-btn">
               <i class="fa fa-heart"></i>
-            </button>
+            </button> -->
+
+            <app-wishlist-icon
+            [bookId]="book.id"
+            [bookWishListIds]="bookWishListIds"
+            (add)="addToWishlist($event)"
+            (remove)="removeFromWishlist($event)"
+          ></app-wishlist-icon>
+
           </div>
         </div>
       </div>

@@ -32,9 +32,26 @@
         <p class="card-text text-muted">{{ book.authorName }}</p>
         <p class="card-text">Price: ${{ book.price }}</p>
         <p class="card-text">In Stock: {{ book.quantity }}</p>
-        <a [routerLink]="['/books', book.id]" class="btn btn-primary"
+        <div class = "book-buttons">
+          <a [routerLink]="['/books', book.id]" class="btn btn-primary"
           >View Details</a
         >
+          <!-- @if (bookWishListIds.includes(book.id)) {
+          <button class="wishlist-btn active" (click)="removeFromWishlist(book.id)">
+          </button>
+        } @else {
+          <button class="wishlist-btn" (click)="addToWishlist(book.id)">
+          </button>
+        } -->
+          <app-wishlist-icon
+            [bookId]="book.id"
+            [bookWishListIds]="bookWishListIds"
+            (add)="addToWishlist($event)"
+            (remove)="removeFromWishlist($event)"
+          ></app-wishlist-icon>
+        </div>
+
+      
       </div>
 
       <!-- Add to your existing template -->
@@ -49,6 +66,27 @@
           Delete
         </button>
       </div>
-    </div>
+
+      <!-- @if (bookWishListIds.includes(book.id)) { -->
+        <!-- <div class="card-footer text-end">
+          <button
+            class="btn btn-sm btn-outline-danger me-2"
+            (click)="removeFromWishlist(book.id)"
+          >
+            <i class="bi bi-trash"></i> Remove from Wishlist
+          </button>
+        </div> -->
+      <!-- } @else { -->
+
+        <!-- <div class="card-footer text-end">
+          <button
+            class="btn btn-sm btn-outline-info me-2"
+            (click)="addToWishlist(book.id)"
+          >
+            <i class="bi bi-heart"></i> Add to Wishlist
+          </button>
+        </div> -->
+      <!-- }  -->
+
   </div>
 </div>

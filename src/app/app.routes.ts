@@ -9,6 +9,7 @@ import { OrderHistoryComponent } from './features/order-history/order-history.co
 import { OrderDetailsComponent } from './features/order-details/order-details.component';
 import { BookFormComponent } from './features/books/book-form/book-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { WishlistComponent } from './features/wishlist/wishlist.component';
 
 
 export const routes: Routes = [
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'books/:id', component: BookDetailsComponent },
 
   { path: 'cart', component: CartComponent },
+  { path: 'wishlist', component: WishlistComponent},
   { path: 'checkout', component: CheckoutComponent },
   { path: 'order-confirmation/:id', component: OrderConfirmationComponent },
   { path: 'orders', component: OrderHistoryComponent },
