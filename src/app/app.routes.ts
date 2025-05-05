@@ -8,6 +8,8 @@ import { OrderConfirmationComponent } from './features/order-confirmation/order-
 import { OrderHistoryComponent } from './features/order-history/order-history.component';
 import { OrderDetailsComponent } from './features/order-details/order-details.component';
 import { BookFormComponent } from './features/books/book-form/book-form.component';
+import { RegisterationFormComponent } from './Auth/registeration-form/registeration-form.component';
+import { LoginComponent } from './Auth/login/login.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +23,9 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'order-confirmation/:id', component: OrderConfirmationComponent },
   { path: 'orders', component: OrderHistoryComponent },
-  { path: 'orders/:id', component: OrderDetailsComponent  },
-  { path: '**', redirectTo: '' }
+  { path: 'orders/:id', component: OrderDetailsComponent },
+  { path: 'register', component: RegisterationFormComponent },
+  { path: 'login', component: LoginComponent },
+
+  { path: '**', redirectTo: '' },
 ];

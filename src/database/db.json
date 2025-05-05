@@ -1593,8 +1593,8 @@
     {
       "id": "1",
       "email": "admin@bookstore.com",
-      "name": "Admin User",
-      "userName": "admin",
+      "Fname": "Admin",
+      "Lname": "Admin",
       "password": "admin123",
       "mobileNumber": "555-0101",
       "role": "Admin",
@@ -1603,142 +1603,39 @@
     {
       "id": "2",
       "email": "support@bookstore.com",
-      "name": "Support Agent",
-      "userName": "support",
+      "Fname": "Admin",
+      "Lname": "Admin",
       "password": "support123",
       "mobileNumber": "555-0102",
-      "role": "Customer Support",
+      "role": "User",
       "isVerify": true
+    },
+    {
+      "id": "",
+      "email": "mahmoudabdalmaksoud4@gmail.com",
+      "Fname": "mahmoud",
+      "Lname": "adfad",
+      "password": "Aa11bb22",
+      "role": "User",
+      "isVerify": false
     },
     {
       "id": "3",
-      "email": "reader1@example.com",
-      "name": "Sarah Johnson",
-      "userName": "sarah_j",
-      "password": "read1234",
-      "mobileNumber": "555-0103",
-      "role": "User",
-      "isVerify": true
-    },
-    {
-      "id": "4",
-      "email": "booklover@domain.com",
-      "name": "Michael Chen",
-      "userName": "mike_chen",
-      "password": "books2023",
-      "mobileNumber": "555-0104",
+      "email": "mahmoudabdalmaksoud4@gmail.com",
+      "Fname": "mahmoud",
+      "Lname": "adfad",
+      "password": "Aa11bb22",
       "role": "User",
       "isVerify": false
     },
     {
-      "id": "5",
-      "email": "literature_fan@mail.com",
-      "name": "Emma Wilson",
-      "userName": "emma_w",
-      "password": "emma7890",
-      "mobileNumber": "555-0105",
-      "role": "User",
-      "isVerify": true
-    },
-    {
-      "id": "6",
-      "email": "reviewer@booksite.org",
-      "name": "David Smith",
-      "userName": "david_s",
-      "password": "reviewPass",
-      "mobileNumber": "555-0106",
-      "role": "Reviewer",
-      "isVerify": true
-    },
-    {
-      "id": "7",
-      "email": "moderator@bookstore.com",
-      "name": "Content Moderator",
-      "userName": "moderator",
-      "password": "modPass123",
-      "mobileNumber": "555-0201",
-      "role": "Moderator",
-      "isVerify": true
-    },
-    {
-      "id": "8",
-      "email": "premium@user.com",
-      "name": "Alex Turner",
-      "userName": "alex_t",
-      "password": "premUser2023",
-      "mobileNumber": "555-0202",
-      "role": "Premium User",
-      "isVerify": true
-    },
-    {
-      "id": "12",
-      "email": "history_buff@mail.com",
-      "name": "Robert Langdon",
-      "userName": "rl_history",
-      "password": "history123",
-      "mobileNumber": "555-0206",
+      "id": "3",
+      "email": "mahmoudabdalmaksoud4@gmail.com",
+      "Fname": "mahmoud",
+      "Lname": "adfad",
+      "password": "Aa11bb22",
       "role": "User",
       "isVerify": false
-    },
-    {
-      "id": "13",
-      "email": "editor@bookworld.com",
-      "name": "Lisa Monroe",
-      "userName": "lisa_editor",
-      "password": "Edit0rPass!",
-      "mobileNumber": "555-0301",
-      "role": "Editor",
-      "isVerify": true
-    },
-    {
-      "id": "14",
-      "email": "author@writers.org",
-      "name": "Michael Peterson",
-      "userName": "mike_writer",
-      "password": "Auth0r2023",
-      "mobileNumber": "555-0302",
-      "role": "Author",
-      "isVerify": true
-    },
-    {
-      "id": "15",
-      "email": "student@university.edu",
-      "name": "Sarah Johnson",
-      "userName": "sarah_student",
-      "password": "Study1234",
-      "mobileNumber": "555-0303",
-      "role": "Student",
-      "isVerify": false
-    },
-    {
-      "id": "16",
-      "email": "reviewer2@bookreviews.com",
-      "name": "David Kim",
-      "userName": "david_reviews",
-      "password": "Rev!ewPass",
-      "mobileNumber": "555-0304",
-      "role": "Reviewer",
-      "isVerify": true
-    },
-    {
-      "id": "17",
-      "email": "library@city.org",
-      "name": "City Library",
-      "userName": "city_library",
-      "password": "LibAccess2023",
-      "mobileNumber": "555-0305",
-      "role": "Institution",
-      "isVerify": true
-    },
-    {
-      "id": "18",
-      "email": "bookclub@readers.com",
-      "name": "Emma Wilson",
-      "userName": "emma_bookclub",
-      "password": "Read3rsGroup",
-      "mobileNumber": "555-0306",
-      "role": "Club Manager",
-      "isVerify": true
     }
   ]
 }
