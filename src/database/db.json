@@ -584,19 +584,6 @@
       "isApprovalSent": false
     },
     {
-      "categoryId": "2",
-      "id": "fbba",
-      "bookName": "test",
-      "authorName": "test",
-      "price": 12,
-      "quantity": "1",
-      "description": "",
-      "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-5pP1L5kD2IIxdc2KSALNYRBziVx97bY1p1ZQSnqAw&s&ec=72940543",
-      "isApproved": false,
-      "rejectionCounts": 0,
-      "isApprovalSent": false
-    },
-    {
       "id": "e325",
       "bookName": "Harry Potter and the Order of the Phoenix",
       "authorName": "J.K. Rowling ,  Mary GrandPré",
@@ -611,8 +598,23 @@
   "carts": [
     {
       "userId": "1",
-      "totalBooksInCart": 0,
-      "cartBooks": [],
+      "totalBooksInCart": 1,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "id": "41ac",
+            "bookName": "The Great Gatsby",
+            "authorName": "F. Scott Fitzgerald",
+            "price": "10.99",
+            "quantity": "10",
+            "description": "A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhElj8570pLWt3-1C89RVBBmCL8EP85nsVw-kOKplM1Q&s&ec=72940543",
+            "categoryId": "1",
+            "isApproved": true
+          }
+        }
+      ],
       "id": "c601"
     },
     {
