@@ -6,11 +6,13 @@ import { RouterModule } from '@angular/router';
 import { WishlistService } from '../../../core/services/wishlist.service';
 import { Wishlist } from '../../../core/models/wishlist';
 import { WishlistIconComponent } from "../../wishlist-icon/wishlist-icon.component";
+import { BookFilterComponent } from "../book-filter/book-filter.component";
+import { BookFilterService } from '../../../core/services/book-filter.service';
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule, RouterModule, WishlistIconComponent],
+  imports: [CommonModule, RouterModule, WishlistIconComponent, BookFilterComponent],
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
@@ -22,7 +24,9 @@ export class BookListComponent {
 
   bookWishListIds: string[] = [];
 
-  constructor(private bookService: BookService, private wishlistService: WishlistService) {}
+  constructor(private bookService: BookService, private wishlistService: WishlistService,
+    private bookFilterService: BookFilterService) {}
+
 
   ngOnInit() {
     this.bookService.getBooks().subscribe({
@@ -36,6 +40,9 @@ export class BookListComponent {
         console.log(err);
       }
     });
+
+    this.books = this.bookFilterService.filteredBooks();
+    // this.books = this.bookFilterService.filteredBooks();
 
     this.wishlistService.getWishlist(this.userId).subscribe({
           next: (wishlists: Wishlist[]) => {
@@ -89,5 +96,31 @@ export class BookListComponent {
     this.wishlistService.removeFromWishList(this.userId, bookId);
     this.bookWishListIds = this.bookWishListIds.filter(id => id != bookId);
   }
+
+  onFiltersApplied(): void {
+    this.books = this.bookFilterService.filteredBooks();
+  }
+
+  // onFiltersApplied(filters: any): void {
+  //   this.books = this.bookFilterService.filteredBooks();
+  // }
+
+  // private isPriceInRange(price: number, priceRanges: string[]): boolean {
+  //   // Logic to match price range, for example:
+  //   return priceRanges.some(range => {
+  //     if (range === '< $10') return price < 10;
+  //     if (range === '$10 - $20') return price >= 10 && price <= 20;
+  //     if (range === '> $20') return price > 20;
+  //     return false;
+  //   });
+  // }
+
+  // private isPriceInRange(price: number, priceRanges: string[]): boolean {
+  //   return priceRanges.some(range => {
+  //     const [min, max] = range.split('-').map(Number);
+  //     return price >= min && (!max || price <= max);
+  //   });
+  // }
+
 
 }
