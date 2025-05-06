@@ -19,11 +19,19 @@
             >Books</a
           >
         </li>
+        @if(authService.isLoggedIn()){
         <li class="nav-item">
           <a class="nav-link" routerLink="/orders" routerLinkActive="active">
             Order History
           </a>
         </li>
+        } @if(authService.isAdmin()){
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">
+            Dashboard
+          </a>
+        </li>
+        }
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -31,6 +39,19 @@
             🛒 <span class="badge bg-primary">{{ cartCount }}</span>
           </a>
         </li>
+        @if(!authService.isLoggedIn()){
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">
+            <span class="badge bg-primary">LogIn</span>
+          </a>
+        </li>
+        } @if(authService.isLoggedIn()){
+        <li class="nav-item">
+          <a class="nav-link" (click)="this.authService.logout()" routerLink="">
+            <span class="badge bg-primary">LogOut</span>
+          </a>
+        </li>
+        }
       </ul>
     </div>
   </div>

@@ -1,0 +1,38 @@
+<div class="widget-container" *ngIf="dashboardData">
+  <div class="widget green">
+    <div class="icon">
+      <fa-icon [icon]="faLocation"></fa-icon>
+    </div>
+    <div class="value">
+      <div class="top">{{ dashboardData.totalOrders }}</div>
+      <div class="bottom">Orders</div>
+    </div>
+  </div>
+  <div class="widget yellow">
+    <div class="icon">
+      <fa-icon [icon]="faShop"></fa-icon>
+    </div>
+    <div class="value">
+      <div class="top">{{ dashboardData.topCategories?.length }}</div>
+      <div class="bottom">Top Categories</div>
+    </div>
+  </div>
+  <div class="widget red">
+    <div class="icon">
+      <fa-icon [icon]="faBoxes"></fa-icon>
+    </div>
+    <div class="value">
+      <div class="top">{{ dashboardData.popularBooks?.length }}</div>
+      <div class="bottom">Popular Books</div>
+    </div>
+  </div>
+  <div class="widget blue">
+    <div class="icon">
+      <fa-icon [icon]="faMoneyBill"></fa-icon>
+    </div>
+    <div class="value">
+      <div class="top">{{ dashboardData.totalSales }}</div>
+      <div class="bottom">Total Sales</div>
+    </div>
+  </div>
+</div>

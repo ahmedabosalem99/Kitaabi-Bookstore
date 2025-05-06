@@ -1186,6 +1186,126 @@
           }
         }
       ]
+    },
+    {
+      "id": "175b",
+      "userId": "1",
+      "totalBooksInCart": 1,
+      "cartBooks": [
+        {
+          "bookQuantity": 7,
+          "book": {
+            "id": "41ac",
+            "bookName": "The Great Gatsby",
+            "authorName": "F. Scott Fitzgerald",
+            "price": "10.99",
+            "quantity": "10",
+            "description": "A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhElj8570pLWt3-1C89RVBBmCL8EP85nsVw-kOKplM1Q&s&ec=72940543",
+            "categoryId": "1",
+            "isApproved": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "3e98",
+      "userId": "1",
+      "totalBooksInCart": 2,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "1984",
+            "authorName": "George Orwell",
+            "price": "12.50",
+            "quantity": "8",
+            "description": "A dystopian novel set in a totalitarian society under the surveillance of Big Brother.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8jT8OYBTYR48fkbE9rQIoI16sxgf6lSyWc55CKdvUw&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "3527"
+          }
+        },
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "Pride and Prejudice",
+            "authorName": "Jane Austen",
+            "price": "9.99",
+            "quantity": "12",
+            "description": "A romantic novel of manners that critiques the British landed gentry.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1nYuThqsnJ_iI0px-yuof3kVF-MgjqcOLeGUwjJokgA&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": true,
+            "id": "dc17"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ba0e",
+      "userId": "1",
+      "totalBooksInCart": 2,
+      "cartBooks": [
+        {
+          "bookQuantity": 2,
+          "book": {
+            "id": "41ac",
+            "bookName": "The Great Gatsby",
+            "authorName": "F. Scott Fitzgerald",
+            "price": "10.99",
+            "quantity": "10",
+            "description": "A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhElj8570pLWt3-1C89RVBBmCL8EP85nsVw-kOKplM1Q&s&ec=72940543",
+            "categoryId": "1",
+            "isApproved": true
+          }
+        },
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "1984",
+            "authorName": "George Orwell",
+            "price": "12.50",
+            "quantity": "8",
+            "description": "A dystopian novel set in a totalitarian society under the surveillance of Big Brother.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8jT8OYBTYR48fkbE9rQIoI16sxgf6lSyWc55CKdvUw&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "3527"
+          }
+        }
+      ]
+    },
+    {
+      "id": "6932",
+      "userId": "1",
+      "totalBooksInCart": 1,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "1984",
+            "authorName": "George Orwell",
+            "price": "12.50",
+            "quantity": "8",
+            "description": "A dystopian novel set in a totalitarian society under the surveillance of Big Brother.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8jT8OYBTYR48fkbE9rQIoI16sxgf6lSyWc55CKdvUw&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "3527"
+          }
+        }
+      ]
     }
   ],
   "categories": [
@@ -1595,152 +1715,161 @@
     {
       "id": "1",
       "email": "admin@bookstore.com",
-      "name": "Admin User",
-      "userName": "admin",
       "password": "admin123",
       "mobileNumber": "555-0101",
       "role": "Admin",
-      "isVerify": true
+      "isVerify": true,
+      "Fname": "Admin",
+      "Lname": "User"
     },
     {
       "id": "2",
       "email": "support@bookstore.com",
-      "name": "Support Agent",
-      "userName": "support",
       "password": "support123",
       "mobileNumber": "555-0102",
-      "role": "Customer Support",
-      "isVerify": true
+      "role": "User",
+      "isVerify": true,
+      "Fname": "Support",
+      "Lname": "Agent"
     },
     {
       "id": "3",
       "email": "reader1@example.com",
-      "name": "Sarah Johnson",
-      "userName": "sarah_j",
       "password": "read1234",
       "mobileNumber": "555-0103",
       "role": "User",
-      "isVerify": true
+      "isVerify": true,
+      "Fname": "Sarah",
+      "Lname": "Johnson"
     },
     {
       "id": "4",
       "email": "booklover@domain.com",
-      "name": "Michael Chen",
-      "userName": "mike_chen",
       "password": "books2023",
       "mobileNumber": "555-0104",
       "role": "User",
-      "isVerify": false
+      "isVerify": false,
+      "Fname": "Michael",
+      "Lname": "Chen"
     },
     {
       "id": "5",
       "email": "literature_fan@mail.com",
-      "name": "Emma Wilson",
-      "userName": "emma_w",
       "password": "emma7890",
       "mobileNumber": "555-0105",
       "role": "User",
-      "isVerify": true
+      "isVerify": true,
+      "Fname": "Emma",
+      "Lname": "Wilson"
     },
     {
       "id": "6",
       "email": "reviewer@booksite.org",
-      "name": "David Smith",
-      "userName": "david_s",
       "password": "reviewPass",
       "mobileNumber": "555-0106",
-      "role": "Reviewer",
-      "isVerify": true
+      "role": "User",
+      "isVerify": true,
+      "Fname": "David",
+      "Lname": "Smith"
     },
     {
       "id": "7",
       "email": "moderator@bookstore.com",
-      "name": "Content Moderator",
-      "userName": "moderator",
       "password": "modPass123",
       "mobileNumber": "555-0201",
-      "role": "Moderator",
-      "isVerify": true
+      "role": "User",
+      "isVerify": true,
+      "Fname": "Content",
+      "Lname": "Moderator"
     },
     {
       "id": "8",
       "email": "premium@user.com",
-      "name": "Alex Turner",
-      "userName": "alex_t",
       "password": "premUser2023",
       "mobileNumber": "555-0202",
-      "role": "Premium User",
-      "isVerify": true
+      "role": "User",
+      "isVerify": true,
+      "Fname": "Alex",
+      "Lname": "Turner"
     },
     {
       "id": "12",
       "email": "history_buff@mail.com",
-      "name": "Robert Langdon",
-      "userName": "rl_history",
       "password": "history123",
       "mobileNumber": "555-0206",
       "role": "User",
-      "isVerify": false
+      "isVerify": false,
+      "Fname": "Robert",
+      "Lname": "Langdon"
     },
     {
       "id": "13",
       "email": "editor@bookworld.com",
-      "name": "Lisa Monroe",
-      "userName": "lisa_editor",
       "password": "Edit0rPass!",
       "mobileNumber": "555-0301",
-      "role": "Editor",
-      "isVerify": true
+      "role": "User",
+      "isVerify": true,
+      "Fname": "Lisa",
+      "Lname": "Monroe"
     },
     {
       "id": "14",
       "email": "author@writers.org",
-      "name": "Michael Peterson",
-      "userName": "mike_writer",
       "password": "Auth0r2023",
       "mobileNumber": "555-0302",
-      "role": "Author",
-      "isVerify": true
+      "role": "User",
+      "isVerify": true,
+      "Fname": "Michael",
+      "Lname": "Peterson"
     },
     {
       "id": "15",
       "email": "student@university.edu",
-      "name": "Sarah Johnson",
-      "userName": "sarah_student",
       "password": "Study1234",
       "mobileNumber": "555-0303",
-      "role": "Student",
-      "isVerify": false
+      "role": "User",
+      "isVerify": false,
+      "Fname": "Sarah",
+      "Lname": "Johnson"
     },
     {
       "id": "16",
       "email": "reviewer2@bookreviews.com",
-      "name": "David Kim",
-      "userName": "david_reviews",
       "password": "Rev!ewPass",
       "mobileNumber": "555-0304",
-      "role": "Reviewer",
-      "isVerify": true
+      "role": "User",
+      "isVerify": true,
+      "Fname": "David",
+      "Lname": "Kim"
     },
     {
       "id": "17",
       "email": "library@city.org",
-      "name": "City Library",
-      "userName": "city_library",
       "password": "LibAccess2023",
       "mobileNumber": "555-0305",
-      "role": "Institution",
-      "isVerify": true
+      "role": "User",
+      "isVerify": true,
+      "Fname": "City",
+      "Lname": "Library"
     },
     {
       "id": "18",
       "email": "bookclub@readers.com",
-      "name": "Emma Wilson",
-      "userName": "emma_bookclub",
       "password": "Read3rsGroup",
       "mobileNumber": "555-0306",
-      "role": "Club Manager",
-      "isVerify": true
+      "role": "User",
+      "isVerify": true,
+      "Fname": "Emma",
+      "Lname": "Wilson"
+    },
+    {
+      "id": "b08c",
+      "Fname": "sda",
+      "Lname": "dasdas",
+      "email": "john@gmail.com",
+      "password": "Aa11bb22",
+      "role": "User",
+      "isVerify": false
     }
   ]
 }

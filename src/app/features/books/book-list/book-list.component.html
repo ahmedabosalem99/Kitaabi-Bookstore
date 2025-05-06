@@ -12,12 +12,13 @@
   </div>
 
   <!-- Add this at the top of your book list -->
+  @if(authService.isAdmin()){
   <div class="mb-4">
     <button class="btn btn-success" routerLink="/books/new">
       <i class="bi bi-plus-circle"></i> Add New Book
     </button>
   </div>
-
+  }
   <!-- Book Cards -->
   <div *ngFor="let book of books" class="col-md-3 mb-4">
     <div class="card h-100">
@@ -37,6 +38,7 @@
         >
       </div>
 
+      @if(authService.isAdmin()){
       <!-- Add to your existing template -->
       <div class="card-footer text-end">
         <button
@@ -49,6 +51,8 @@
           Delete
         </button>
       </div>
+
+      }
     </div>
   </div>
 </div>
