@@ -1,0 +1,104 @@
+<body>
+  <main class="card animate-fade-in">
+    <!-- *Keep Angular template syntax & names intact so TS stays untouched* -->
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+      <h2 class="title">Log In</h2>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" ngModel required email />
+      </div>
+
+      <!-- Password + show/hide toggle -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="pass-wrapper">
+          <input
+            id="password"
+            type="password"
+            name="password"
+            ngModel
+            required
+            minlength="8"
+          />
+          <!-- Global form error -->
+
+          <!-- Eye toggle purely client-side, does not touch TS -->
+          <button
+            type="button"
+            class="pass-toggle"
+            aria-label="Show password"
+            onclick="togglePassword()"
+          >
+            <!-- simple eye icon (stroke only) -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              width="20"
+              height="20"
+            >
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Inline errors (leveraging existing control names) -->
+      @if (form.controls['email'].touched && form.controls['email'].invalid) {
+      <p class="control-error">Invalid email address entered.</p>
+      } @if ( form.controls['Password'].touched &&
+      form.controls['Password'].invalid ) {
+      <p class="control-error">Invalid password entered.</p>
+
+      } @if(errorMessage() ){
+      <p class="control-error">errorMessage</p>
+      }
+
+      <!-- Submit -->
+      <button type="submit" class="btn">
+        <!-- Arrow-right icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          width="18"
+          height="18"
+        >
+          <path d="M5 12h14" />
+          <path d="M12 5l7 7-7 7" />
+        </svg>
+        <span>Log In</span>
+      </button>
+
+      <!-- Links -->
+      <p class="link">
+        Don't have an account?
+        <a href="/register" routerLink="/register">Register</a>
+      </p>
+      <p class="link">
+        <a href="/login" routerLink="/forgot-password">Forgot password?</a>
+      </p>
+    </form>
+  </main>
+
+  <!-- Tiny helper for eye toggle; does NOT interact with component TS -->
+  <script>
+    function togglePassword() {
+      const input = document.getElementById("password");
+      if (!input) return;
+      const isHidden = input.type === "password";
+      input.type = isHidden ? "text" : "password";
+    }
+  </script>
+</body>

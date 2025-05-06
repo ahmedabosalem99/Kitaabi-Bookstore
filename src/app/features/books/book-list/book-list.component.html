@@ -26,6 +26,52 @@
         {{ error }}
       </div>
 
+  <!-- Add this at the top of your book list -->
+  @if(authService.isAdmin()){
+  <div class="mb-4">
+    <button class="btn btn-success" routerLink="/books/new">
+      <i class="bi bi-plus-circle"></i> Add New Book
+    </button>
+  </div>
+  }
+  <!-- Book Cards -->
+  <div *ngFor="let book of books" class="col-md-3 mb-4">
+    <div class="card h-100">
+      <img
+        [src]="book.imageURL"
+        class="card-img-top"
+        [alt]="book.bookName"
+        style="height: 300px"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ book.bookName }}</h5>
+        <p class="card-text text-muted">{{ book.authorName }}</p>
+        <p class="card-text">Price: ${{ book.price }}</p>
+        <p class="card-text">In Stock: {{ book.quantity }}</p>
+        <a [routerLink]="['/books', book.id]" class="btn btn-primary"
+          >View Details</a
+        >
+      </div>
+
+      @if(authService.isAdmin()){
+      <!-- Add to your existing template -->
+      <div class="card-footer text-end">
+        <button
+          class="btn btn-sm btn-warning me-2"
+          [routerLink]="['/books/edit', book.id]"
+        >
+          Edit
+        </button>
+        <button class="btn btn-sm btn-danger" (click)="deleteBook(book.id)">
+          Delete
+        </button>
+      </div>
+
+      }
+    </div>
+  </div>
+</div>
+
       <!-- Book Cards Grid -->
       <div class="row g-4">
         <div *ngFor="let book of books" class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">

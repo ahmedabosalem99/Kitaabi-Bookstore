@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { BookService } from '../../../core/services/book.service';
 import { Book } from '../../../core/models/book';
 import { CommonModule } from '@angular/common';
@@ -8,13 +8,13 @@ import { Wishlist } from '../../../core/models/wishlist';
 import { WishlistIconComponent } from "../../wishlist-icon/wishlist-icon.component";
 import { BookFilterComponent } from "../book-filter/book-filter.component";
 import { BookFilterService } from '../../../core/services/book-filter.service';
-
+import { AuthService } from '../../../core/services/auth.service';
 @Component({
   selector: 'app-book-list',
   standalone: true,
   imports: [CommonModule, RouterModule, WishlistIconComponent, BookFilterComponent],
   templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+  styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent {
   books: Book[] = [];
@@ -25,7 +25,7 @@ export class BookListComponent {
   bookWishListIds: string[] = [];
 
   constructor(private bookService: BookService, private wishlistService: WishlistService,
-    private bookFilterService: BookFilterService) {}
+    private bookFilterService: BookFilterService, private authService: AuthService) {}
 
 
   ngOnInit() {
@@ -38,7 +38,7 @@ export class BookListComponent {
         this.error = 'Failed to load books. Please try again later.';
         this.isLoading = false;
         console.log(err);
-      }
+      },
     });
 
     this.books = this.bookFilterService.filteredBooks();
@@ -73,11 +73,11 @@ export class BookListComponent {
 
   }
 
-    // Add to existing component
+  // Add to existing component
   deleteBook(id: string) {
     if (confirm('Are you sure you want to delete this book?')) {
       this.bookService.deleteBook(id).subscribe(() => {
-        this.books = this.books.filter(b => b.id !== id);
+        this.books = this.books.filter((b) => b.id !== id);
       });
     }
   }

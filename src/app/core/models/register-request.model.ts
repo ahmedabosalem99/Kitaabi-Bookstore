@@ -1,10 +1,9 @@
 import { UserRole } from './UserRole';
 
-export interface User {
-  id: string;
-  email: string;
+export interface RegisterRequest {
   Fname: string;
   Lname: string;
+  email: string;
   password: string;
   mobileNumber: string;
   role: UserRole;
