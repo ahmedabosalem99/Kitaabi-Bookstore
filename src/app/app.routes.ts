@@ -10,20 +10,56 @@ import { OrderDetailsComponent } from './features/order-details/order-details.co
 import { BookFormComponent } from './features/books/book-form/book-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { RegisterationFormComponent } from './Auth/registeration-form/registeration-form.component';
+import { LoginComponent } from './Auth/login/login.component';
+import { authGuard } from './core/guards/auth.guard';
+import { adminGuard } from './core/guards/admin.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'books', component: BookListComponent },
 
-  { path: 'books/new', component: BookFormComponent },
-  { path: 'books/edit/:id', component: BookFormComponent },
+  {
+    path: 'books/new',
+    component: BookFormComponent,
+    canActivate: [adminGuard],
+  },
+  {
+    path: 'books/edit/:id',
+    component: BookFormComponent,
+    canActivate: [adminGuard],
+  },
   { path: 'books/:id', component: BookDetailsComponent },
 
-  { path: 'cart', component: CartComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'order-confirmation/:id', component: OrderConfirmationComponent },
-  { path: 'orders', component: OrderHistoryComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'orders/:id', component: OrderDetailsComponent  },
-  { path: '**', redirectTo: '' }
+  { path: 'cart', component: CartComponent, canActivate: [authGuard] },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
+  {
+    path: 'order-confirmation/:id',
+    component: OrderConfirmationComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'orders',
+    component: OrderHistoryComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [adminGuard],
+  },
+  {
+    path: 'orders/:id',
+    component: OrderDetailsComponent,
+    canActivate: [adminGuard],
+  },
+  {
+    path: 'orders/:id',
+    component: OrderDetailsComponent,
+    canActivate: [adminGuard],
+  },
+  { path: 'register', component: RegisterationFormComponent },
+  { path: 'login', component: LoginComponent },
+
+  { path: '**', redirectTo: '' },
 ];
