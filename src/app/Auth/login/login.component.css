@@ -1,210 +1,176 @@
-/* ----------------------------
-   Base Utilities & Background
-   ---------------------------- */
-* {
-  box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+/* =========================
+   Bookstore Design System
+   Register / Login Page
+   ========================= */
+
+/* Color Palette */
+:root {
+  --color-maroon: #7d3c55; /* primary */
+  --color-brown: #644536; /* secondary text */
+  --color-cream: #f5f1e8; /* page background */
+  --color-gold: #b8a361; /* accent / secondary buttons */
+  --color-blue: #5d7b8a; /* tertiary */
+  --radius-md: 0.5rem;
+  --transition: 0.25s ease;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
+/* Page background */
 body {
-  margin: 0;
-  min-height: 100vh;
+  background: var(--color-cream);
+  font-family: "Inter", system-ui, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #e5deff 0%, #ffffff 100%);
-  animation: fade-in 0.6s ease-out;
+  min-height: 100vh;
+  padding: 2rem;
 }
 
-@keyframes fade-in {
-  from {
+/* Card container */
+.card {
+  width: clamp(320px, 90%, 420px);
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 2.5rem 2rem;
+}
+
+/* Fade‑in animation */
+@keyframes fadeIn {
+  0% {
     opacity: 0;
     transform: translateY(16px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
-/* ----------------------------
-     Card Container
-     ---------------------------- */
-.card {
-  background: #ffffff;
-  max-width: 400px;
-  width: 100%;
-  padding: 2.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
 }
 
-/* ----------------------------
-     Headings
-     ---------------------------- */
+/* Title */
 .title {
-  margin: 0 0 2rem 0;
-  font-size: 1.5rem; /* text-2xl */
-  font-weight: 700; /* font-bold */
+  font-family: Georgia, Cambria, serif;
+  font-size: 2rem;
+  color: var(--color-maroon);
+  margin-bottom: 2rem;
   text-align: center;
-  color: #8b5cf6; /* brand purple */
 }
 
-/* ----------------------------
-     Form Layout
-     ---------------------------- */
+/* Form groups */
 .form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.25rem; /* space-y-4 */
+  margin-bottom: 1.5rem;
 }
-
 label {
-  margin-bottom: 0.35rem;
-  font-size: 0.85rem; /* text-sm */
-  font-weight: 500; /* font-medium */
-  color: #374151; /* slate-700 */
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-brown);
 }
 
-input {
+/* Inputs */
+input[type="email"],
+input[type="password"],
+input[type="text"] {
   width: 100%;
-  padding: 0.6rem 0.75rem;
-  border: 1px solid #d1d5db; /* slate-300 */
-  border-radius: 8px; /* rounded-md */
-  font-size: 0.9rem;
-  background: #ffffff;
-  transition: border-color 0.2s;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d5d4d2;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
-
 input:focus {
   outline: none;
-  border-color: #8b5cf6;
+  border-color: var(--color-maroon);
+  box-shadow: 0 0 0 3px rgba(125, 60, 85, 0.25);
 }
 
-/* ----------------------------
-     Password Toggle Wrapper
-     ---------------------------- */
+/* Password wrapper & toggle */
 .pass-wrapper {
   position: relative;
 }
-
-.pass-wrapper input {
-  padding-right: 2.75rem; /* space for eye icon */
-}
-
 .pass-toggle {
   position: absolute;
   top: 50%;
   right: 0.75rem;
   transform: translateY(-50%);
+  background: transparent;
   border: none;
-  background: none;
-  cursor: pointer;
   padding: 0;
-  line-height: 0;
+  cursor: pointer;
+  color: var(--color-brown);
+  display: flex;
+  align-items: center;
+}
+.pass-toggle:hover svg {
+  stroke: var(--color-maroon);
 }
 
-.pass-toggle svg {
-  width: 20px;
-  height: 20px;
-  stroke: #6b7280; /* slate-500 */
+/* Inline errors */
+.control-error {
+  color: var(--color-maroon);
+  font-size: 0.875rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
 }
 
-/* ----------------------------
-     Submit Button
-     ---------------------------- */
+/* Primary button */
 .btn {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem;
-  margin-top: 0.5rem;
-  background: #8b5cf6;
-  border: none;
-  border-radius: 8px;
+  background: var(--color-maroon);
   color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
-
+.btn svg {
+  stroke: currentColor;
+}
 .btn:hover {
-  background: #6e59a5;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-md);
+}
+.btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
-.btn[disabled] {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* Spinner (for loading state if you toggle 'loading' class) */
-.btn.loading svg {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* ----------------------------
-     Links & Helper Text
-     ---------------------------- */
+/* Links */
 .link {
-  margin-top: 1rem;
   text-align: center;
-  font-size: 0.85rem;
-  color: #374151; /* slate-700 */
+  font-size: 0.875rem;
+  color: var(--color-brown);
+  margin-top: 1.25rem;
 }
-
 .link a {
-  color: #8b5cf6;
+  color: var(--color-maroon);
   text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition);
 }
-
 .link a:hover {
+  color: var(--color-brown);
   text-decoration: underline;
 }
-/* Human‑friendly alert */
-.error-message {
-  margin-top: 1rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid #fecaca; /* soft red outline */
-  background-color: #fef2f2; /* very light red fill */
-  color: #b91c1c; /* dark red text */
-  border-radius: 8px;
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
 
-/* optional warning icon */
-.error-message::before {
-  content: "⚠️";
-  margin-right: 0.5rem;
-}
-
-/* Error messages */
-.control-error {
-  color: #dc2626; /* red-600 */
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-top: -0.5rem;
-  margin-bottom: 0.75rem;
-}
-
-/* ----------------------------
-     Responsive tweaks
-     ---------------------------- */
-@media (max-width: 480px) {
+/* Responsive tweaks */
+@media (min-width: 480px) {
   .card {
-    padding: 2rem 1.25rem;
+    padding: 3rem 2.75rem;
+  }
+  .title {
+    font-size: 2.25rem;
   }
 }
 
