@@ -1,9 +1,3 @@
-.book-buttons{
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-}
-
 .wishlist-btn {
 background: transparent;
 border: none;
@@ -31,11 +25,3 @@ font-weight: 900; /* Solid (filled) */
 .wishlist-btn:hover {
 transform: scale(1.1);
 }
-
-.bg-light.border-end {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-}
-

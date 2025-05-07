@@ -1,0 +1,33 @@
+.form-group {
+margin-bottom: 1.5rem;
+padding: 1rem;
+background-color: #f8f9fa;
+border-radius: 0.25rem;
+}
+
+.form-check {
+margin-bottom: 0.5rem;
+}
+
+.form-check-input {
+margin-right: 0.5rem;
+}
+
+/* Add to your component's CSS */
+.container-fluid {
+background: #f8f9fa;
+border-right: 1px solid #dee2e6;
+height: 95vh;
+position: sticky;
+top: 0;
+}
+
+.list-group-flush .list-group-item {
+background: transparent;
+}
+
+.form-check-input:checked {
+background-color: #0d6efd;
+border-color: #0d6efd;
+}
+
