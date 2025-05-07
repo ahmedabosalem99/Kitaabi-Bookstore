@@ -8,6 +8,7 @@ import { ReviewService } from '../../../core/services/review.service';
 import { User } from '../../../core/models/user';
 import { UserService } from '../../../core/services/user.service';
 import { CartService } from '../../../core/services/cart.service';
+import { AuthService } from '../../../core/services/auth.service';
 
 // Add this interface
 interface ReviewWithUser extends Review {
@@ -25,6 +26,7 @@ export class BookDetailsComponent {
   private route = inject(ActivatedRoute);
   private bookService = inject(BookService);
   private cartService = inject(CartService);
+  public authService = inject(AuthService);
 
   book?: Book;
   isLoading = true;

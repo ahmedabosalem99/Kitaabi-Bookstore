@@ -9,6 +9,7 @@ import { OrderHistoryComponent } from './features/order-history/order-history.co
 import { OrderDetailsComponent } from './features/order-details/order-details.component';
 import { BookFormComponent } from './features/books/book-form/book-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { WishlistComponent } from './features/wishlist/wishlist.component';
 
 import { RegisterationFormComponent } from './Auth/registeration-form/registeration-form.component';
 import { LoginComponent } from './Auth/login/login.component';
@@ -16,7 +17,7 @@ import { authGuard } from './core/guards/auth.guard';
 import { adminGuard } from './core/guards/admin.guard';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'books', component: BookListComponent },
 
   {
@@ -29,14 +30,15 @@ export const routes: Routes = [
     component: BookFormComponent,
     canActivate: [adminGuard],
   },
-  { path: 'books/:id', component: BookDetailsComponent },
+  { path: 'books/:id', component: BookDetailsComponent, canActivate: [authGuard] },
 
   { path: 'cart', component: CartComponent, canActivate: [authGuard] },
+  { path: 'wishlist', component: WishlistComponent, canActivate: [authGuard]},
   { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
   {
-    path: 'order-confirmation/:id',
-    component: OrderConfirmationComponent,
-    canActivate: [authGuard],
+    path: 'orders/:id',
+    component: OrderDetailsComponent,
+    canActivate: [adminGuard], //Should it be authGuard?
   },
   {
     path: 'orders',
@@ -44,22 +46,24 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'order-confirmation/:id',
+    component: OrderConfirmationComponent,
+    canActivate: [authGuard],
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [adminGuard],
-  },
-  {
-    path: 'orders/:id',
-    component: OrderDetailsComponent,
-    canActivate: [adminGuard],
-  },
-  {
-    path: 'orders/:id',
-    component: OrderDetailsComponent,
     canActivate: [adminGuard],
   },
   { path: 'register', component: RegisterationFormComponent },
   { path: 'login', component: LoginComponent },
 
-  { path: '**', redirectTo: '' },
+  // { path: 'cart', component: CartComponent },
+
+  // { path: 'checkout', component: CheckoutComponent },
+  // { path: 'order-confirmation/:id', component: OrderConfirmationComponent },
+  // { path: 'orders', component: OrderHistoryComponent },
+  // { path: 'dashboard', component: DashboardComponent },
+  // { path: 'orders/:id', component: OrderDetailsComponent  },
+  { path: '**', redirectTo: '' }
 ];

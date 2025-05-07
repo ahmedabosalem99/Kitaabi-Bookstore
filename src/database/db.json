@@ -606,6 +606,28 @@
       "imageURL": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546910265i/2.jpg",
       "categoryId": "1",
       "isApproved": true
+    },
+    {
+      "id": "2fa4",
+      "bookName": "A Court of Thorns and Roses",
+      "authorName": "Me",
+      "price": "35",
+      "quantity": "10",
+      "description": "",
+      "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbXCpiYKfm11YUjU715AE4xto0XO6fzBiL8Q&s",
+      "categoryId": "3",
+      "isApproved": true
+    },
+    {
+      "id": "c7e9",
+      "bookName": "asdgasdas",
+      "authorName": "asdgasdgasdgas",
+      "price": "40",
+      "quantity": "20",
+      "description": "",
+      "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbXCpiYKfm11YUjU715AE4xto0XO6fzBiL8Q&s",
+      "categoryId": "2",
+      "isApproved": false
     }
   ],
   "carts": [
@@ -1304,6 +1326,186 @@
           }
         }
       ]
+    },
+    {
+      "id": "1e67",
+      "userId": "1",
+      "totalBooksInCart": 1,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "id": "41ac",
+            "bookName": "The Great Gatsby",
+            "authorName": "F. Scott Fitzgerald",
+            "price": "10.99",
+            "quantity": "10",
+            "description": "A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhElj8570pLWt3-1C89RVBBmCL8EP85nsVw-kOKplM1Q&s&ec=72940543",
+            "categoryId": "1",
+            "isApproved": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "89dd",
+      "userId": "1",
+      "totalBooksInCart": 3,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "2",
+            "bookName": "The Divine Comedy",
+            "authorName": "Dante Alighieri",
+            "price": "25.00",
+            "quantity": "2",
+            "description": "Epic poem describing the journey through Hell, Purgatory, and Paradise.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ4GBBLwyOsGbYCnLhM_IuNW6AdHOtYfLAbjW4IvzcQxxqx1UMP7315072qYcppwa3Tcj8KjTddY9Zpm37Ynv3Y7ZYUXtgxeXn7k3cHH_7w3mBvtyPeW2Ly3Q&usqp=CAc",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": true,
+            "id": "d80f"
+          }
+        },
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "To the Lighthouse",
+            "authorName": "Virginia Woolf",
+            "price": "14.95",
+            "quantity": "3",
+            "description": "Experimental novel exploring subjective reality and the passage of time.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7RKQCA7MwwiLdq4MUauJebogEn8W8CGicuijlt-sHTQ&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "f193"
+          }
+        },
+        {
+          "bookQuantity": 16,
+          "book": {
+            "id": "41ac",
+            "bookName": "The Great Gatsby",
+            "authorName": "F. Scott Fitzgerald",
+            "price": "10.99",
+            "quantity": "10",
+            "description": "A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhElj8570pLWt3-1C89RVBBmCL8EP85nsVw-kOKplM1Q&s&ec=72940543",
+            "categoryId": "1",
+            "isApproved": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "ade2",
+      "userId": "1",
+      "totalBooksInCart": 1,
+      "cartBooks": [
+        {
+          "bookQuantity": 2,
+          "book": {
+            "categoryId": "1",
+            "bookName": "To the Lighthouse",
+            "authorName": "Virginia Woolf",
+            "price": "14.95",
+            "quantity": "3",
+            "description": "Experimental novel exploring subjective reality and the passage of time.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7RKQCA7MwwiLdq4MUauJebogEn8W8CGicuijlt-sHTQ&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "f193"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ae3a",
+      "userId": "1",
+      "totalBooksInCart": 2,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "2",
+            "bookName": "Moby-Dick",
+            "authorName": "Herman Melville",
+            "price": "18.75",
+            "quantity": "6",
+            "description": "Epic tale of Captain Ahab's obsessive quest for the white whale.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREIyCvZgh-cKdeGCPTa4t8WjjqNR0Y3G8bGjto1F6CvA&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": true,
+            "id": "6e2d"
+          }
+        },
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "Pride and Prejudice",
+            "authorName": "Jane Austen",
+            "price": "9.99",
+            "quantity": "12",
+            "description": "A romantic novel of manners that critiques the British landed gentry.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1nYuThqsnJ_iI0px-yuof3kVF-MgjqcOLeGUwjJokgA&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": true,
+            "id": "dc17"
+          }
+        }
+      ]
+    },
+    {
+      "id": "be76",
+      "userId": "1",
+      "totalBooksInCart": 1,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "2",
+            "id": "179c",
+            "bookName": "bbbbbeeeeeaaaaaaaaaarrrr",
+            "authorName": "abdo",
+            "price": 30,
+            "quantity": "1",
+            "description": "",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-5pP1L5kD2IIxdc2KSALNYRBziVx97bY1p1ZQSnqAw&s&ec=72940543",
+            "isApproved": false,
+            "rejectionCounts": 0,
+            "isApprovalSent": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "ec0c",
+      "userId": "1",
+      "totalBooksInCart": 1,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "id": "41ac",
+            "bookName": "The Great Gatsby",
+            "authorName": "F. Scott Fitzgerald",
+            "price": "10.99",
+            "quantity": "10",
+            "description": "A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhElj8570pLWt3-1C89RVBBmCL8EP85nsVw-kOKplM1Q&s&ec=72940543",
+            "categoryId": "1",
+            "isApproved": true
+          }
+        }
+      ]
     }
   ],
   "categories": [
@@ -1474,13 +1676,7 @@
     {
       "id": "1",
       "userId": "3",
-      "bookIds": [
-        "41ac",
-        "dc17",
-        "d80f",
-        "6e2d",
-        "9da3"
-      ]
+      "bookIds": []
     },
     {
       "id": "2",
@@ -1579,6 +1775,46 @@
         "f407",
         "3ca3",
         "0b0d"
+      ]
+    },
+    {
+      "id": "0663",
+      "userId": "1",
+      "bookIds": []
+    },
+    {
+      "id": "ca39",
+      "userId": "2",
+      "bookIds": [
+        "6e2d",
+        "179c"
+      ]
+    },
+    {
+      "id": "c2d1",
+      "userId": "d3c4",
+      "bookIds": [
+        "3527",
+        "dc17"
+      ]
+    },
+    {
+      "id": "51bb",
+      "userId": "9c27",
+      "bookIds": [
+        "dc17",
+        "ec7d",
+        "41ac",
+        "9da3"
+      ]
+    },
+    {
+      "id": "0a75",
+      "userId": "9923",
+      "bookIds": [
+        "41ac",
+        "3527",
+        "dc17"
       ]
     }
   ],
@@ -1866,6 +2102,33 @@
       "Lname": "dasdas",
       "email": "john@gmail.com",
       "password": "Aa11bb22",
+      "role": "User",
+      "isVerify": false
+    },
+    {
+      "id": "d3c4",
+      "Fname": "Mohsen",
+      "Lname": "Jack",
+      "email": "mohsen@gmail.com",
+      "password": "Hello12345",
+      "role": "User",
+      "isVerify": false
+    },
+    {
+      "id": "9c27",
+      "Fname": "Hassan",
+      "Lname": "Osama",
+      "email": "hassan@gmail.com",
+      "password": "Hassan1234",
+      "role": "User",
+      "isVerify": false
+    },
+    {
+      "id": "9923",
+      "Fname": "ahmed",
+      "Lname": "mohammed",
+      "email": "ahmed@gmail.com",
+      "password": "Ahmed123",
       "role": "User",
       "isVerify": false
     }

@@ -45,15 +45,19 @@
           <div class="card-details">
             <h5 class="book-title">{{ book.bookName }}</h5>
             <p class="book-category">{{ book.description }}</p>
-     
-     
+
             <div class="price-container">
                     <h5 class="book-title">Author</h5>
                     <p class="book-price">{{ book.authorName }}</p>
               <span class="book-price">${{ book.price | number: '1.2-2' }}</span>
-              <button class="wishlist-btn">
-                <i class="fa fa-heart"></i>
-              </button>
+              @if(!authService.isAdmin() && authService.isLoggedIn()){
+                <app-wishlist-icon
+                [bookId]="book.id"
+                [bookWishListIds]="bookWishListIds"
+                (add)="addToWishlist($event)"
+                (remove)="removeFromWishlist($event)"
+              ></app-wishlist-icon>
+              }
             </div>
           </div>
         </div>
@@ -90,10 +94,20 @@
           <h5 class="book-title">{{ book.bookName }}</h5>
           <p class="book-category">{{ book.description }}</p>
           <div class="price-container">
-            <span class="book-price">${{ book.price}}</span>
-            <button class="wishlist-btn">
+            <span class="book-price">${{book.price}}</span>
+            <!-- <button class="wishlist-btn">
               <i class="fa fa-heart"></i>
-            </button>
+            </button> -->
+            @if(!authService.isAdmin() && authService.isLoggedIn()){
+              <app-wishlist-icon
+              [bookId]="book.id"
+              [bookWishListIds]="bookWishListIds"
+              (add)="addToWishlist($event)"
+              (remove)="removeFromWishlist($event)"
+            ></app-wishlist-icon>
+            }
+
+
           </div>
         </div>
       </div>

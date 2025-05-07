@@ -70,10 +70,11 @@ getBookById(id: string): Observable<Book | undefined> {
     catchError(() => of(undefined))
   );
 }
- private handleError<T>(operation = 'operation', result?: T) {
+private handleError<T>(operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
     console.error(`${operation} failed:`, error); // Use backticks!
     return of(result as T);
   };
 }
+
 }
