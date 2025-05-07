@@ -9,7 +9,9 @@
       <p class="lead">Price: {{ book.price | currency }}</p>
       <p>Available: {{ book.quantity }} copies</p>
       <p>{{ book.description }}</p>
-      <button class="btn btn-success" (click)="addToCart()">Add to Cart</button>
+      @if(!authService.isAdmin() && authService.isLoggedIn()){
+        <button class="btn btn-success" (click)="addToCart()">Add to Cart</button>
+      }
     </div>
   </div>
 

@@ -21,13 +21,21 @@ export class BookListComponent {
   isLoading = true;
   error: string | null = null;
   router: any;
+  
+  private readonly userId: string;
 
   bookWishListIds: string[] = [];
 
+  
+
   constructor(private bookService: BookService, private wishlistService: WishlistService,
-    private bookFilterService: BookFilterService, private authService: AuthService) {}
+    private bookFilterService: BookFilterService, public authService: AuthService) {
+      this.userId = this.authService.getUser()?.id ?? ""; 
+    }
 
+  
 
+  
   ngOnInit() {
     this.bookService.getBooks().subscribe({
       next: (data) => {
@@ -86,7 +94,7 @@ export class BookListComponent {
     this.router.navigate(['/books/new']);
   }
 
-  private readonly userId: string = "1";
+
   addToWishlist(bookId: string){
     this.wishlistService.addToWishList(this.userId, bookId);
     this.bookWishListIds.push(bookId);

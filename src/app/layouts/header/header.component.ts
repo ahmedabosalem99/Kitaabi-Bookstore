@@ -15,8 +15,10 @@ export class HeaderComponent {
   authService = inject(AuthService);
   cartService = inject(CartService);
   wishlistService = inject(WishlistService);
-
-  private readonly userId: string = "1";
+  auth = inject(AuthService);
+  
+  userId = this.auth.getUser()?.id ?? ""; // Replace with actual user management
+  // private readonly userId: string ;
 
   constructor(){
     this.wishlistService.loadWishlist(this.userId);

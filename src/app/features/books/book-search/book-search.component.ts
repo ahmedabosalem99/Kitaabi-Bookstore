@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { WishlistIconComponent } from "../../wishlist-icon/wishlist-icon.component";
 import { WishlistService } from '../../../core/services/wishlist.service';
 import { Wishlist } from '../../../core/models/wishlist';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-book-search',
@@ -26,9 +27,14 @@ export class BookSearchComponent implements OnInit {
   searchPerformed = false;
 
   bookWishListIds: string[] = [];
-  private readonly userId: string = "1";
+  private readonly userId: string;
 
-  constructor(private bookService: BookService, private categoryService: CategoryService, private wishlistService: WishlistService) {}
+  constructor(private bookService: BookService, 
+    private categoryService: CategoryService, 
+    private wishlistService: WishlistService,
+    public authService: AuthService) {
+      this.userId = this.authService.getUser()?.id ?? ""; 
+    }
 
   ngOnInit(): void {
     this.loadFeaturedBooks();

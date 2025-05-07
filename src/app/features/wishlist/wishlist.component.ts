@@ -5,6 +5,7 @@ import { Wishlist } from '../../core/models/wishlist';
 import { WishlistService } from './../../core/services/wishlist.service';
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../core/services/book.service';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -14,14 +15,18 @@ import { BookService } from '../../core/services/book.service';
 })
 export class WishlistComponent implements OnInit {
 
-  constructor(private wishlistService: WishlistService, private bookService: BookService){}
+  constructor(private wishlistService: WishlistService, private bookService: BookService,
+    authService: AuthService
+  ){
+    this.userId = authService.getUser()?.id ?? ""; 
+  }
 
   isLoading: boolean = true;
   error: string | null = null;
   router: any;
 
   books: Book[] = [];
-  private userId: string = "1";
+  private readonly userId: string;
 
   ngOnInit(): void {
     this.wishlistService.getWishlist(this.userId).subscribe({
