@@ -669,10 +669,10 @@
     },
     {
       "userId": "4",
-      "totalBooksInCart": 2,
+      "totalBooksInCart": 5,
       "cartBooks": [
         {
-          "bookQuantity": 1,
+          "bookQuantity": 3,
           "book": {
             "categoryId": "3",
             "bookName": "The Brothers Karamazov",
@@ -685,16 +685,65 @@
           }
         },
         {
-          "bookQuantity": 2,
+          "bookQuantity": 4,
           "book": {
-            "categoryId": "3",
-            "bookName": "Les Misérables",
-            "authorName": "Victor Hugo",
-            "price": "16.75",
-            "quantity": "5",
-            "description": "Historical novel examining French society through personal struggles.",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVR6DlUikIaHG38K1GF0AzhpS9EVJnVrKeXYwtnR9t3w&s&ec=72940543",
-            "id": "a3c5"
+            "categoryId": "1",
+            "bookName": "1984",
+            "authorName": "George Orwell",
+            "price": "12.50",
+            "quantity": "8",
+            "description": "A dystopian novel set in a totalitarian society under the surveillance of Big Brother.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8jT8OYBTYR48fkbE9rQIoI16sxgf6lSyWc55CKdvUw&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "3527"
+          }
+        },
+        {
+          "bookQuantity": 1,
+          "book": {
+            "id": "41ac",
+            "bookName": "The Great Gatsby",
+            "authorName": "F. Scott Fitzgerald",
+            "price": "10.99",
+            "quantity": "10",
+            "description": "A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhElj8570pLWt3-1C89RVBBmCL8EP85nsVw-kOKplM1Q&s&ec=72940543",
+            "categoryId": "1",
+            "isApproved": true
+          }
+        },
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "Pride and Prejudice",
+            "authorName": "Jane Austen",
+            "price": "9.99",
+            "quantity": "12",
+            "description": "A romantic novel of manners that critiques the British landed gentry.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1nYuThqsnJ_iI0px-yuof3kVF-MgjqcOLeGUwjJokgA&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": true,
+            "id": "dc17"
+          }
+        },
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "The Catcher in the Rye",
+            "authorName": "J.D. Salinger",
+            "price": "11.25",
+            "quantity": "7",
+            "description": "Story of teenage alienation and rebellion in 1950s America.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFTyrxGA5LJw7KnTyPLfNxRtr5nsjBpg-T1iaOLDkm-A&s&ec=72940543",
+            "isApproved": false,
+            "rejectionCounts": 1,
+            "isApprovalSent": true,
+            "id": "ec7d"
           }
         }
       ],
@@ -1630,10 +1679,9 @@
       "userId": "4",
       "bookIds": [
         "0b0d",
-        "c121",
-        "3ca3",
         "508f",
-        "f407"
+        "dc17",
+        "ec7d"
       ]
     },
     {
