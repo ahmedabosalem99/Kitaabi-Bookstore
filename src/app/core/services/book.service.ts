@@ -18,16 +18,18 @@ export class BookService {
   getBooks() {
     return this.http.get<Book[]>(this.apiUrl);
   }
+
   getTopSaledBooks(count: number = 3): Observable<Book[]> {
-  return this.http.get<Book[]>(this.apiUrl).pipe(
-    map(books => books
-      .filter(book => book.isApproved) 
-      .sort((a, b) => Number(b.quantity) - Number(a.quantity)) 
-      .slice(0, count) 
-    ),
-    catchError(this.handleError<Book[]>('getTopSaledBooks', []))
-  );
-}
+    return this.http.get<Book[]>(this.apiUrl).pipe(
+      map(books => books
+        .filter(book => book.isApproved)
+        .sort((a, b) => Number(b.quantity) - Number(a.quantity))
+        .slice(0, count)
+      ),
+      catchError(this.handleError<Book[]>('getTopSaledBooks', []))
+    );
+  }
+
   searchBooksByNameOrAuthor(query: string): Observable<Book[]> {
     const byName = this.http.get<Book[]>(this.apiUrl, {
       params: new HttpParams().set('bookName', query)
@@ -49,6 +51,7 @@ export class BookService {
       })
     );
   }
+
   // Create
   addBook(book: Omit<Book, 'id'>) {
     return this.http.post<Book>(this.apiUrl, book);
@@ -63,18 +66,19 @@ export class BookService {
   deleteBook(id: string) {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
-  
+
   // book.service.ts
-getBookById(id: string): Observable<Book | undefined> {
-  return this.http.get<Book>(`${this.apiUrl}/${id}`).pipe(
-    catchError(() => of(undefined))
-  );
-}
-private handleError<T>(operation = 'operation', result?: T) {
-  return (error: any): Observable<T> => {
-    console.error(`${operation} failed:`, error); // Use backticks!
-    return of(result as T);
+  getBookById(id: string): Observable<Book | undefined> {
+    return this.http.get<Book>(`${this.apiUrl}/${id}`).pipe(
+      catchError(() => of(undefined))
+    );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(`${operation} failed:`, error);
+      return of(result as T);
+    }
   };
 }
 
-}

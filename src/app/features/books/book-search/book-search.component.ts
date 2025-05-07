@@ -3,13 +3,13 @@ import { BookService } from '../../../core/services/book.service';
 import { CategoryService } from '../../../core/services/category.service';
 import { forkJoin } from 'rxjs';
 import { Book } from '../../../core/models/book';
-import { Category } from '../../../core/models/category'; // تأكد من استيراد النموذج
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { WishlistIconComponent } from "../../wishlist-icon/wishlist-icon.component";
 import { WishlistService } from '../../../core/services/wishlist.service';
 import { Wishlist } from '../../../core/models/wishlist';
 import { AuthService } from '../../../core/services/auth.service';
+import { CartService } from '../../../core/services/cart.service';
 
 @Component({
   selector: 'app-book-search',
@@ -26,14 +26,15 @@ export class BookSearchComponent implements OnInit {
   error = '';
   searchPerformed = false;
 
+  //constructor(public authService:AuthService,private bookService: BookService, private categoryService: CategoryService,private cartService:CartService) {}
   bookWishListIds: string[] = [];
   private readonly userId: string;
 
-  constructor(private bookService: BookService, 
-    private categoryService: CategoryService, 
+  constructor(private bookService: BookService,private cartService:CartService,
+    private categoryService: CategoryService,
     private wishlistService: WishlistService,
     public authService: AuthService) {
-      this.userId = this.authService.getUser()?.id ?? ""; 
+      this.userId = this.authService.getUser()?.id ?? "";
     }
 
   ngOnInit(): void {
@@ -119,4 +120,18 @@ export class BookSearchComponent implements OnInit {
     this.wishlistService.removeFromWishList(this.userId, bookId);
     this.bookWishListIds = this.bookWishListIds.filter(id => id != bookId);
   }
+
+  addToCart(bookId:string) {
+    //console.log("hellooooooooooooooo");
+    this.bookService.getBookById(bookId).subscribe({
+      next: (_book) => {
+        //console.log(_book);
+        this.cartService.addToCart(_book);
+        this.isLoading = false;
+      },
+      error: () => this.isLoading = false
+    });
+    //console.log(bookId);
+  }
+
 }

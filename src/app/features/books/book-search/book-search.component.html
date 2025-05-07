@@ -8,8 +8,15 @@
       (keyup.enter)="performSearch()"
       class="search-input"
     />
-    <button (click)="performSearch()" class="search-button" [disabled]="isLoading">
-      <i class="fa" [ngClass]="{ 'fa-search': !isLoading, 'fa-spinner fa-spin': isLoading }"></i>
+    <button
+      (click)="performSearch()"
+      class="search-button"
+      [disabled]="isLoading"
+    >
+      <i
+        class="fa"
+        [ngClass]="{ 'fa-search': !isLoading, 'fa-spinner fa-spin': isLoading }"
+      ></i>
     </button>
     <button *ngIf="searchQuery" (click)="clearSearch()" class="clear-button">
       <i class="fa fa-times"></i>
@@ -31,33 +38,51 @@
   <!-- Search Results -->
   <div *ngIf="searchPerformed && !isLoading">
     <div *ngIf="searchResults.length > 0" class="search-results-container">
-      <h2 class="results-header">Search Results ({{ searchResults.length }})</h2>
+      <h2 class="results-header">
+        Search Results ({{ searchResults.length }})
+      </h2>
       <div class="results-grid">
         <div *ngFor="let book of searchResults" class="book-card">
           <div class="card-image-container">
-            <img [src]="book.imageURL" class="card-image" alt="{{ book.bookName }}" />
+            <img
+              [src]="book.imageURL"
+              class="card-image"
+              alt="{{ book.bookName }}"
+            />
+            @if(!authService.isAdmin() && authService.isLoggedIn()){
             <div class="card-overlay">
-              <button class="add-to-cart-btn">
-                <i class="fa fa-cart-plus"></i> Add to Cart
+              <button class="add-to-cart-btn" (click)="addToCart(book.id)">
+                Add to Cart
               </button>
             </div>
+            }
           </div>
           <div class="card-details">
             <h5 class="book-title">{{ book.bookName }}</h5>
             <p class="book-category">{{ book.description }}</p>
 
             <div class="price-container">
-                    <h5 class="book-title">Author</h5>
-                    <p class="book-price">{{ book.authorName }}</p>
-              <span class="book-price">${{ book.price | number: '1.2-2' }}</span>
+              <h5 class="book-title">Author</h5>
+              <p class="book-price">{{ book.authorName }}</p>
+              <span class="book-price"
+                >${{ book.price | number : "1.2-2" }}</span
+              >
               @if(!authService.isAdmin() && authService.isLoggedIn()){
-                <app-wishlist-icon
+              <app-wishlist-icon
                 [bookId]="book.id"
                 [bookWishListIds]="bookWishListIds"
                 (add)="addToWishlist($event)"
                 (remove)="removeFromWishlist($event)"
               ></app-wishlist-icon>
               }
+              <!-- <h5 class="book-title">Author</h5>
+              <p class="book-price">{{ book.authorName }}</p>
+              <span class="book-price"
+                >${{ book.price | number : "1.2-2" }}</span
+              > -->
+              <!-- <button class="wishlist-btn">
+                <i class="fa fa-heart"></i>
+              </button> -->
             </div>
           </div>
         </div>
@@ -69,7 +94,9 @@
       <i class="fa fa-search"></i>
       <h3>No books found</h3>
       <p>We couldn't find any books matching "{{ searchQuery }}"</p>
-      <button (click)="clearSearch()" class="browse-button">Browse All Books</button>
+      <button (click)="clearSearch()" class="browse-button">
+        Browse All Books
+      </button>
     </div>
   </div>
 
@@ -80,34 +107,39 @@
       <div *ngFor="let book of featuredBooks" class="book-card">
         <div class="card-image-container">
           <img
-            [src]="book.imageURL || 'https://assets.blurb.com/pages/website-assets/lp-homepage/4_Magazines-ed4798eaed874da23090a336e9377e8cd35e6aa1a9096789f6bde1a6e65c7286.png'"
+            [src]="
+              book.imageURL ||
+              'https://assets.blurb.com/pages/website-assets/lp-homepage/4_Magazines-ed4798eaed874da23090a336e9377e8cd35e6aa1a9096789f6bde1a6e65c7286.png'
+            "
             class="card-image"
             alt="{{ book.bookName }}"
           />
+          @if(!authService.isAdmin() && authService.isLoggedIn()){
           <div class="card-overlay">
-            <button class="add-to-cart-btn">
+            <button class="add-to-cart-btn" (click)="addToCart(book.id)">
               <i class="fa fa-cart-plus"></i> Add to Cart
             </button>
           </div>
+          }
         </div>
         <div class="card-details">
           <h5 class="book-title">{{ book.bookName }}</h5>
           <p class="book-category">{{ book.description }}</p>
           <div class="price-container">
-            <span class="book-price">${{book.price}}</span>
+            <span class="book-price">${{ book.price }}</span>
             <!-- <button class="wishlist-btn">
+            <span class="book-price">${{ book.price }}</span>
+            <button class="wishlist-btn">
               <i class="fa fa-heart"></i>
             </button> -->
             @if(!authService.isAdmin() && authService.isLoggedIn()){
-              <app-wishlist-icon
+            <app-wishlist-icon
               [bookId]="book.id"
               [bookWishListIds]="bookWishListIds"
               (add)="addToWishlist($event)"
               (remove)="removeFromWishlist($event)"
             ></app-wishlist-icon>
             }
-
-
           </div>
         </div>
       </div>
