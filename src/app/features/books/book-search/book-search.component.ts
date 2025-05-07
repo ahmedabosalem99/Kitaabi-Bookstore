@@ -122,10 +122,10 @@ export class BookSearchComponent implements OnInit {
   }
 
   addToCart(bookId:string) {
-    console.log("hellooooooooooooooo");
+    //console.log("hellooooooooooooooo");
     this.bookService.getBookById(bookId).subscribe({
       next: (_book) => {
-        console.log(_book);
+        //console.log(_book);
         this.cartService.addToCart(_book);
         this.isLoading = false;
       },

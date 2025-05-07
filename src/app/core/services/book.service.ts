@@ -76,8 +76,9 @@ export class BookService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(`${operation} failed:`, error); // Use backticks!
+      console.error(`${operation} failed:`, error);
       return of(result as T);
-    };
-  }
+    }
+  };
 }
+

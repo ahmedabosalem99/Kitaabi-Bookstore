@@ -17,9 +17,9 @@ export class HeaderComponent {
 
 
   wishlistService = inject(WishlistService);
-  auth = inject(AuthService);
+  //auth = inject(AuthService);
 
-  userId = this.auth.getUser()?.id ?? ""; // Replace with actual user management
+  userId = this.authService.getUser()?.id ?? ""; // Replace with actual user management
   // private readonly userId: string ;
 
   constructor(){
