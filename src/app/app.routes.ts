@@ -38,7 +38,7 @@ export const routes: Routes = [
   {
     path: 'orders/:id',
     component: OrderDetailsComponent,
-    canActivate: [adminGuard], //Shouldn't it be authGuard?
+    canActivate: [adminGuard], //Should it be authGuard?
   },
   {
     path: 'orders',

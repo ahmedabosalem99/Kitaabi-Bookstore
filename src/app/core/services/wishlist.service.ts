@@ -44,6 +44,7 @@ export class WishlistService {
   
         this.http.post(this.wishlistUrl, newWishlist).subscribe(() => {
           console.log('Wishlist created and book added.');
+          this.loadWishlist(userId);
         });
       } else {
         // Wishlist exists, add book if it's not already in the list
