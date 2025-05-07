@@ -1485,6 +1485,27 @@
           }
         }
       ]
+    },
+    {
+      "id": "ec0c",
+      "userId": "1",
+      "totalBooksInCart": 1,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "id": "41ac",
+            "bookName": "The Great Gatsby",
+            "authorName": "F. Scott Fitzgerald",
+            "price": "10.99",
+            "quantity": "10",
+            "description": "A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhElj8570pLWt3-1C89RVBBmCL8EP85nsVw-kOKplM1Q&s&ec=72940543",
+            "categoryId": "1",
+            "isApproved": true
+          }
+        }
+      ]
     }
   ],
   "categories": [
@@ -1780,7 +1801,12 @@
     {
       "id": "51bb",
       "userId": "9c27",
-      "bookIds": []
+      "bookIds": [
+        "dc17",
+        "ec7d",
+        "41ac",
+        "9da3"
+      ]
     },
     {
       "id": "0a75",
