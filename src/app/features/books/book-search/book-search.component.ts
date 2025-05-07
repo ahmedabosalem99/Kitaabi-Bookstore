@@ -3,9 +3,10 @@ import { BookService } from '../../../core/services/book.service';
 import { CategoryService } from '../../../core/services/category.service';
 import { forkJoin } from 'rxjs';
 import { Book } from '../../../core/models/book';
-import { Category } from '../../../core/models/category'; // تأكد من استيراد النموذج
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CartService } from '../../../core/services/cart.service';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-book-search',
@@ -22,7 +23,7 @@ export class BookSearchComponent implements OnInit {
   error = '';
   searchPerformed = false;
 
-  constructor(private bookService: BookService, private categoryService: CategoryService) {}
+  constructor(public authService:AuthService,private bookService: BookService, private categoryService: CategoryService,private cartService:CartService) {}
 
   ngOnInit(): void {
     this.loadFeaturedBooks();
@@ -68,4 +69,18 @@ export class BookSearchComponent implements OnInit {
       this.featuredBooks = books.slice(0, 8); // show top 8 as featured
     });
   }
+
+  addToCart(bookId:string) {
+    console.log("hellooooooooooooooo");
+    this.bookService.getBookById(bookId).subscribe({
+      next: (_book) => {
+        console.log(_book);
+        this.cartService.addToCart(_book);
+        this.isLoading = false;
+      },
+      error: () => this.isLoading = false
+    });
+    //console.log(bookId);
+  }
+
 }

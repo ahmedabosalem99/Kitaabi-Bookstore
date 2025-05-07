@@ -1,10 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { Cart } from '../models/cart';
+import { User } from '../models/user';
+import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
   private http = inject(HttpClient);
+  private auth = inject(AuthService);
+  private user = this.auth.getUser();
+
   private apiUrl = 'http://localhost:3000/carts';
 
   currentCart = signal<Cart | null>(null);
@@ -35,7 +40,7 @@ export class CartService {
 
   addToCart(book: any) {
     const currentCart = this.currentCart();
-    const userId = '1'; // Hardcoded for example - replace with real user management
+    const userId = this.user?.id ?? ""; // Hardcoded for example - replace with real user management
 
     if (!currentCart) {
       this.createNewCart(userId, book);
@@ -70,8 +75,6 @@ export class CartService {
         book: book
       });
     }
-
-
     cart.totalBooksInCart = cart.cartBooks.length;
 
     this.http.patch<Cart>(`${this.apiUrl}/${cart.id}`, cart).subscribe(updatedCart => {
@@ -87,7 +90,7 @@ export class CartService {
     const item = cart.cartBooks.find(i => i.book.id === bookId);
     if (item) {
       item.bookQuantity = newQuantity;
-      cart.totalBooksInCart = cart.cartBooks.reduce((acc, i) => acc + i.bookQuantity, 0);
+      //cart.totalBooksInCart = cart.cartBooks.reduce((acc, i) => acc + i.bookQuantity, 0);
 
       this.http.patch(`${this.apiUrl}/${cart.id}`, cart).subscribe({
         next: (updatedCart: any) => this.currentCart.set(updatedCart),

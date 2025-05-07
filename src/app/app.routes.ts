@@ -33,6 +33,12 @@ export const routes: Routes = [
 
   { path: 'cart', component: CartComponent, canActivate: [authGuard] },
   { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
+
+  {
+    path: 'orders/:id',
+    component: OrderDetailsComponent,
+    canActivate: [authGuard],
+  },
   {
     path: 'order-confirmation/:id',
     component: OrderConfirmationComponent,
@@ -48,16 +54,12 @@ export const routes: Routes = [
     component: DashboardComponent,
     canActivate: [adminGuard],
   },
-  {
-    path: 'orders/:id',
-    component: OrderDetailsComponent,
-    canActivate: [adminGuard],
-  },
-  {
-    path: 'orders/:id',
-    component: OrderDetailsComponent,
-    canActivate: [adminGuard],
-  },
+
+  // {
+  //   path: 'orders/:id',
+  //   component: OrderDetailsComponent,
+  //   canActivate: [adminGuard],
+  // },
   { path: 'register', component: RegisterationFormComponent },
   { path: 'login', component: LoginComponent },
 

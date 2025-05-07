@@ -3,6 +3,7 @@ import { CartService } from '../../core/services/cart.service';
 import { CurrencyPipe, NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
 import * as bootstrap from 'bootstrap';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,9 +14,11 @@ import * as bootstrap from 'bootstrap';
 })
 export class CartComponent implements AfterViewInit  {
   cartService = inject(CartService);
-  userId = '1'; // Replace with actual user management
+  auth = inject(AuthService);
+  userId = this.auth.getUser()?.id ?? ""; // Replace with actual user management
 
   ngOnInit() {
+    console.log(this.userId);
     this.cartService.loadCart(this.userId);
   }
 

@@ -34,7 +34,7 @@
                   <div class="d-flex justify-content-between">
                     <span>
                       {{ item.quantity }} x
-                      {{ getBookName(item.bookId) | async }}
+                      {{ bookNameMap[item.bookId] | async }}
                     </span>
                     <span>{{ item.price * item.quantity | currency }}</span>
                   </div>

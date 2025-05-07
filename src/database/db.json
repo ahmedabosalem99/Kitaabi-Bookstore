@@ -652,65 +652,24 @@
     },
     {
       "userId": "3",
-      "totalBooksInCart": 6,
+      "totalBooksInCart": 4,
       "cartBooks": [
         {
-          "bookQuantity": 2,
+          "bookQuantity": 4,
           "book": {
-            "categoryId": "2",
-            "bookName": "The Odyssey",
-            "authorName": "Homer",
-            "price": "22.50",
-            "quantity": "4",
-            "description": "Ancient Greek epic poem about Odysseus's journey home after the Trojan War.",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRgjxiHdbJ8MnHLlV0f1imnIRP_39jCtc06Ad6uQs5ctS3LV5i2-sJRlyF6r9FfR6WQn8xxo6G_QyMnFxvnVJQOHaiGy3Nxtjol3QoRuw&usqp=CAc",
-            "id": "3cfd"
-          }
-        },
-        {
-          "bookQuantity": 2,
-          "book": {
-            "categoryId": "2",
-            "bookName": "The Divine Comedy",
-            "authorName": "Dante Alighieri",
-            "price": "25.00",
-            "quantity": "2",
-            "description": "Epic poem describing the journey through Hell, Purgatory, and Paradise.",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ4GBBLwyOsGbYCnLhM_IuNW6AdHOtYfLAbjW4IvzcQxxqx1UMP7315072qYcppwa3Tcj8KjTddY9Zpm37Ynv3Y7ZYUXtgxeXn7k3cHH_7w3mBvtyPeW2Ly3Q&usqp=CAc",
-            "id": "d80f"
-          }
-        },
-        {
-          "bookQuantity": 3,
-          "book": {
-            "categoryId": "2",
-            "bookName": "Moby-Dick",
-            "authorName": "Herman Melville",
-            "price": "18.75",
-            "quantity": "6",
-            "description": "Epic tale of Captain Ahab's obsessive quest for the white whale.",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREIyCvZgh-cKdeGCPTa4t8WjjqNR0Y3G8bGjto1F6CvA&s&ec=72940543",
-            "id": "6e2d"
-          }
-        },
-        {
-          "bookQuantity": 3,
-          "book": {
-            "categoryId": "1",
+            "id": "41ac",
             "bookName": "The Great Gatsby",
             "authorName": "F. Scott Fitzgerald",
-            "price": "15.99",
-            "quantity": "5",
+            "price": "10.99",
+            "quantity": "10",
             "description": "A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
             "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhElj8570pLWt3-1C89RVBBmCL8EP85nsVw-kOKplM1Q&s&ec=72940543",
-            "isApproved": true,
-            "rejectionCounts": 0,
-            "isApprovalSent": false,
-            "id": "41ac"
+            "categoryId": "1",
+            "isApproved": true
           }
         },
         {
-          "bookQuantity": 2,
+          "bookQuantity": 1,
           "book": {
             "categoryId": "1",
             "bookName": "1984",
@@ -739,6 +698,22 @@
             "rejectionCounts": 0,
             "isApprovalSent": true,
             "id": "dc17"
+          }
+        },
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "The Catcher in the Rye",
+            "authorName": "J.D. Salinger",
+            "price": "11.25",
+            "quantity": "7",
+            "description": "Story of teenage alienation and rebellion in 1950s America.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFTyrxGA5LJw7KnTyPLfNxRtr5nsjBpg-T1iaOLDkm-A&s&ec=72940543",
+            "isApproved": false,
+            "rejectionCounts": 1,
+            "isApprovalSent": true,
+            "id": "ec7d"
           }
         }
       ],
@@ -1306,6 +1281,49 @@
           }
         }
       ]
+    },
+    {
+      "id": "7b7a",
+      "userId": "194b",
+      "totalBooksInCart": 8,
+      "cartBooks": [
+        {
+          "bookQuantity": 4,
+          "book": {
+            "id": "41ac",
+            "bookName": "The Great Gatsby",
+            "authorName": "F. Scott Fitzgerald",
+            "price": "10.99",
+            "quantity": "10",
+            "description": "A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhElj8570pLWt3-1C89RVBBmCL8EP85nsVw-kOKplM1Q&s&ec=72940543",
+            "categoryId": "1",
+            "isApproved": true
+          }
+        },
+        {
+          "bookQuantity": 4,
+          "book": {
+            "categoryId": "1",
+            "bookName": "1984",
+            "authorName": "George Orwell",
+            "price": "12.50",
+            "quantity": "8",
+            "description": "A dystopian novel set in a totalitarian society under the surveillance of Big Brother.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8jT8OYBTYR48fkbE9rQIoI16sxgf6lSyWc55CKdvUw&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "3527"
+          }
+        }
+      ]
+    },
+    {
+      "id": "58f5",
+      "userId": "b08c",
+      "totalBooksInCart": 0,
+      "cartBooks": []
     }
   ],
   "categories": [
@@ -1693,6 +1711,174 @@
       "status": "pending",
       "orderDate": "2025-05-02T23:18:40.847Z",
       "deliveryDate": "2025-05-07T23:18:40.848Z"
+    },
+    {
+      "id": "830f",
+      "userId": "b08c",
+      "items": [
+        {
+          "bookId": "3527",
+          "quantity": 3,
+          "price": 12.5
+        },
+        {
+          "bookId": "ec7d",
+          "quantity": 1,
+          "price": 11.25
+        },
+        {
+          "bookId": "6e2d",
+          "quantity": 1,
+          "price": 18.75
+        },
+        {
+          "bookId": "dc17",
+          "quantity": 3,
+          "price": 9.99
+        }
+      ],
+      "totalPrice": 97.47,
+      "shippingAddress": {
+        "name": "abdo",
+        "street": "11 street elmahmodia",
+        "city": "cairo",
+        "state": "asd",
+        "zip": "11444",
+        "country": "Egypt"
+      },
+      "status": "pending",
+      "orderDate": "2025-05-07T08:59:17.122Z",
+      "deliveryDate": "2025-05-12T08:59:17.123Z"
+    },
+    {
+      "id": "2423",
+      "userId": "b08c",
+      "items": [
+        {
+          "bookId": "3527",
+          "quantity": 1,
+          "price": 12.5
+        }
+      ],
+      "totalPrice": 12.5,
+      "shippingAddress": {
+        "name": "abdo",
+        "street": "11 street elmahmodia",
+        "city": "cairo",
+        "state": "asd",
+        "zip": "11444",
+        "country": "Egypt"
+      },
+      "status": "pending",
+      "orderDate": "2025-05-07T09:18:00.039Z",
+      "deliveryDate": "2025-05-12T09:18:00.039Z"
+    },
+    {
+      "id": "d94d",
+      "userId": "b08c",
+      "items": [
+        {
+          "bookId": "f193",
+          "quantity": 4,
+          "price": 14.95
+        },
+        {
+          "bookId": "dc17",
+          "quantity": 3,
+          "price": 9.99
+        },
+        {
+          "bookId": "ec7d",
+          "quantity": 1,
+          "price": 11.25
+        }
+      ],
+      "totalPrice": 101.02,
+      "shippingAddress": {
+        "name": "abdo",
+        "street": "11 street elmahmodia",
+        "city": "cairo",
+        "state": "asd",
+        "zip": "11444",
+        "country": "Egypt"
+      },
+      "status": "pending",
+      "orderDate": "2025-05-07T09:22:59.105Z",
+      "deliveryDate": "2025-05-12T09:22:59.105Z"
+    },
+    {
+      "id": "ac8a",
+      "userId": "b08c",
+      "items": [
+        {
+          "bookId": "dc17",
+          "quantity": 1,
+          "price": 9.99
+        }
+      ],
+      "totalPrice": 9.99,
+      "shippingAddress": {
+        "name": "abdo",
+        "street": "11 street elmahmodia",
+        "city": "cairo",
+        "state": "asd",
+        "zip": "11444",
+        "country": "Egypt"
+      },
+      "status": "pending",
+      "orderDate": "2025-05-07T10:56:53.386Z",
+      "deliveryDate": "2025-05-12T10:56:53.386Z"
+    },
+    {
+      "id": "1c3a",
+      "userId": "b08c",
+      "items": [
+        {
+          "bookId": "dc17",
+          "quantity": 1,
+          "price": 9.99
+        },
+        {
+          "bookId": "41ac",
+          "quantity": 1,
+          "price": 10.99
+        }
+      ],
+      "totalPrice": 20.98,
+      "shippingAddress": {
+        "name": "abdo",
+        "street": "11 street elmahmodia",
+        "city": "cairo",
+        "state": "asd",
+        "zip": "11444",
+        "country": "Egypt"
+      },
+      "status": "pending",
+      "orderDate": "2025-05-07T10:58:21.571Z",
+      "deliveryDate": "2025-05-12T10:58:21.571Z"
+    },
+    {
+      "id": "01eb",
+      "userId": "b08c",
+      "items": [
+        {
+          "bookId": "41ac",
+          "quantity": 1,
+          "price": 10.99
+        }
+      ],
+      "totalPrice": 10.99,
+      "shippingAddress": {
+        "name": "abdo",
+        "street": "11 street elmahmodia",
+        "city": "cairo",
+        "state": "asd",
+        "zip": "11444",
+        "country": "Egypt"
+      },
+      "status": "pending",
+      "orderDate": "2025-05-07T11:00:09.564Z",
+      "deliveryDate": "2025-05-12T11:00:09.564Z"
     }
   ],
   "dashboard": {
