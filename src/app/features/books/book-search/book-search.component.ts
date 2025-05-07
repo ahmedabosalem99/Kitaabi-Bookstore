@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { BookService } from '../../../core/services/book.service';
 import { CategoryService } from '../../../core/services/category.service';
 import { forkJoin } from 'rxjs';
 import { Book } from '../../../core/models/book';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CartService } from '../../../core/services/cart.service';
+import { WishlistIconComponent } from "../../wishlist-icon/wishlist-icon.component";
+import { WishlistService } from '../../../core/services/wishlist.service';
+import { Wishlist } from '../../../core/models/wishlist';
 import { AuthService } from '../../../core/services/auth.service';
+import { CartService } from '../../../core/services/cart.service';
 
 @Component({
   selector: 'app-book-search',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, WishlistIconComponent],
   templateUrl: './book-search.component.html',
   styleUrls: ['./book-search.component.css']
 })
@@ -23,7 +26,16 @@ export class BookSearchComponent implements OnInit {
   error = '';
   searchPerformed = false;
 
-  constructor(public authService:AuthService,private bookService: BookService, private categoryService: CategoryService,private cartService:CartService) {}
+  //constructor(public authService:AuthService,private bookService: BookService, private categoryService: CategoryService,private cartService:CartService) {}
+  bookWishListIds: string[] = [];
+  private readonly userId: string;
+
+  constructor(private bookService: BookService,private cartService:CartService,
+    private categoryService: CategoryService,
+    private wishlistService: WishlistService,
+    public authService: AuthService) {
+      this.userId = this.authService.getUser()?.id ?? "";
+    }
 
   ngOnInit(): void {
     this.loadFeaturedBooks();
@@ -68,6 +80,45 @@ export class BookSearchComponent implements OnInit {
     this.bookService.getBooks().subscribe((books) => {
       this.featuredBooks = books.slice(0, 8); // show top 8 as featured
     });
+
+    this.wishlistService.getWishlist(this.userId).subscribe({
+      next: (wishlists: Wishlist[]) => {
+        const wishlist = wishlists[0];
+        console.log(wishlist);
+        if (wishlist && wishlist.bookIds.length > 0) {
+          this.bookService.getBooks().subscribe({
+            next: (books) => {
+              this.bookWishListIds = (books.filter(book => wishlist.bookIds.includes(book.id))).map(book => book.id);
+              this.isLoading = false;
+            },
+            error: (err) => {
+              this.error = 'Failed to load books. Please try again later.';
+              this.isLoading = false;
+              console.error(err);
+            },
+          });
+        } else {
+          this.bookWishListIds = [];
+          this.isLoading = false;
+        }
+      },
+      error: (err: any) => {
+        this.error = 'Failed to load wishlist. Please try again later.';
+        this.isLoading = false;
+        console.error(err);
+      },
+    });
+  }
+
+
+  addToWishlist(bookId: string){
+    this.wishlistService.addToWishList(this.userId, bookId);
+    this.bookWishListIds.push(bookId);
+  }
+
+  removeFromWishlist(bookId: string){
+    this.wishlistService.removeFromWishList(this.userId, bookId);
+    this.bookWishListIds = this.bookWishListIds.filter(id => id != bookId);
   }
 
   addToCart(bookId:string) {

@@ -29,7 +29,7 @@ export class BookService {
       catchError(this.handleError<Book[]>('getTopSaledBooks', []))
     );
   }
-  
+
   searchBooksByNameOrAuthor(query: string): Observable<Book[]> {
     const byName = this.http.get<Book[]>(this.apiUrl, {
       params: new HttpParams().set('bookName', query)
