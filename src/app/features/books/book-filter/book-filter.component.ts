@@ -1,12 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CategoryService } from '../../../core/services/category.service';
-import { Category } from '../../../core/models/category';
+// import { Category } from '../../../core/models/category';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BookFilterService } from '../../../core/services/book-filter.service';
+import { Category } from '../../../core/models/category';
 
 @Component({
   selector: 'app-book-filter',
+  standalone:true,
   imports: [CommonModule, FormsModule],
   templateUrl: './book-filter.component.html',
   styleUrl: './book-filter.component.css'
@@ -14,7 +16,7 @@ import { BookFilterService } from '../../../core/services/book-filter.service';
 export class BookFilterComponent implements OnInit {
 
   constructor(private categoryService: CategoryService, private filterService: BookFilterService){}
-  
+
   categories: Category[] = [];
   isLoading: Boolean = true;
   error: string | null = null;
@@ -104,7 +106,7 @@ export class BookFilterComponent implements OnInit {
   // onCategoryChange(categoryId: string, event: Event): void {
   //   // Cast the event.target to HTMLInputElement
   //   const target = event.target as HTMLInputElement;
-  
+
   //   if (target.checked) {
   //     this.selectedCategories.push(categoryId); // Add the category ID if checked
   //   } else {
@@ -113,7 +115,7 @@ export class BookFilterComponent implements OnInit {
   //       this.selectedCategories.splice(index, 1); // Remove it if unchecked
   //     }
   //   }
-    
+
   //   this.filterService.updateFilters({
   //     categories: this.selectedCategories.map(String)
   //   });

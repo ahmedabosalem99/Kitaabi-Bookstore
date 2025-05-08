@@ -663,8 +663,41 @@
     },
     {
       "userId": "3",
-      "totalBooksInCart": 0,
-      "cartBooks": [],
+      "totalBooksInCart": 2,
+      "cartBooks": [
+        {
+          "bookQuantity": 2,
+          "book": {
+            "categoryId": "2",
+            "bookName": "Frankenstein",
+            "authorName": "Mary Shelley",
+            "price": "10.99",
+            "quantity": "9",
+            "description": "Gothic novel about creating life and its unintended consequences.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTHG4DWWYpijmiOOZVV6aCu9IA_1y4m5dZaEjyW5O3Xw&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "7aaa"
+          }
+        },
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "2",
+            "bookName": "The Odyssey",
+            "authorName": "Homer",
+            "price": "22.50",
+            "quantity": "4",
+            "description": "Ancient Greek epic poem about Odysseus's journey home after the Trojan War.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRgjxiHdbJ8MnHLlV0f1imnIRP_39jCtc06Ad6uQs5ctS3LV5i2-sJRlyF6r9FfR6WQn8xxo6G_QyMnFxvnVJQOHaiGy3Nxtjol3QoRuw&usqp=CAc",
+            "isApproved": false,
+            "rejectionCounts": 2,
+            "isApprovalSent": true,
+            "id": "3cfd"
+          }
+        }
+      ],
       "id": "7157"
     },
     {
@@ -1628,7 +1661,11 @@
     {
       "id": "1",
       "userId": "3",
-      "bookIds": []
+      "bookIds": [
+        "3527",
+        "dc17",
+        "6e2d"
+      ]
     },
     {
       "id": "2",

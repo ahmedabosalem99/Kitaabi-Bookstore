@@ -44,6 +44,7 @@ export class BookSearchComponent implements OnInit {
   performSearch(): void {
     if (!this.searchQuery.trim()) return;
 
+    
     this.isLoading = true;
     this.searchPerformed = true;
 
