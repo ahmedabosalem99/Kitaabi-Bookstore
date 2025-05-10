@@ -663,8 +663,25 @@
     },
     {
       "userId": "3",
-      "totalBooksInCart": 0,
-      "cartBooks": [],
+      "totalBooksInCart": 1,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "1984",
+            "authorName": "George Orwell",
+            "price": "12.50",
+            "quantity": "8",
+            "description": "A dystopian novel set in a totalitarian society under the surveillance of Big Brother.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8jT8OYBTYR48fkbE9rQIoI16sxgf6lSyWc55CKdvUw&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "3527"
+          }
+        }
+      ],
       "id": "7157"
     },
     {
@@ -1628,7 +1645,10 @@
     {
       "id": "1",
       "userId": "3",
-      "bookIds": []
+      "bookIds": [
+        "dc17",
+        "3527"
+      ]
     },
     {
       "id": "2",

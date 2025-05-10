@@ -136,3 +136,119 @@
   outline: 3px solid #b8a361; /* Gold */
   outline-offset: 2px;
 }
+
+
+
+/*-------- Wishlist Icon --------------------------------*/
+.wishlist-link {
+  display: inline-block;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.wishlist-icon {
+  transition: transform 0.2s ease-in-out;
+}
+
+.wishlist-icon:hover {
+  transform: scale(1.1);
+}
+
+.wishlist-badge {
+  position: absolute;
+  top: 3px; /* Margin from top */
+  left: 36px; /* Move closer to icon */
+  background-color: #7d3c55;; /* Mauve */
+  color: white;
+  font-size: 0.875rem;
+  padding: 0.20rem 0.6rem;
+  border-radius: 500px;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+
+/*-------- Cart Icon --------------------------------*/
+.cart-link {
+  display: inline-block;
+  font-family: Inter, system-ui, sans-serif;
+  position: relative;
+}
+
+.cart-icon {
+  font-size: 1.8rem; /* Scales up the emoji */
+  transition: transform 0.2s ease-in-out;
+  color: #7D3C55; /* Maroon from your palette */
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+}
+
+.cart-badge {
+  position: absolute;
+  top: 3px;
+  left: 35px; /* Adjusted for cart emoji */
+  background-color: #7D3C55; /* Maroon (matching wishlist badge) */
+  color: white;
+  font-size: 0.875rem;
+  padding: 0.20rem 0.6rem;
+  border-radius: 500px;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+/***********LogIn*******************************/
+.login-link, .register-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.login-badge, .register-badge {
+  background-color: #7D3C55; /* Maroon */
+  color: white;
+  margin-top: 2px; /* Adjusted margin for better spacing */
+  font-size: 1rem; /* Increased font size for better visibility */
+  padding: 0.45rem 1.25rem; /* Adjusted padding for a larger badge */
+  border-radius: 500px;
+  font-weight: bold;
+  line-height: 1;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+.login-badge:hover, .register-badge:hover {
+  background-color: #6a3147; /* Slightly darker on hover */
+  cursor: pointer;
+}
+
+
+/***********LogOut*******************************/
+.logout-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+
+.logout-icon i {
+  font-size: 1.75rem; /* Increase this value to make the icon bigger */
+}
+
+.logout-badge {
+  background-color: #7D3C55; /* Maroon */
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.50rem 0.75rem;
+  border-radius: 500px;
+  font-weight: bold;
+  line-height: 1.25;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+.logout-badge:hover {
+  background-color: #6a3147; /* Slightly darker on hover */
+  cursor: pointer;
+}
+
