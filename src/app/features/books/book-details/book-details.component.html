@@ -10,7 +10,7 @@
       <p>Available: {{ book.quantity }} copies</p>
       <p>{{ book.description }}</p>
       @if(!authService.isAdmin() && authService.isLoggedIn()){
-        <button class="btn btn-success" (click)="addToCart()">Add to Cart</button>
+      <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
       }
     </div>
   </div>

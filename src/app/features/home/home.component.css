@@ -1,7 +1,9 @@
 /* ---------------  Carousel layout --------------- */
 #mainSlider .carousel-item {
   position: relative;
-  height: 560px; /* 500‑600 px target */
+  height: 90vh; /* 100% of the viewport height */
+  min-height: 500px;
+  /* max-height: 600px; */
 }
 
 #mainSlider .carousel-item img {

@@ -21,21 +21,21 @@ export class BookListComponent {
   isLoading = true;
   error: string | null = null;
   router: any;
-  
+
   private readonly userId: string;
 
   bookWishListIds: string[] = [];
 
-  
+
 
   constructor(private bookService: BookService, private wishlistService: WishlistService,
     private bookFilterService: BookFilterService, public authService: AuthService) {
-      this.userId = this.authService.getUser()?.id ?? ""; 
+      this.userId = this.authService.getUser()?.id ?? "";
     }
 
-  
 
-  
+
+
   ngOnInit() {
     this.bookService.getBooks().subscribe({
       next: (data) => {
@@ -105,9 +105,9 @@ export class BookListComponent {
     this.bookWishListIds = this.bookWishListIds.filter(id => id != bookId);
   }
 
-  onFiltersApplied(): void {
-    this.books = this.bookFilterService.filteredBooks();
-  }
+  // onFiltersApplied(): void {
+  //   this.books = this.bookFilterService.filteredBooks();
+  // }
 
   // onFiltersApplied(filters: any): void {
   //   this.books = this.bookFilterService.filteredBooks();
@@ -130,5 +130,26 @@ export class BookListComponent {
   //   });
   // }
 
+  currentPage = 1;
+  itemsPerPage = 8;
 
+  get paginatedBooks(): Book[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return this.books.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.books.length / this.itemsPerPage);
+  }
+
+  changePage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+    }
+  }
+
+  onFiltersApplied(): void {
+  this.books = this.bookFilterService.filteredBooks();
+  this.currentPage = 1;
+}
 }

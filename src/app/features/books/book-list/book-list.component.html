@@ -1,92 +1,148 @@
 <div class="container-fluid">
   <div class="row">
-    <!-- Sidebar Column -->
+    <!-- Sidebar -->
     <div class="col-md-3 col-lg-3 p-3 bg-light border-end">
       <app-book-filter (filtersApplied)="onFiltersApplied()"></app-book-filter>
     </div>
 
-    <!-- Main Content Column -->
+    <!-- Main Content -->
     <div class="col-md-9 col-lg-9 p-4">
-      <!-- Add New Book Button -->
-      @if(authService.isAdmin()){
-      <div class="mb-4">
+      <!-- Admin Add Book Button -->
+      @if(authService.isAdmin()) {
+      <div class="mb-4 text-end">
         <button class="btn btn-success" routerLink="/books/new">
-          <i class="bi bi-plus-circle"></i> Add New Book
+          <i class="bi bi-plus-circle me-1"></i> Add New Book
         </button>
       </div>
       }
 
-      <!-- Loading State -->
+      <!-- Loading Spinner -->
       <div *ngIf="isLoading" class="text-center my-5">
         <div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
 
-      <!-- Error State -->
-      <div *ngIf="error" class="alert alert-danger my-4">
+      <!-- Error Alert -->
+      <div *ngIf="error" class="alert alert-danger">
         {{ error }}
       </div>
 
-      <!-- Book Cards Grid -->
+      <!-- Books Grid -->
       <div class="row g-4">
-        <div
-          *ngFor="let book of books"
-          class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
-        >
-          <div class="card h-100 shadow-sm">
-            <img
-              [src]="book.imageURL"
-              class="card-img-top"
-              [alt]="book.bookName"
-              style="height: 300px; object-fit: cover"
-            />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">{{ book.bookName }}</h5>
-              <p class="card-text text-muted">{{ book.authorName }}</p>
-              <div class="mt-auto">
-                <p class="card-text">Price: ${{ book.price }}</p>
-                <p class="card-text">In Stock: {{ book.quantity }}</p>
-              </div>
-
-              <div
-                class="book-buttons d-flex justify-content-between align-items-center mt-3"
-              >
-                <a
-                  [routerLink]="['/books', book.id]"
-                  class="btn btn-primary btn-sm"
-                >
-                  View Details
-                </a>
-                @if(!authService.isAdmin() && authService.isLoggedIn()){
-                <app-wishlist-icon
-                  [bookId]="book.id"
-                  [bookWishListIds]="bookWishListIds"
-                  (add)="addToWishlist($event)"
-                  (remove)="removeFromWishlist($event)"
-                ></app-wishlist-icon>
-                }
-              </div>
-            </div>
-
-            @if(authService.isAdmin()){
+        <div class="row g-4">
+          <div
+            *ngFor="let book of paginatedBooks"
+            class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
+          >
             <div
-              class="card-footer bg-white border-0 d-flex justify-content-end"
+              class="card h-100 shadow-sm rounded-4 border-0 overflow-hidden"
             >
-              <button
-                class="btn btn-sm btn-warning me-2"
-                [routerLink]="['/books/edit', book.id]"
+              <!-- Book Image -->
+              <img
+                [src]="book.imageURL"
+                [alt]="book.bookName"
+                class="card-img-top"
+                style="height: 280px; object-fit: cover"
+              />
+
+              <!-- Card Body -->
+              <div class="card-body d-flex flex-column p-3">
+                <h5 class="card-title mb-1">{{ book.bookName }}</h5>
+                <p class="text-muted mb-2">{{ book.authorName }}</p>
+
+                <div class="mt-auto">
+                  <p class="mb-1 text-dark">
+                    <strong>Price:</strong> ${{ book.price }}
+                  </p>
+                  <p class="mb-2 text-dark">
+                    <strong>In Stock:</strong> {{ book.quantity }}
+                  </p>
+
+                  <!-- Action Buttons -->
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <a
+                      [routerLink]="['/books', book.id]"
+                      class="btn btn-outline-primary btn-sm"
+                    >
+                      View Details
+                    </a>
+
+                    @if(!authService.isAdmin() && authService.isLoggedIn()) {
+                    <app-wishlist-icon
+                      [bookId]="book.id"
+                      [bookWishListIds]="bookWishListIds"
+                      (add)="addToWishlist($event)"
+                      (remove)="removeFromWishlist($event)"
+                    ></app-wishlist-icon>
+                    }
+                  </div>
+                </div>
+              </div>
+
+              <!-- Admin Footer Controls -->
+              @if(authService.isAdmin()) {
+              <div
+                class="card-footer bg-white border-0 d-flex justify-content-end gap-2"
               >
-                Edit
-              </button>
-              <button
-                class="btn btn-sm btn-danger"
-                (click)="deleteBook(book.id)"
-              >
-                Delete
-              </button>
+                <button
+                  class="btn btn-sm btn-warning"
+                  [routerLink]="['/books/edit', book.id]"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-sm btn-danger"
+                  (click)="deleteBook(book.id)"
+                >
+                  Delete
+                </button>
+              </div>
+              }
             </div>
-            }
+          </div>
+
+          <!-- Pagination Controls -->
+          <div
+            class="d-flex justify-content-center mt-4"
+            *ngIf="totalPages > 1"
+          >
+            <nav>
+              <ul class="pagination">
+                <li class="page-item" [class.disabled]="currentPage === 1">
+                  <button
+                    class="page-link"
+                    (click)="changePage(currentPage - 1)"
+                  >
+                    Previous
+                  </button>
+                </li>
+
+                <li
+                  class="page-item"
+                  *ngFor="let page of [].constructor(totalPages); let i = index"
+                  [class.active]="currentPage === i + 1"
+                >
+                  <button class="page-link" (click)="changePage(i + 1)">
+                    {{ i + 1 }}
+                  </button>
+                </li>
+
+                <li
+                  class="page-item"
+                  [class.disabled]="currentPage === totalPages"
+                >
+                  <button
+                    class="page-link"
+                    (click)="changePage(currentPage + 1)"
+                  >
+                    Next
+                  </button>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>

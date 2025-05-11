@@ -1,48 +1,71 @@
-<div class="row justify-content-center">
-<!-- Loading State -->
-    <div *ngIf="isLoading" class="text-center my-5">
-        <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-        </div>
+<div class="container">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
     </div>
+  </div>
 
-    <!-- Error State -->
-    <div *ngIf="error" class="alert alert-danger text-center my-4">
-        {{ error }}
-    </div>
+  <!-- Error State -->
+  <div *ngIf="error" class="alert alert-danger text-center my-4">
+    {{ error }}
+  </div>
 
-    <!-- Empty State -->
-    <div *ngIf="!isLoading && books.length === 0 && !error" class="text-center my-5 text-muted">
-        <i class="bi bi-heart-slash fs-1"></i>
-        <p class="mt-3 fs-5">Your wishlist is empty.</p>
-    </div>
+  <!-- Empty State -->
+  <div
+    *ngIf="!isLoading && books.length === 0 && !error"
+    class="text-center my-5 text-muted"
+  >
+    <i class="bi bi-heart-slash fs-1"></i>
+    <p class="mt-3 fs-5">Your wishlist is empty.</p>
+  </div>
 
-    <!-- Book Cards -->
-    <div *ngFor="let book of books" class="col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="card h-100 shadow-sm border-0 rounded-4">
+  <!-- Book Cards -->
+  <div
+    *ngFor="let book of books"
+    class="card mb-3 shadow-sm border-0 rounded-4"
+  >
+    <div class="row g-0">
+      <!-- Book Image -->
+      <div class="col-md-2">
         <img
-            [src]="book.imageURL"
-            class="card-img-top object-fit-cover rounded-top-4"
-            [alt]="book.bookName"
-            style="height: 250px"
+          [src]="book.imageURL"
+          class="img-fluid rounded-start"
+          [alt]="book.bookName"
+          style="max-height: 200px; object-fit: cover"
         />
-        <div class="card-body d-flex flex-column">
-            <h5 class="card-title">{{ book.bookName }}</h5>
-            <p class="card-text text-muted mb-1">{{ book.authorName }}</p>
-            <p class="card-text mb-1"><strong>Price:</strong> ${{ book.price }}</p>
-            <p class="card-text"><strong>In Stock:</strong> {{ book.quantity }}</p>
-            <div class="mt-auto">
-            <a [routerLink]="['/books', book.id]" class="btn btn-sm btn-primary w-100 mb-2">
-                View Details
-            </a>
-            <button
-                class="btn btn-sm btn-remove w-100"
-                (click)="removeFromWishlist(book.id)"
-            >
-                <i class="bi bi-trash mx-auto"></i>
-            </button>
-            </div>
+      </div>
+
+      <!-- Book Info -->
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ book.bookName }}</h5>
+          <p class="card-text text-muted mb-1">{{ book.authorName }}</p>
+          <p class="card-text mb-1">
+            <strong>Price:</strong> ${{ book.price }}
+          </p>
+          <p class="card-text">
+            <strong>In Stock:</strong> {{ book.quantity }}
+          </p>
+          <a
+            [routerLink]="['/books', book.id]"
+            class="btn btn-sm btn-primary mt-2"
+          >
+            View Details
+          </a>
         </div>
-        </div>
+      </div>
+
+      <!-- Remove Button -->
+      <div class="col-md-2 d-flex align-items-center justify-content-end pe-3">
+        <button
+          class="btn btn-danger btn-sm"
+          (click)="removeFromWishlist(book.id)"
+        >
+          <i class="bi bi-trash"></i>
+          
+        </button>
+      </div>
     </div>
+  </div>
 </div>

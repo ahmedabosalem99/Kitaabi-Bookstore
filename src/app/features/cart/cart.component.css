@@ -141,3 +141,18 @@
     margin-bottom: 0.75rem;
   }
 }
+.card-actions.large {
+  font-size: 1.25rem; /* Larger text */
+  padding: 1rem 0;
+}
+
+.card-actions.large .btn.adjust {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+}
+
+.card-actions.large .btn.remove {
+  width: 3.2rem;
+  height: 3.2rem;
+}

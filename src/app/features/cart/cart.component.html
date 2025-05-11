@@ -43,34 +43,38 @@
             <p class="price">Price: {{ item.book.price | currency }}</p>
           </div>
         </div>
-        <div class="card-actions">
-          <p class="item-total">
-            {{ calculateItemTotal(item) | currency }}
-          </p>
-          <div class="controls">
-            <div class="btn-group">
-              <button
-                class="btn adjust"
-                (click)="updateQuantity(item.book.id, item.bookQuantity - 1)"
-                [disabled]="item.bookQuantity <= 1"
-              >
-                -
-              </button>
-              <button class="btn adjust" disabled>
-                {{ item.bookQuantity }}
-              </button>
-              <button
-                class="btn adjust"
-                (click)="updateQuantity(item.book.id, item.bookQuantity + 1)"
-              >
-                +
-              </button>
-            </div>
-            <button class="btn remove" (click)="removeItem(item.book.id)">
-              Remove
-            </button>
-          </div>
-        </div>
+        <div class="card-actions large">
+  <p class="item-total fw-bold">
+    {{ calculateItemTotal(item) | currency }}
+  </p>
+  <div class="controls d-flex align-items-center gap-3">
+    <div class="btn-group">
+      <button
+        class="btn btn-outline-secondary btn-lg adjust"
+        (click)="updateQuantity(item.book.id, item.bookQuantity - 1)"
+        [disabled]="item.bookQuantity <= 1"
+      >
+        -
+      </button>
+      <button class="btn btn-outline-secondary btn-lg adjust" disabled>
+        {{ item.bookQuantity }}
+      </button>
+      <button
+        class="btn btn-outline-secondary btn-lg adjust"
+        (click)="updateQuantity(item.book.id, item.bookQuantity + 1)"
+      >
+        +
+      </button>
+    </div>
+    <button
+      class="btn btn-danger btn-lg remove d-flex align-items-center justify-content-center"
+      (click)="removeItem(item.book.id)"
+    >
+      <i class="bi bi-trash fs-5"></i>
+    </button>
+  </div>
+</div>
+
       </div>
     </div>
 

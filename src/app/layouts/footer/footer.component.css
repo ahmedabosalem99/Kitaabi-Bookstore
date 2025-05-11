@@ -1,3 +1,26 @@
-.test {
+.bookstore-footer {
   background-color: var(--color-light-gold);
+  color: var(--color-cream);
+}
+
+.footer-link {
+  color: var(--color-cream);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+  transition: color var(--ease-fast);
+}
+
+.footer-link:hover {
+  color: var(--color-light-gold);
+}
+
+.footer-icon {
+  font-size: 1.25rem;
+  color: var(--color-cream);
+  transition: color var(--ease-fast);
+}
+
+.footer-icon:hover {
+  color: var(--color-light-gold);
 }

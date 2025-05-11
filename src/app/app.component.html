@@ -1,5 +1,9 @@
 <app-header></app-header>
+
 <main style="margin-top: 80px; margin-bottom: 80px">
   <router-outlet></router-outlet>
 </main>
+
+@if(shouldShowFooter()){
 <app-footer></app-footer>
+}
