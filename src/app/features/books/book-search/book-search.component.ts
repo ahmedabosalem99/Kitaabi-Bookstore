@@ -47,12 +47,16 @@ export class BookSearchComponent implements OnInit {
     
     this.isLoading = true;
     this.searchPerformed = true;
-
+    const lowerSearchQuery = this.searchQuery.toLowerCase();
     forkJoin({
-      books: this.bookService.searchBooksByNameOrAuthor(this.searchQuery),
+      books: this.bookService.getBooks(),
       categories: this.categoryService.getCategories()
     }).subscribe({
       next: ({ books, categories }) => {
+        const isCategory = categories.find(cat => cat.name.toLocaleLowerCase() === lowerSearchQuery)?.id;
+        books = books.filter(book => book.bookName.toLowerCase().includes(lowerSearchQuery) || 
+                              book.authorName.toLowerCase().includes(lowerSearchQuery) ||
+                              book.categoryId === isCategory);
         this.searchResults = books.map(book => {
           const category = categories.find(cat => cat.id === book.categoryId);
           return {

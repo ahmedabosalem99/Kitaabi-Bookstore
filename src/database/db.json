@@ -663,38 +663,22 @@
     },
     {
       "userId": "3",
-      "totalBooksInCart": 2,
+      "totalBooksInCart": 1,
       "cartBooks": [
-        {
-          "bookQuantity": 2,
-          "book": {
-            "categoryId": "2",
-            "bookName": "Frankenstein",
-            "authorName": "Mary Shelley",
-            "price": "10.99",
-            "quantity": "9",
-            "description": "Gothic novel about creating life and its unintended consequences.",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTHG4DWWYpijmiOOZVV6aCu9IA_1y4m5dZaEjyW5O3Xw&s&ec=72940543",
-            "isApproved": true,
-            "rejectionCounts": 0,
-            "isApprovalSent": false,
-            "id": "7aaa"
-          }
-        },
         {
           "bookQuantity": 1,
           "book": {
-            "categoryId": "2",
-            "bookName": "The Odyssey",
-            "authorName": "Homer",
-            "price": "22.50",
-            "quantity": "4",
-            "description": "Ancient Greek epic poem about Odysseus's journey home after the Trojan War.",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRgjxiHdbJ8MnHLlV0f1imnIRP_39jCtc06Ad6uQs5ctS3LV5i2-sJRlyF6r9FfR6WQn8xxo6G_QyMnFxvnVJQOHaiGy3Nxtjol3QoRuw&usqp=CAc",
-            "isApproved": false,
-            "rejectionCounts": 2,
-            "isApprovalSent": true,
-            "id": "3cfd"
+            "categoryId": "1",
+            "bookName": "1984",
+            "authorName": "George Orwell",
+            "price": "12.50",
+            "quantity": "8",
+            "description": "A dystopian novel set in a totalitarian society under the surveillance of Big Brother.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8jT8OYBTYR48fkbE9rQIoI16sxgf6lSyWc55CKdvUw&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": false,
+            "id": "3527"
           }
         }
       ],
@@ -1662,9 +1646,8 @@
       "id": "1",
       "userId": "3",
       "bookIds": [
-        "3527",
         "dc17",
-        "6e2d"
+        "3527"
       ]
     },
     {
