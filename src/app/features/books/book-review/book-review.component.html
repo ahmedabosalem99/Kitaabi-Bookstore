@@ -1,0 +1,96 @@
+<div class="book-card">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <!-- Book Cover Column -->
+      <div class="col-md-3 book-cover-container">
+        <img [src]="book.imageURL || 'assets/images/default-book-cover.jpg'"
+            [alt]="book.bookName"
+            class="img-fluid rounded book-cover">
+      </div>
+
+      <!-- Book Details Column -->
+      <div class="col-md-9">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title">{{ book.bookName }}</h5>
+            <span class="book-price">{{ book.price | currency }}</span>
+          </div>
+
+          <h6 class="card-subtitle mb-2 text-muted">by {{ book.authorName }}</h6>
+
+          <p class="card-text book-description">{{ book.description }}</p>
+
+          <div class="book-details">
+            <span class="detail-item"><i class="bi bi-calendar-check"></i> Purchased at : {{ purchaseDate}}</span>
+          </div>
+
+          <!-- Star Rating System -->
+          <div class="rating-container mt-3">
+            <div class="stars-container">
+              <span class="rating-label">Rate this book: </span>
+              <div class="stars">
+                @for (star of stars(); track star) {
+                  <span
+                    (click)="rate(star)"
+                    (mouseenter)="hoverStar(star)"
+                    (mouseleave)="resetHover()"
+                    class="star"
+                    [ngClass]="getStarClass(star)">
+                    <i class="bi bi-star-fill"></i>
+                  </span>
+                }
+              </div>
+              @if (selectedRating() > 0) {
+                <span class="selected-rating">
+                  Your rating: {{selectedRating()}}/5
+                </span>
+              }
+            </div>
+          </div>
+
+          <!-- Review Form (conditionally displayed) -->
+          @if (showReviewForm()) {
+            <div class="review-form mt-3">
+              <form [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+                <div class="mb-3">
+                  <label for="comment" class="form-label">Your Review</label>
+                  <textarea
+                    class="form-control"
+                    id="comment"
+                    rows="3"
+                    formControlName="comment"
+                    placeholder="Share your thoughts about this book..."></textarea>
+                  @if (reviewForm.get('comment')?.invalid && reviewForm.get('comment')?.touched) {
+                    <div class="error-message">
+                      Review must be at least 10 characters long.
+                    </div>
+                  }
+                </div>
+                <div class="d-flex gap-2">
+                  <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-circle-fill me-1"></i>
+                    {{ isEditing() ? 'Update' : 'Submit' }}
+                  </button>
+
+                  @if (isEditing()) {
+                    <button type="button" class="btn btn-danger" (click)="deleteReview()">
+                      <i class="bi bi-trash-fill me-1"></i>
+                      Delete
+                    </button>
+                  }
+
+                  @if(!isEditing()){
+                    <button type="button" class="btn btn-outline-secondary" (click)="resetForm()">
+                      <i class="bi bi-x-circle me-1"></i>
+                      Cancel
+                    </button>
+                  }
+                </div>
+              </form>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

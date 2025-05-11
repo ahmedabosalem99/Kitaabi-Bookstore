@@ -1,0 +1,47 @@
+.payment-canceled-container {
+  background-color: #fff8f8;
+  border: 1px solid #ffdddd;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.payment-canceled-container:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.payment-canceled-icon {
+  color: #dc3545;
+  animation: pulse 1.5s infinite;
+}
+
+.payment-canceled-title {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.payment-canceled-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.payment-canceled-action {
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.payment-canceled-action:hover {
+  transform: translateY(-1px);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}

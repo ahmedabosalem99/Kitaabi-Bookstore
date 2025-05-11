@@ -81,7 +81,7 @@ export class SuccessComponent implements OnInit {
 
       setTimeout(() => {
         this.router.navigate(['/order-confirmation', order?.id]);
-      }, 2000);
+      }, 5000);
     }
   }
 }

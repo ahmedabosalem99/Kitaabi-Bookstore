@@ -17,6 +17,7 @@ import { authGuard } from './core/guards/auth.guard';
 import { adminGuard } from './core/guards/admin.guard';
 import { SuccessComponent } from './features/success/success.component';
 import { CancelComponent } from './features/cancel/cancel.component';
+import { PurchasesComponent } from './features/purchases/purchases.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -39,6 +40,7 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
   {path: 'success', component: SuccessComponent, canActivate: [authGuard]},
   {path: 'cancel', component: CancelComponent, canActivate: [authGuard]},
+  {path: 'purchases', component: PurchasesComponent, canActivate: [authGuard]},
 
   {
     path: 'orders/:id',

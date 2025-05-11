@@ -1,0 +1,35 @@
+.empty-state-container {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.empty-state-container:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.empty-state-icon {
+  color: #6c757d;
+  font-size: 4rem;
+}
+
+.empty-state-title {
+  color: #343a40;
+  font-weight: 600;
+}
+
+.empty-state-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.empty-state-action {
+  padding: 0.5rem 2rem;
+  font-weight: 500;
+  border-radius: 50px;
+}

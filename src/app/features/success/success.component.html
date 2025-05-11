@@ -1,4 +1,4 @@
-<div class="success-container">
+<!-- <div class="success-container">
   <div *ngIf="loading" class="loading-section">
     <h2>Checking payment status...</h2>
     <div class="spinner"></div>
@@ -21,12 +21,62 @@
   <div *ngIf="!loading && !paymentSuccess" class="error-section">
     <div class="error-icon">!</div>
     <h2>Payment Not Confirmed</h2>
-    <p *ngIf="paymentDetails">Payment status: {{paymentDetails.status}}</p>
-    <p *ngIf="errorMessage">{{errorMessage}}</p>
-
     <div class="buttons">
       <a routerLink="/" class="home-button">Home</a>
       <a routerLink="/checkout" class="retry-button">Try Again</a>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="payment-status-container">
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-section text-center py-5 my-5">
+    <div class="spinner-container mb-4">
+      <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <h2 class="loading-title mb-3">Processing Your Payment</h2>
+    <p class="text-muted">Please wait while we confirm your transaction...</p>
+  </div>
+
+  <!-- Success State -->
+  <div *ngIf="!loading && paymentSuccess" class="success-section text-center py-5 my-5">
+    <div class="success-icon-container mb-4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#28a745" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+      </svg>
+    </div>
+    <h2 class="success-title mb-3">Payment Successful!</h2>
+    <p class="success-message text-muted mb-4">Thank you for your purchase. A confirmation email has been sent to your registered address.</p>
+
+    <div *ngIf="paymentDetails" class="payment-info card border-success mb-4 mx-auto" style="max-width: 400px;">
+      <div class="card-header bg-success text-white">
+        <h3 class="mb-0">Payment Details</h3>
+      </div>
+      <div class="card-body text-start">
+        <p class="card-text"><strong>Amount:</strong> {{paymentDetails.amount / 100 | currency:paymentDetails.currency:'symbol'}}</p>
+        <p class="card-text"><strong>Status:</strong> <span class="badge bg-success">{{paymentDetails.status}}</span></p>
+        <p class="card-text"><strong>Date:</strong> {{paymentDetails.created * 1000 | date:'medium'}}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="!loading && !paymentSuccess" class="error-section text-center py-5 my-5">
+    <div class="error-icon-container mb-4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#dc3545" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+      </svg>
+    </div>
+    <h2 class="error-title mb-3">Payment Not Completed</h2>
+    <p class="error-message text-muted mb-4">We couldn't confirm your payment. Your items are still in your cart.</p>
+
+    <div class="d-flex gap-3 justify-content-center">
+      <a routerLink="/" class="btn btn-outline-secondary">Home</a>
+      <a routerLink="/checkout" class="btn btn-primary">Try Again</a>
     </div>
   </div>
 </div>

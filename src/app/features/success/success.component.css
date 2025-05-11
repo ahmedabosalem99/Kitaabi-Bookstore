@@ -1,105 +1,68 @@
-.success-container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.payment-status-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.verifying {
-  text-align: center;
-  padding: 20px;
+.loading-section {
+  animation: fadeIn 0.5s ease;
 }
 
-.spinner {
-  margin: 20px auto;
-  width: 50px;
-  height: 50px;
-  border: 5px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  border-top-color: #4caf50;
-  animation: spin 1s linear infinite;
+.success-section {
+  background-color: #f8fff8;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 15px rgba(40, 167, 69, 0.1);
+  animation: fadeIn 0.5s ease;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+.error-section {
+  background-color: #fff8f8;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 15px rgba(220, 53, 69, 0.1);
+  animation: fadeIn 0.5s ease;
 }
 
-.success-icon, .error-icon {
-  font-size: 64px;
-  width: 80px;
-  height: 80px;
-  line-height: 80px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  color: white;
+.success-icon-container svg {
+  animation: bounceIn 0.8s ease;
 }
 
-.success-icon {
-  background-color: #4caf50;
+.error-icon-container svg {
+  animation: pulse 1.5s infinite;
 }
 
-.error-icon {
-  background-color: #f44336;
+.success-title {
+  color: #28a745;
+  font-weight: 600;
 }
 
-.payment-details {
-  background-color: #f9f9f9;
-  border-radius: 6px;
-  padding: 15px;
-  margin: 20px 0;
-  text-align: left;
+.error-title {
+  color: #dc3545;
+  font-weight: 600;
 }
 
-.payment-details h3 {
-  margin-top: 0;
-  color: #333;
+.payment-info {
+  transition: all 0.3s ease;
 }
 
-.payment-details p {
-  margin: 8px 0;
+.payment-info:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.error-message {
-  color: #f44336;
-  background-color: #ffebee;
-  padding: 10px;
-  border-radius: 4px;
-  margin: 15px 0;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.actions {
-  margin-top: 25px;
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-.btn-primary, .btn-secondary {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 0 10px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
-.btn-primary {
-  background-color: #4caf50;
-  color: white;
-}
-
-.btn-secondary {
-  background-color: #f5f5f5;
-  color: #333;
-}
-
-.btn-primary:hover {
-  background-color: #388e3c;
-}
-
-.btn-secondary:hover {
-  background-color: #e0e0e0;
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }

@@ -653,8 +653,25 @@
     },
     {
       "userId": "3",
-      "totalBooksInCart": 0,
-      "cartBooks": [],
+      "totalBooksInCart": 1,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "2",
+            "bookName": "The Odyssey",
+            "authorName": "Homer",
+            "price": "22.50",
+            "quantity": "4",
+            "description": "Ancient Greek epic poem about Odysseus's journey home after the Trojan War.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRgjxiHdbJ8MnHLlV0f1imnIRP_39jCtc06Ad6uQs5ctS3LV5i2-sJRlyF6r9FfR6WQn8xxo6G_QyMnFxvnVJQOHaiGy3Nxtjol3QoRuw&usqp=CAc",
+            "isApproved": false,
+            "rejectionCounts": 2,
+            "isApprovalSent": true,
+            "id": "3cfd"
+          }
+        }
+      ],
       "id": "7157"
     },
     {
@@ -1470,14 +1487,6 @@
   ],
   "reviews": [
     {
-      "id": "1",
-      "bookId": "41ac",
-      "userId": "3",
-      "rating": 4,
-      "comment": "An absolute masterpiece! Fitzgerald's portrayal of the Jazz Age is unparalleled. Daisy and Gatsby's tragic relationship stays with you long after finishing.",
-      "date": "2023-10-04"
-    },
-    {
       "id": "16",
       "bookId": "41ac",
       "userId": "4",
@@ -1492,14 +1501,6 @@
       "rating": 3,
       "comment": "An absolute masterpiece! Fitzgerald's portrayal of the Jazz Age is unparalleled. Daisy and Gatsby's tragic relationship stays with you long after finishing.",
       "date": "2023-10-01"
-    },
-    {
-      "id": "18",
-      "bookId": "41ac",
-      "userId": "3",
-      "rating": 2,
-      "comment": "An absolute masterpiece! Fitzgerald's portrayal of the Jazz Age is unparalleled. Daisy and Gatsby's tragic relationship stays with you long after finishing.",
-      "date": "2023-10-02"
     },
     {
       "id": "2",
@@ -1612,6 +1613,14 @@
       "rating": 5,
       "comment": "Psychological depth like no other. Raskolnikov's torment is portrayed with stunning intensity. A must-read!",
       "date": "2023-10-06"
+    },
+    {
+      "id": "guzv77rn5wwtcsptmtgi6",
+      "bookId": "6e2d",
+      "userId": "3",
+      "rating": 5,
+      "comment": "gfffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "date": "2025-05-11T15:49:41.327Z"
     }
   ],
   "wishlists": [
@@ -1766,332 +1775,32 @@
   ],
   "orders": [
     {
-      "id": "1",
+      "id": "d2e4",
       "userId": "3",
       "items": [
         {
           "bookId": "41ac",
-          "quantity": 2,
-          "price": 15.99
-        },
-        {
-          "bookId": "3527",
           "quantity": 1,
-          "price": 12.5
-        }
-      ],
-      "totalPrice": 44.48,
-      "shippingAddress": "123 Main Street, New York, NY",
-      "status": "delivered",
-      "orderDate": "2023-10-01",
-      "deliveryDate": "2023-10-05"
-    },
-    {
-      "id": "2",
-      "userId": "7",
-      "items": [
-        {
-          "bookId": "a1b2",
-          "quantity": 1,
-          "price": 18.25
-        },
-        {
-          "bookId": "c3d4",
-          "quantity": 2,
-          "price": 13
-        }
-      ],
-      "totalPrice": 44.25,
-      "shippingAddress": "456 Elm Street, Los Angeles, CA",
-      "status": "shipped",
-      "orderDate": "2023-11-15",
-      "deliveryDate": "2023-11-20"
-    },
-    {
-      "id": "3",
-      "userId": "2",
-      "items": [
-        {
-          "bookId": "e5f6",
-          "quantity": 3,
-          "price": 10
-        }
-      ],
-      "totalPrice": 30,
-      "shippingAddress": "789 Oak Street, Chicago, IL",
-      "status": "pending",
-      "orderDate": "2023-12-05",
-      "deliveryDate": "2023-12-10"
-    },
-    {
-      "id": "5325",
-      "userId": "1",
-      "items": [
-        {
-          "bookId": "f193",
-          "quantity": 1,
-          "price": 14.95
-        },
-        {
-          "bookId": "3527",
-          "quantity": 2,
-          "price": 12.5
-        }
-      ],
-      "totalPrice": 39.95,
-      "shippingAddress": {
-        "name": "abdo",
-        "street": "ssssssssss",
-        "city": "sssss",
-        "state": "ss",
-        "zip": "11233",
-        "country": "dddddd"
-      },
-      "status": "pending",
-      "orderDate": "2025-05-02T21:41:51.890Z",
-      "deliveryDate": "2025-05-07T21:41:51.891Z"
-    },
-    {
-      "id": "af80",
-      "userId": "1",
-      "items": [
-        {
-          "bookId": "41ac",
-          "quantity": 1,
-          "price": 15.99
-        }
-      ],
-      "totalPrice": 15.99,
-      "shippingAddress": {
-        "name": "fg",
-        "street": "fg",
-        "city": "fg",
-        "state": "fg",
-        "zip": "44444",
-        "country": "fg"
-      },
-      "status": "pending",
-      "orderDate": "2025-05-02T23:18:40.847Z",
-      "deliveryDate": "2025-05-07T23:18:40.848Z"
-    },
-    {
-      "id": "830f",
-      "userId": "b08c",
-      "items": [
-        {
-          "bookId": "3527",
-          "quantity": 3,
-          "price": 12.5
-        },
-        {
-          "bookId": "ec7d",
-          "quantity": 1,
-          "price": 11.25
+          "price": 10.99
         },
         {
           "bookId": "6e2d",
           "quantity": 1,
           "price": 18.75
-        },
-        {
-          "bookId": "dc17",
-          "quantity": 3,
-          "price": 9.99
         }
       ],
-      "totalPrice": 97.47,
+      "totalPrice": 29.740000000000002,
       "shippingAddress": {
-        "name": "abdo",
-        "street": "11 street elmahmodia",
-        "city": "cairo",
-        "state": "asd",
-        "zip": "11444",
+        "name": "Ahmed Gamal Saeed Ahmed Morsi Abosalem",
+        "street": "Sultan Hussein",
+        "city": "Qalyub",
+        "state": "Al-Qalyubia",
+        "zip": "11111",
         "country": "Egypt"
       },
       "status": "pending",
-      "orderDate": "2025-05-07T08:59:17.122Z",
-      "deliveryDate": "2025-05-12T08:59:17.123Z"
-    },
-    {
-      "id": "2423",
-      "userId": "b08c",
-      "items": [
-        {
-          "bookId": "3527",
-          "quantity": 1,
-          "price": 12.5
-        }
-      ],
-      "totalPrice": 12.5,
-      "shippingAddress": {
-        "name": "abdo",
-        "street": "11 street elmahmodia",
-        "city": "cairo",
-        "state": "asd",
-        "zip": "11444",
-        "country": "Egypt"
-      },
-      "status": "pending",
-      "orderDate": "2025-05-07T09:18:00.039Z",
-      "deliveryDate": "2025-05-12T09:18:00.039Z"
-    },
-    {
-      "id": "d94d",
-      "userId": "b08c",
-      "items": [
-        {
-          "bookId": "f193",
-          "quantity": 4,
-          "price": 14.95
-        },
-        {
-          "bookId": "dc17",
-          "quantity": 3,
-          "price": 9.99
-        },
-        {
-          "bookId": "ec7d",
-          "quantity": 1,
-          "price": 11.25
-        }
-      ],
-      "totalPrice": 101.02,
-      "shippingAddress": {
-        "name": "abdo",
-        "street": "11 street elmahmodia",
-        "city": "cairo",
-        "state": "asd",
-        "zip": "11444",
-        "country": "Egypt"
-      },
-      "status": "pending",
-      "orderDate": "2025-05-07T09:22:59.105Z",
-      "deliveryDate": "2025-05-12T09:22:59.105Z"
-    },
-    {
-      "id": "ac8a",
-      "userId": "b08c",
-      "items": [
-        {
-          "bookId": "dc17",
-          "quantity": 1,
-          "price": 9.99
-        }
-      ],
-      "totalPrice": 9.99,
-      "shippingAddress": {
-        "name": "abdo",
-        "street": "11 street elmahmodia",
-        "city": "cairo",
-        "state": "asd",
-        "zip": "11444",
-        "country": "Egypt"
-      },
-      "status": "pending",
-      "orderDate": "2025-05-07T10:56:53.386Z",
-      "deliveryDate": "2025-05-12T10:56:53.386Z"
-    },
-    {
-      "id": "1c3a",
-      "userId": "b08c",
-      "items": [
-        {
-          "bookId": "dc17",
-          "quantity": 1,
-          "price": 9.99
-        },
-        {
-          "bookId": "41ac",
-          "quantity": 1,
-          "price": 10.99
-        }
-      ],
-      "totalPrice": 20.98,
-      "shippingAddress": {
-        "name": "abdo",
-        "street": "11 street elmahmodia",
-        "city": "cairo",
-        "state": "asd",
-        "zip": "11444",
-        "country": "Egypt"
-      },
-      "status": "pending",
-      "orderDate": "2025-05-07T10:58:21.571Z",
-      "deliveryDate": "2025-05-12T10:58:21.571Z"
-    },
-    {
-      "id": "01eb",
-      "userId": "b08c",
-      "items": [
-        {
-          "bookId": "41ac",
-          "quantity": 1,
-          "price": 10.99
-        }
-      ],
-      "totalPrice": 10.99,
-      "shippingAddress": {
-        "name": "abdo",
-        "street": "11 street elmahmodia",
-        "city": "cairo",
-        "state": "asd",
-        "zip": "11444",
-        "country": "Egypt"
-      },
-      "status": "pending",
-      "orderDate": "2025-05-07T11:00:09.564Z",
-      "deliveryDate": "2025-05-12T11:00:09.564Z"
-    },
-    {
-      "id": "f4d8",
-      "userId": "3",
-      "items": [
-        {
-          "bookId": "3527",
-          "quantity": 1,
-          "price": 12.5
-        }
-      ],
-      "totalPrice": 12.5,
-      "shippingAddress": {
-        "name": "abdo",
-        "street": "11 street elmahmodia",
-        "city": "cairo",
-        "state": "asd",
-        "zip": "11444",
-        "country": "Egypt"
-      },
-      "status": "pending",
-      "orderDate": "2025-05-07T13:05:51.559Z",
-      "deliveryDate": "2025-05-12T13:05:51.560Z"
-    },
-    {
-      "id": "10bf",
-      "userId": "3",
-      "items": [
-        {
-          "bookId": "3527",
-          "quantity": 1,
-          "price": 12.5
-        },
-        {
-          "bookId": "41ac",
-          "quantity": 1,
-          "price": 10.99
-        }
-      ],
-      "totalPrice": 23.490000000000002,
-      "shippingAddress": {
-        "name": "abdo",
-        "street": "11 street elmahmodia",
-        "city": "cairo",
-        "state": "asd",
-        "zip": "11444",
-        "country": "Egypt"
-      },
-      "status": "pending",
-      "orderDate": "2025-05-07T13:06:14.859Z",
-      "deliveryDate": "2025-05-12T13:06:14.859Z"
+      "orderDate": "2025-05-11T15:46:52.805Z",
+      "deliveryDate": "2025-05-16T15:46:52.805Z"
     }
   ],
   "dashboard": {
