@@ -1,95 +1,44 @@
-:host {
-display: block;
-background-color: #F5F1E8;
-font-family: 'Inter', system-ui, sans-serif;
-padding: 2rem;
-min-height: 100vh;
+/* Font classes */
+.heading-font {
+  font-family: Georgia, Cambria, serif;
+}
+.body-font {
+  font-family: Inter, system-ui, sans-serif;
 }
 
-.spinner-border.text-primary {
-color: #7D3C55 !important;
+/* Color tokens */
+.text-maroon {
+  color: #7d3c55;
 }
 
-.alert-danger {
-background-color: #7D3C55;
-color: #fff;
-border: none;
-border-radius: 0.5rem;
+/* Button Styles */
+.btn-primary-custom {
+  background-color: #7d3c55;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
 }
-
-.text-muted {
-color: #644536 !important;
-}
-
-.bi-heart-slash {
-color: #B8A361;
-}
-
-.card {
-border-radius: 0.75rem;
-background-color: #fff;
-transition: transform 0.2s ease, box-shadow 0.2s ease;
-overflow: hidden;
-}
-
-.card:hover {
-transform: scale(1.02);
-box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
-
-.card-img-top {
-object-fit: cover;
-height: 250px;
-}
-
-.card-body {
-font-size: 1rem;
-font-family: 'Inter', system-ui, sans-serif;
-}
-
-.card-body .card-title {
-font-family: Georgia, Cambria, serif;
-font-size: 1.25rem;
-color: #7D3C55;
-margin-bottom: 0.5rem;
-}
-
-.card-body .card-text {
-color: #644536;
-font-size: 0.95rem;
-}
-
-.btn-primary {
-background-color: #7D3C55;
-border: none;
-color: #fff;
-font-weight: 500;
-border-radius: 0.5rem;
-}
-
-.btn-primary:hover {
-background-color: #6c3348;
-}
-
-.btn-outline-danger {
-border-color: #7D3C55;
-color: #7D3C55;
-border-radius: 0.5rem;
-}
-
-.btn-outline-danger:hover {
-background-color: #7D3C55;
-color: #fff;
+.btn-primary-custom:hover {
+  background-color: #5e2f41;
 }
 
 .btn-remove {
-background-color: #dc3545; /* Bootstrap red */
-color: #fff;
-border: none;
-border-radius: 0.5rem;
+  background-color: #b8a361;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.btn-remove:hover {
+  background-color: #9e8a50;
 }
 
-.btn-remove:hover {
-background-color: #bb2d3b;
-color: #fff;
+/* Card Styling */
+.book-card {
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+}
+.book-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }

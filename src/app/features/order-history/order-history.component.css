@@ -1,0 +1,11 @@
+.text-maroon {
+  color: var(--color-maroon);
+}
+
+.bg-light {
+  background-color: var(--color-cream) !important;
+}
+
+.list-group-item {
+  font-family: var(--font-body);
+}

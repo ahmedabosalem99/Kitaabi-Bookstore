@@ -1,74 +1,85 @@
 <div class="container mt-4">
-  <div *ngIf="order" class="container mt-4">
-    <!-- Keep your existing template content -->
-    <div class="card">
-      <div class="card-header bg-success text-white">
-        <h2 class="mb-0">Order Confirmed!</h2>
+  <div *ngIf="order; else noOrderTpl">
+    <div class="card shadow rounded-4 border-0 overflow-hidden">
+      <!-- Header -->
+      <div class="card-header bg-success text-white py-3">
+        <h2 class="mb-0">
+          <i class="bi bi-check-circle-fill me-2"></i>Order Confirmed!
+        </h2>
       </div>
-      <div class="card-body">
-        <!-- ... rest of your template ... -->
-        <div class="card-body">
-          <h5 class="card-title">Order #{{ order.id }}</h5>
-          <p class="card-text">
-            Thank you for your purchase! Your order is being processed and will
-            be shipped soon.
-          </p>
 
-          <div class="row">
-            <div class="col-md-6">
-              <h4>Shipping Details</h4>
-              <address>
-                {{ order.shippingAddress.name }}<br />
-                {{ order.shippingAddress.street }}<br />
-                {{ order.shippingAddress.city }},
-                {{ order.shippingAddress.state }} {{ order.shippingAddress.zip
-                }}<br />
-                {{ order.shippingAddress.country }}
-              </address>
-            </div>
-            <div class="col-md-6">
-              <h4>Order Summary</h4>
-              <ul class="list-group mb-3">
-                <!-- order-confirmation.component.html -->
-                <li *ngFor="let item of order.items" class="list-group-item">
-                  <div class="d-flex justify-content-between">
-                    <span>
-                      {{ item.quantity }} x
-                      {{ bookNameMap[item.bookId] | async }}
-                    </span>
-                    <span>{{ item.price * item.quantity | currency }}</span>
-                  </div>
-                </li>
-                <li
-                  class="list-group-item list-group-item-secondary d-flex justify-content-between"
-                >
-                  <strong>Total:</strong>
-                  <strong>{{ order.totalPrice | currency }}</strong>
-                </li>
-              </ul>
-            </div>
+      <!-- Body -->
+      <div class="card-body px-4 py-4">
+        <h5 class="card-title text-muted mb-3">Order #{{ order.id }}</h5>
+        <p class="card-text fs-6">
+          🎉 Thank you for your purchase! Your order is being processed and will
+          be shipped soon.
+        </p>
+
+        <!-- Shipping + Summary -->
+        <div class="row g-4 mt-3">
+          <!-- Shipping -->
+          <div class="col-md-6">
+            <h5 class="text-primary">📦 Shipping Details</h5>
+            <address class="fs-sm mt-2">
+              <strong>{{ order.shippingAddress.name }}</strong
+              ><br />
+              {{ order.shippingAddress.street }}<br />
+              {{ order.shippingAddress.city }},
+              {{ order.shippingAddress.state }} {{ order.shippingAddress.zip
+              }}<br />
+              {{ order.shippingAddress.country }}
+            </address>
           </div>
 
-          <div class="row mt-4">
-            <div class="col-md-6">
-              <p>
-                <strong>Order Date:</strong>
-                {{ order.orderDate | date : "medium" }}
-              </p>
-            </div>
-            <div class="col-md-6">
-              <p>
-                <strong>Estimated Delivery:</strong>
-                {{ order.deliveryDate | date : "mediumDate" }}
-              </p>
-            </div>
+          <!-- Summary -->
+          <div class="col-md-6">
+            <h5 class="text-primary">🧾 Order Summary</h5>
+            <ul class="list-group list-group-flush mt-2">
+              <li
+                *ngFor="let item of order.items"
+                class="list-group-item px-0 d-flex justify-content-between"
+              >
+                <span
+                  >{{ item.quantity }} ×
+                  {{ bookNameMap[item.bookId] | async }}</span
+                >
+                <span>{{ item.price * item.quantity | currency }}</span>
+              </li>
+              <li
+                class="list-group-item px-0 d-flex justify-content-between border-top mt-2 fw-semibold text-dark"
+              >
+                <span>Total:</span>
+                <span>{{ order.totalPrice | currency }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Order Meta -->
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <p class="mb-1">
+              <strong>🗓️ Order Date:</strong>
+              {{ order.orderDate | date : "medium" }}
+            </p>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1">
+              <strong>🚚 Estimated Delivery:</strong>
+              {{ order.deliveryDate | date : "mediumDate" }}
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div *ngIf="!order" class="alert alert-warning mt-4">
-    No order information available
-  </div>
+  <!-- No order fallback -->
+  <ng-template #noOrderTpl>
+    <div class="alert alert-warning mt-4 text-center">
+      <i class="bi bi-exclamation-circle me-2"></i>No order information
+      available.
+    </div>
+  </ng-template>
 </div>

@@ -26,64 +26,55 @@
   <!-- Cart Items -->
   <div *ngIf="cartService.currentCart()?.cartBooks?.length" class="mt-4">
     <div
-      class="card mb-3"
+      class="cart-card"
       *ngFor="let item of cartService.currentCart()?.cartBooks"
     >
-      <div class="row g-0">
-        <div class="col-md-2">
-          <img
-            [src]="item.book.imageURL"
-            class="img-fluid rounded-start"
-            [alt]="item.book.bookName"
-            style="max-height: 200px; object-fit: cover"
-          />
+      <div class="card-row">
+        <div class="card-image">
+          <img [src]="item.book.imageURL" [alt]="item.book.bookName" />
         </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{ item.book.bookName }}</h5>
-            <p class="card-text text-muted">{{ item.book.authorName }}</p>
-            <div class="d-flex align-items-center gap-3">
-              <span class="badge bg-primary"
-                >Quantity: {{ item.bookQuantity }}</span
-              >
-              <p class="card-text mb-0">
-                Price: {{ item.book.price | currency }}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2 d-flex align-items-center justify-content-end">
-          <p class="h5 me-3">
-            {{ calculateItemTotal(item) | currency }}
-          </p>
-          <!-- Inside the card-body div -->
-          <div class="d-flex align-items-center gap-3">
-            <div class="btn-group">
-              <button
-                class="btn btn-outline-primary btn-sm"
-                (click)="updateQuantity(item.book.id, item.bookQuantity - 1)"
-                [disabled]="item.bookQuantity <= 1"
-              >
-                -
-              </button>
-              <button class="btn btn-outline-primary btn-sm" disabled>
-                {{ item.bookQuantity }}
-              </button>
-              <button
-                class="btn btn-outline-primary btn-sm"
-                (click)="updateQuantity(item.book.id, item.bookQuantity + 1)"
-              >
-                +
-              </button>
-            </div>
-            <button
-              class="btn btn-danger btn-sm"
-              (click)="removeItem(item.book.id)"
+        <div class="card-details">
+          <h5 class="book-title">{{ item.book.bookName }}</h5>
+          <p class="author">{{ item.book.authorName }}</p>
+          <div class="quantity-price">
+            <span class="quantity-badge"
+              >Quantity: {{ item.bookQuantity }}</span
             >
-              Remove
-            </button>
+            <p class="price">Price: {{ item.book.price | currency }}</p>
           </div>
         </div>
+        <div class="card-actions large">
+  <p class="item-total fw-bold">
+    {{ calculateItemTotal(item) | currency }}
+  </p>
+  <div class="controls d-flex align-items-center gap-3">
+    <div class="btn-group">
+      <button
+        class="btn btn-outline-secondary btn-lg adjust"
+        (click)="updateQuantity(item.book.id, item.bookQuantity - 1)"
+        [disabled]="item.bookQuantity <= 1"
+      >
+        -
+      </button>
+      <button class="btn btn-outline-secondary btn-lg adjust" disabled>
+        {{ item.bookQuantity }}
+      </button>
+      <button
+        class="btn btn-outline-secondary btn-lg adjust"
+        (click)="updateQuantity(item.book.id, item.bookQuantity + 1)"
+      >
+        +
+      </button>
+    </div>
+    <button
+      class="btn btn-danger btn-lg remove d-flex align-items-center justify-content-center"
+      (click)="removeItem(item.book.id)"
+    >
+      <i class="bi bi-trash fs-5"></i>
+    </button>
+  </div>
+</div>
+
       </div>
     </div>
 

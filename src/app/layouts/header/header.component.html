@@ -39,7 +39,7 @@
         }
       </ul>
       <ul class="navbar-nav">
-        @if(!authService.isAdmin()){
+        @if(!authService.isAdmin() && authService.isLoggedIn()){
         <li class="nav-item">
           <a class="nav-link position-relative cart-link" routerLink="/cart">
             <span class="cart-icon">🛒</span>
@@ -53,7 +53,10 @@
       } @if(!authService.isAdmin()){
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link position-relative wishlist-link" routerLink="/wishlist">
+            <a
+              class="nav-link position-relative wishlist-link"
+              routerLink="/wishlist"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -67,9 +70,7 @@
                 />
               </svg>
               <span class="wishlist-badge badge">
-                @if(authService.isLoggedIn()){
-                  {{ wishlistCount() }}
-                }
+                {{ wishlistCount() }}
               </span>
             </a>
           </li>

@@ -1,0 +1,158 @@
+.cart-card {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: "Inter", system-ui, sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cart-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.card-image img {
+  max-height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.card-image {
+  flex: 1 1 150px;
+  max-width: 150px;
+}
+
+.card-details {
+  flex: 2 1 300px;
+}
+
+.book-title {
+  font-family: Georgia, Cambria, serif;
+  font-size: 1.25rem;
+  color: #7d3c55;
+  margin: 0;
+}
+
+.author {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.quantity-price {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.quantity-badge {
+  background-color: #5d7b8a;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+}
+
+.price {
+  font-weight: bold;
+  color: #7d3c55;
+  margin: 0;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex: 1 1 200px;
+}
+
+.item-total {
+  font-size: 1.25rem;
+  color: #7d3c55;
+  margin-bottom: 0.5rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.btn {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn.adjust {
+  background-color: #b8a361;
+  color: white;
+}
+
+.btn.adjust:disabled {
+  background-color: #e0d3a6;
+  cursor: not-allowed;
+}
+
+.btn.adjust:hover:not(:disabled) {
+  background-color: #a68f4f;
+}
+
+.btn.remove {
+  background-color: #7d3c55;
+  color: white;
+}
+
+.btn.remove:hover {
+  background-color: #642c42;
+}
+
+@media (max-width: 768px) {
+  .card-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-actions {
+    align-items: center;
+  }
+
+  .item-total {
+    margin-bottom: 0.75rem;
+  }
+}
+.card-actions.large {
+  font-size: 1.25rem; /* Larger text */
+  padding: 1rem 0;
+}
+
+.card-actions.large .btn.adjust {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+}
+
+.card-actions.large .btn.remove {
+  width: 3.2rem;
+  height: 3.2rem;
+}

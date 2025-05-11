@@ -1,10 +1,11 @@
-@media print {
-  .card-header, .card-footer, .btn {
-    display: none !important;
-  }
+.bg-cream {
+  background-color: var(--color-cream) !important;
+}
 
-  .card {
-    border: none !important;
-    box-shadow: none !important;
-  }
+.bg-light-subtle {
+  background-color: #f9f9f9 !important;
+}
+
+.fs-sm {
+  font-size: 0.95rem;
 }

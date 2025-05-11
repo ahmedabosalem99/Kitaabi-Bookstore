@@ -653,10 +653,10 @@
     },
     {
       "userId": "3",
-      "totalBooksInCart": 1,
+      "totalBooksInCart": 4,
       "cartBooks": [
         {
-          "bookQuantity": 1,
+          "bookQuantity": 4,
           "book": {
             "categoryId": "2",
             "bookName": "The Odyssey",
@@ -1628,6 +1628,7 @@
       "id": "1",
       "userId": "3",
       "bookIds": [
+        "3527",
         "3527",
         "dc17",
         "6e2d"
