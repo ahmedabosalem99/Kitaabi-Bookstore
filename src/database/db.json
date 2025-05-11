@@ -663,10 +663,10 @@
     },
     {
       "userId": "3",
-      "totalBooksInCart": 1,
+      "totalBooksInCart": 2,
       "cartBooks": [
         {
-          "bookQuantity": 1,
+          "bookQuantity": 4,
           "book": {
             "categoryId": "1",
             "bookName": "1984",
@@ -679,6 +679,22 @@
             "rejectionCounts": 0,
             "isApprovalSent": false,
             "id": "3527"
+          }
+        },
+        {
+          "bookQuantity": 1,
+          "book": {
+            "categoryId": "1",
+            "bookName": "Pride and Prejudice",
+            "authorName": "Jane Austen",
+            "price": "9.99",
+            "quantity": "12",
+            "description": "A romantic novel of manners that critiques the British landed gentry.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1nYuThqsnJ_iI0px-yuof3kVF-MgjqcOLeGUwjJokgA&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": true,
+            "id": "dc17"
           }
         }
       ],
@@ -1646,8 +1662,9 @@
       "id": "1",
       "userId": "3",
       "bookIds": [
+        "3527",
         "dc17",
-        "3527"
+        "41ac"
       ]
     },
     {

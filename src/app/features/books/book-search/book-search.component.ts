@@ -42,26 +42,30 @@ export class BookSearchComponent implements OnInit {
   }
 
   performSearch(): void {
-    if (!this.searchQuery.trim()) return;
+    // if (!this.searchQuery.trim()) return;
 
-    
+
     this.isLoading = true;
     this.searchPerformed = true;
     const lowerSearchQuery = this.searchQuery.toLowerCase();
+
     forkJoin({
       books: this.bookService.getBooks(),
       categories: this.categoryService.getCategories()
     }).subscribe({
       next: ({ books, categories }) => {
-        const isCategory = categories.find(cat => cat.name.toLocaleLowerCase() === lowerSearchQuery)?.id;
-        books = books.filter(book => book.bookName.toLowerCase().includes(lowerSearchQuery) || 
-                              book.authorName.toLowerCase().includes(lowerSearchQuery) ||
-                              book.categoryId === isCategory);
+        if(lowerSearchQuery){
+        const isCategory = categories.find(cat => cat.name.toLocaleLowerCase().includes(lowerSearchQuery))?.id;
+          books = books.filter(book => book.bookName.toLowerCase().includes(lowerSearchQuery) ||
+                    book.authorName.toLowerCase().includes(lowerSearchQuery) ||
+                    book.categoryId === isCategory);
+        }
+
         this.searchResults = books.map(book => {
-          const category = categories.find(cat => cat.id === book.categoryId);
+          // const category = categories.find(cat => cat.id === book.categoryId);
           return {
             ...book,
-            categoryName: category ? category.name : 'Unknown Category'
+            // categoryName: category ? category.name : 'Unknown Category'
           };
         });
         this.error = '';

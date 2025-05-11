@@ -1,14 +1,16 @@
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+
 import { Book } from '../../core/models/book';
 import { Wishlist } from '../../core/models/wishlist';
 import { WishlistService } from './../../core/services/wishlist.service';
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../core/services/book.service';
 import { AuthService } from '../../core/services/auth.service';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-wishlist',
+  standalone:true,
   imports: [RouterModule, CommonModule],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.css'
@@ -18,7 +20,7 @@ export class WishlistComponent implements OnInit {
   constructor(private wishlistService: WishlistService, private bookService: BookService,
     authService: AuthService
   ){
-    this.userId = authService.getUser()?.id ?? ""; 
+    this.userId = authService.getUser()?.id ?? "";
   }
 
   isLoading: boolean = true;
