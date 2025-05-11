@@ -1,0 +1,32 @@
+<div class="success-container">
+  <div *ngIf="loading" class="loading-section">
+    <h2>Checking payment status...</h2>
+    <div class="spinner"></div>
+  </div>
+
+  <div *ngIf="!loading && paymentSuccess" class="success-section">
+    <div class="success-icon">✓</div>
+    <h2>Payment Successful!</h2>
+    <p>Thank you for your purchase.</p>
+
+    <div *ngIf="paymentDetails" class="payment-info">
+      <h3>Payment Details</h3>
+      <p><strong>Amount:</strong> {{paymentDetails.amount / 100 | currency:paymentDetails.currency:'symbol'}}</p>
+      <p><strong>Status:</strong> {{paymentDetails.status}}</p>
+    </div>
+
+    <a routerLink="/" class="home-button">Return to Home</a>
+  </div>
+
+  <div *ngIf="!loading && !paymentSuccess" class="error-section">
+    <div class="error-icon">!</div>
+    <h2>Payment Not Confirmed</h2>
+    <p *ngIf="paymentDetails">Payment status: {{paymentDetails.status}}</p>
+    <p *ngIf="errorMessage">{{errorMessage}}</p>
+
+    <div class="buttons">
+      <a routerLink="/" class="home-button">Home</a>
+      <a routerLink="/checkout" class="retry-button">Try Again</a>
+    </div>
+  </div>
+</div>

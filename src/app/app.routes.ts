@@ -15,6 +15,8 @@ import { RegisterationFormComponent } from './Auth/registeration-form/registerat
 import { LoginComponent } from './Auth/login/login.component';
 import { authGuard } from './core/guards/auth.guard';
 import { adminGuard } from './core/guards/admin.guard';
+import { SuccessComponent } from './features/success/success.component';
+import { CancelComponent } from './features/cancel/cancel.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -35,6 +37,9 @@ export const routes: Routes = [
   { path: 'cart', component: CartComponent, canActivate: [authGuard] },
   { path: 'wishlist', component: WishlistComponent, canActivate: [authGuard]},
   { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
+  {path: 'success', component: SuccessComponent, canActivate: [authGuard]},
+  {path: 'cancel', component: CancelComponent, canActivate: [authGuard]},
+
   {
     path: 'orders/:id',
     component: OrderDetailsComponent,

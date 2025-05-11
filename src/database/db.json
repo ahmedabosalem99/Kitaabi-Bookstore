@@ -630,32 +630,22 @@
     },
     {
       "userId": "2",
-      "totalBooksInCart": 2,
+      "totalBooksInCart": 1,
       "cartBooks": [
         {
           "bookQuantity": 1,
           "book": {
-            "categoryId": "1",
-            "bookName": "1984",
-            "authorName": "George Orwell",
-            "price": "12.50",
-            "quantity": "8",
-            "description": "A dystopian novel set in a totalitarian society under the surveillance of Big Brother.",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8jT8OYBTYR48fkbE9rQIoI16sxgf6lSyWc55CKdvUw&s&ec=72940543",
-            "id": "3527"
-          }
-        },
-        {
-          "bookQuantity": 1,
-          "book": {
-            "categoryId": "3",
-            "bookName": "The Hobbit",
-            "authorName": "J.R.R. Tolkien",
-            "price": "16.50",
-            "quantity": "10",
-            "description": "Fantasy novel about Bilbo Baggins's quest to win a share of treasure.",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMb3oP7Nc0h8umrVwzDdpOtg7hXaB183DvSWmzPQfgJw&s&ec=72940543",
-            "id": "313f"
+            "categoryId": "2",
+            "bookName": "Moby-Dick",
+            "authorName": "Herman Melville",
+            "price": "18.75",
+            "quantity": "6",
+            "description": "Epic tale of Captain Ahab's obsessive quest for the white whale.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREIyCvZgh-cKdeGCPTa4t8WjjqNR0Y3G8bGjto1F6CvA&s&ec=72940543",
+            "isApproved": true,
+            "rejectionCounts": 0,
+            "isApprovalSent": true,
+            "id": "6e2d"
           }
         }
       ],
@@ -663,25 +653,8 @@
     },
     {
       "userId": "3",
-      "totalBooksInCart": 1,
-      "cartBooks": [
-        {
-          "bookQuantity": 1,
-          "book": {
-            "categoryId": "1",
-            "bookName": "1984",
-            "authorName": "George Orwell",
-            "price": "12.50",
-            "quantity": "8",
-            "description": "A dystopian novel set in a totalitarian society under the surveillance of Big Brother.",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP8jT8OYBTYR48fkbE9rQIoI16sxgf6lSyWc55CKdvUw&s&ec=72940543",
-            "isApproved": true,
-            "rejectionCounts": 0,
-            "isApprovalSent": false,
-            "id": "3527"
-          }
-        }
-      ],
+      "totalBooksInCart": 0,
+      "cartBooks": [],
       "id": "7157"
     },
     {
@@ -1646,8 +1619,9 @@
       "id": "1",
       "userId": "3",
       "bookIds": [
+        "3527",
         "dc17",
-        "3527"
+        "6e2d"
       ]
     },
     {
