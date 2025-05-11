@@ -8,7 +8,6 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = process.env.PORT || 4242;
 
-// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("public"));
