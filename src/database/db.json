@@ -1465,6 +1465,27 @@
           }
         }
       ]
+    },
+    {
+      "id": "4d14",
+      "userId": "c603",
+      "totalBooksInCart": 1,
+      "cartBooks": [
+        {
+          "bookQuantity": 1,
+          "book": {
+            "id": "41ac",
+            "bookName": "The Great Gatsby",
+            "authorName": "F. Scott Fitzgerald",
+            "price": "10.99",
+            "quantity": "10",
+            "description": "A story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhElj8570pLWt3-1C89RVBBmCL8EP85nsVw-kOKplM1Q&s&ec=72940543",
+            "categoryId": "1",
+            "isApproved": true
+          }
+        }
+      ]
     }
   ],
   "categories": [
@@ -1621,6 +1642,22 @@
       "rating": 5,
       "comment": "gfffffffffffffffffffffffffffffffffffffffffffffffffffffff",
       "date": "2025-05-11T15:49:41.327Z"
+    },
+    {
+      "id": "y2zx6mlanh9q2ztie0v1nj",
+      "bookId": "41ac",
+      "userId": "c603",
+      "rating": 4,
+      "comment": "wonderful!!!!",
+      "date": "2025-05-13T13:33:23.292Z"
+    },
+    {
+      "id": "94uihtnx2l5kwia8wpllbd",
+      "bookId": "7aaa",
+      "userId": "c603",
+      "rating": 4,
+      "comment": "Great book.",
+      "date": "2025-05-13T13:33:37.591Z"
     }
   ],
   "wishlists": [
@@ -1772,6 +1809,11 @@
         "3527",
         "dc17"
       ]
+    },
+    {
+      "id": "57fd",
+      "userId": "c603",
+      "bookIds": []
     }
   ],
   "orders": [
@@ -1802,6 +1844,34 @@
       "status": "pending",
       "orderDate": "2025-05-11T15:46:52.805Z",
       "deliveryDate": "2025-05-16T15:46:52.805Z"
+    },
+    {
+      "id": "8d70",
+      "userId": "c603",
+      "items": [
+        {
+          "bookId": "41ac",
+          "quantity": 1,
+          "price": 10.99
+        },
+        {
+          "bookId": "7aaa",
+          "quantity": 1,
+          "price": 10.99
+        }
+      ],
+      "totalPrice": 21.98,
+      "shippingAddress": {
+        "name": "omar",
+        "street": "cairo",
+        "city": "cairo",
+        "state": "giza",
+        "zip": "11111",
+        "country": "Egypt"
+      },
+      "status": "pending",
+      "orderDate": "2025-05-13T13:32:09.783Z",
+      "deliveryDate": "2025-05-18T13:32:09.783Z"
     }
   ],
   "dashboard": {
@@ -2004,6 +2074,15 @@
       "Lname": "mohammed",
       "email": "ahmed@gmail.com",
       "password": "Ahmed123",
+      "role": "User",
+      "isVerify": false
+    },
+    {
+      "id": "c603",
+      "Fname": "Omar",
+      "Lname": "Saeed",
+      "email": "omar@gmail.com",
+      "password": "Omar1234",
       "role": "User",
       "isVerify": false
     }

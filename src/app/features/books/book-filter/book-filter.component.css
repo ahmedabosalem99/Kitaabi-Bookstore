@@ -2,14 +2,14 @@
 display: block;
 height: 100%;
 font-family: 'Inter', system-ui, sans-serif;
-background-color: #F5F1E8; 
+background-color: #F5F1E8;
 padding: 2rem;
 box-sizing: border-box;
 }
 
 h5, h6 {
 font-family: Georgia, Cambria, serif;
-color: #7D3C55; 
+color: #7D3C55;
 margin-bottom: 1rem;
 }
 
@@ -25,7 +25,7 @@ letter-spacing: 0.05rem;
 
 label {
 font-size: 0.875rem;
-color: #644536; // Brown for small text
+color: #644536;
 }
 
 .form-check-input {

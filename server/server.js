@@ -1,10 +1,10 @@
-const stripe = require("stripe")(
-  "sk_test_51RMZaQPRuOB7CNwmj1A5tX1PL641FUeGPdtEVJVTXuO4aqC7sxrLcFSPhEdbBWNqxn5RqZDjMPszjDopyRllDNDa0059qte4Ms"
-);
+require("dotenv").config();
+
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const path = require("path"); // لاستعماله في توجيه المسارات بشكل صحيح
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 4242;
@@ -12,9 +12,12 @@ const PORT = process.env.PORT || 4242;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static("public")); // خدمة الملفات الثابتة من مجلد public
+app.use(express.static("public"));
 
-// Routes
+//testing route
+app.get("/api/test", async(req, res) => {
+  res.send("Hello from Kitaabi-server testing");
+});
 
 // Stripe payment route to create checkout session
 app.post("/api/create-checkout-session", async (req, res) => {
@@ -28,7 +31,7 @@ app.post("/api/create-checkout-session", async (req, res) => {
               name: "Your Order Total",
               description: `Payment for this items`,
             },
-            unit_amount: req.body.order.totalPrice * 100, // تحويل السعر إلى سنتات
+            unit_amount: req.body.order.totalPrice * 100,
           },
           quantity: 1,
         },
@@ -63,10 +66,6 @@ app.get("/api/check-payment/:sessionId", async (req, res) => {
   }
 });
 
-// Serve the Angular application
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html")); // إرسال ملف index.html
-});
 
 // Start server
 app.listen(PORT, () => {

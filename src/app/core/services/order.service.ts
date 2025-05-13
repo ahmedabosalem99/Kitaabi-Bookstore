@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { Order } from '../models/order';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class OrderService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/orders';
+  private apiUrl = `${environment.jsonServerUrl}/orders`;
   lastOrder = signal<Order | null>(null);
 
   createOrder(orderData: Omit<Order, 'id'>) {

@@ -1,34 +1,3 @@
-<!-- <div class="success-container">
-  <div *ngIf="loading" class="loading-section">
-    <h2>Checking payment status...</h2>
-    <div class="spinner"></div>
-  </div>
-
-  <div *ngIf="!loading && paymentSuccess" class="success-section">
-    <div class="success-icon">✓</div>
-    <h2>Payment Successful!</h2>
-    <p>Thank you for your purchase.</p>
-
-    <div *ngIf="paymentDetails" class="payment-info">
-      <h3>Payment Details</h3>
-      <p><strong>Amount:</strong> {{paymentDetails.amount / 100 | currency:paymentDetails.currency:'symbol'}}</p>
-      <p><strong>Status:</strong> {{paymentDetails.status}}</p>
-    </div>
-
-    <a routerLink="/" class="home-button">Return to Home</a>
-  </div>
-
-  <div *ngIf="!loading && !paymentSuccess" class="error-section">
-    <div class="error-icon">!</div>
-    <h2>Payment Not Confirmed</h2>
-    <div class="buttons">
-      <a routerLink="/" class="home-button">Home</a>
-      <a routerLink="/checkout" class="retry-button">Try Again</a>
-    </div>
-  </div>
-</div> -->
-
-
 <div class="payment-status-container">
   <!-- Loading State -->
   <div *ngIf="loading" class="loading-section text-center py-5 my-5">
@@ -49,7 +18,7 @@
       </svg>
     </div>
     <h2 class="success-title mb-3">Payment Successful!</h2>
-    <p class="success-message text-muted mb-4">Thank you for your purchase. We would not send you any thing as it is a fake payment!</p>
+    <p class="success-message text-muted mb-4">Thank you for your purchase. A confirmation email would never be sent to you as it is a fake payemnt.😀</p>
 
     <div *ngIf="paymentDetails" class="payment-info card border-success mb-4 mx-auto" style="max-width: 400px;">
       <div class="card-header bg-success text-white">

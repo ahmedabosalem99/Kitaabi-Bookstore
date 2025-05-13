@@ -20,8 +20,8 @@ import { CancelComponent } from './features/cancel/cancel.component';
 import { PurchasesComponent } from './features/purchases/purchases.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'books', component: BookListComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' , title:"Home"},
+  { path: 'books', component: BookListComponent, title:"Books" },
 
   {
     path: 'books/new',
@@ -35,12 +35,12 @@ export const routes: Routes = [
   },
   { path: 'books/:id', component: BookDetailsComponent, canActivate: [authGuard] },
 
-  { path: 'cart', component: CartComponent, canActivate: [authGuard] },
-  { path: 'wishlist', component: WishlistComponent, canActivate: [authGuard]},
-  { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
-  {path: 'success', component: SuccessComponent, canActivate: [authGuard]},
-  {path: 'cancel', component: CancelComponent, canActivate: [authGuard]},
-  {path: 'purchases', component: PurchasesComponent, canActivate: [authGuard]},
+  { path: 'cart', component: CartComponent, canActivate: [authGuard], title: "Cart" },
+  { path: 'wishlist', component: WishlistComponent, canActivate: [authGuard], title: "Wishlist"},
+  { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] , title:"Checkout"},
+  {path: 'success', component: SuccessComponent, canActivate: [authGuard],title: "Paymen Success"},
+  {path: 'cancel', component: CancelComponent, canActivate: [authGuard], title: 'Payment Canceled'},
+  {path: 'purchases', component: PurchasesComponent, canActivate: [authGuard], title: "Purchases"},
 
   {
     path: 'orders/:id',
@@ -51,6 +51,7 @@ export const routes: Routes = [
     path: 'orders',
     component: OrderHistoryComponent,
     canActivate: [authGuard],
+    title: "Orders"
   },
   {
     path: 'order-confirmation/:id',
@@ -61,9 +62,10 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [adminGuard],
+    title: "Dashboard"
   },
-  { path: 'register', component: RegisterationFormComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterationFormComponent , title: "Register"},
+  { path: 'login', component: LoginComponent, title: "Login" },
 
   // { path: 'cart', component: CartComponent },
 

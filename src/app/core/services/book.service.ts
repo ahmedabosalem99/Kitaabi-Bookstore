@@ -5,6 +5,7 @@ import { Book } from '../models/book';
 import { catchError, map, of } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ import { Observable, forkJoin } from 'rxjs';
 export class BookService {
 
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/books';
+  private apiUrl = `${environment.jsonServerUrl}/books`;
 
   // Read
   getBooks() {

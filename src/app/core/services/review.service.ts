@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Review } from '../models/review';
 import { map } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ReviewService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/reviews';
+  private apiUrl = `${environment.jsonServerUrl}/reviews`;
 
   getReviewsByBookId(bookId: string) {
     return this.http.get<Review[]>(`${this.apiUrl}?bookId=${bookId}`);
