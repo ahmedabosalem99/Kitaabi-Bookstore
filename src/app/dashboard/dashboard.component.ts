@@ -9,6 +9,7 @@ import {MainComponent} from './main/main.component'
 import { SideNavComponent } from './side-nav/side-nav.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faShop } from '@fortawesome/free-solid-svg-icons';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,7 +24,7 @@ export class DashboardComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get('http://localhost:3000/dashboard').subscribe(data => {
+    this.http.get(`${environment.jsonServerUrl}/dashboard`).subscribe(data => {
       this.dashboardData = data;
     });
   }

@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { computed, Injectable, signal } from '@angular/core';
 import { BookService } from './book.service';
 import { Book } from '../models/book';
-import { Category } from '../models/category';
 
 @Injectable({
   providedIn: 'root'
@@ -17,15 +16,15 @@ export class BookFilterService {
     prices: string[];
   }>({ authors: [], categories: [], prices: [] });
 
-  constructor(private bookService: BookService, private categoryService: CategoryService) { 
+  constructor(private bookService: BookService, private categoryService: CategoryService) {
       this.loadBooks();
     }
-  
+
 
     filteredBooks = computed(() => {
       const all = this.allBooks();
       const f = this.filters();
-  
+
       return all.filter(book => {
         const matchesAuthor = f.authors.length === 0 || f.authors.includes(book.authorName);
         const matchesCategory = f.categories.length === 0 || f.categories.includes(book.categoryId);
@@ -45,11 +44,11 @@ export class BookFilterService {
   //       return matchesAuthor && matchesCategory && matchesPrice;
   //     });
   //   });
-    
+
     loadBooks() {
       this.bookService.getBooks().subscribe(books => this.allBooks.set(books));
     }
-  
+
     updateFilters(newFilters: Partial<{ authors: string[]; categories: string[]; prices: string[] }>) {
       this.filters.update(prev => ({ ...prev, ...newFilters }));
     }

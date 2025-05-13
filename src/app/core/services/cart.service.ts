@@ -3,6 +3,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { Cart } from '../models/cart';
 import { User } from '../models/user';
 import { AuthService } from './auth.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
@@ -10,7 +11,7 @@ export class CartService {
   private auth = inject(AuthService);
   private user = this.auth.getUser();
 
-  private apiUrl = 'http://localhost:3000/carts';
+  private apiUrl = `${environment.jsonServerUrl}/carts`;
 
   currentCart = signal<Cart | null>(null);
   loading = signal(true);

@@ -5,12 +5,13 @@ import { RegisterRequest } from '../models/register-request.model';
 import { loginRequest } from '../models/login-request.model';
 import { User } from '../models/user';
 import { UserRole } from '../models/UserRole';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/users';
+  private apiUrl = `${environment.jsonServerUrl}/users`;
 
   register<T = unknown>(payload: RegisterRequest): Observable<T> {
     return new Observable<T>((observer) => {
@@ -52,7 +53,7 @@ export class AuthService {
     return new Observable<T>((observer) => {
       this.http
         .get<any[]>(
-          `http://localhost:3000/users?email=${payload.email}&password=${payload.password}`
+          `${this.apiUrl}?email=${payload.email}&password=${payload.password}`
         )
         .subscribe({
           next: (users) => {
