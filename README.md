@@ -1,59 +1,74 @@
-# BookstoreApp
+BookstoreApp 📚
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+Angular Bookstore
+Project Overview
 
-## Development server
+A modern Angular 19 web application for browsing and managing book collections. Built with Angular CLI and optimized for performance, featuring responsive design and developer-friendly tooling.
+🌟 Key Features
+📖 Core Functionality
 
-To start a local development server, run:
+    Book catalog with search/filter capabilities
 
-```bash
+    Shopping cart system with persistent storage
+
+    Responsive UI with Angular Material components
+
+    State management with RxJS observables
+
+🛠️ Developer Experience
+
+    Unit testing with Karma/Jasmine
+
+    Code scaffolding via Angular CLI
+
+    Production-ready builds with optimization
+
+🛠️ Tech Stack
+Layer	Technology
+Frontend	Angular 19, TypeScript
+UI Components	Angular Material
+State	RxJS Observables
+Testing	Jasmine, Karma
+Build Tool	Angular CLI
+⚡ Getting Started
+Prerequisites
+
+    Node.js v18+
+
+    Angular CLI v19+
+
+    npm/yarn
+
+Installation
+bash
+
+git clone https://github.com/your-repo/bookstoreapp.git
+cd bookstoreapp
+npm install
+
+Development Server
+bash
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Visit http://localhost:4200
+Build for Production
+bash
 
-## Code scaffolding
+ng build --configuration production
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+🏗️ Architecture
+Angular Structure
 
-```bash
-ng generate component component-name
-```
+src/
+├── app/
+│   ├── components/     # Reusable UI components
+│   ├── services/       # Data layer
+│   ├── models/         # Type definitions
+│   └── pages/          # Route components
+├── assets/             # Static files
+└── environments/       # Build configurations
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+📜 License
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT License - See LICENSE
