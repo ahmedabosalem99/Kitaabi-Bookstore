@@ -3,72 +3,91 @@ BookstoreApp 📚
 Angular Bookstore
 Project Overview
 
-A modern Angular 19 web application for browsing and managing book collections. Built with Angular CLI and optimized for performance, featuring responsive design and developer-friendly tooling.
+A modern Angular 19 web application for browsing and managing book collections with integrated Stripe payments. Built with Angular CLI and optimized for performance.
 🌟 Key Features
-📖 Core Functionality
+📖 Core Features
 
-    Book catalog with search/filter capabilities
+    Book catalog with search/filters
 
-    Shopping cart system with persistent storage
+    Shopping cart system
 
-    Responsive UI with Angular Material components
+    Responsive Angular Material UI
 
-    State management with RxJS observables
+💳 Payment Features
 
-🛠️ Developer Experience
+    Stripe Checkout integration
 
-    Unit testing with Karma/Jasmine
+    3D Secure authentication
 
-    Code scaffolding via Angular CLI
-
-    Production-ready builds with optimization
+    Webhook verification
 
 🛠️ Tech Stack
-Layer	Technology
-Frontend	Angular 19, TypeScript
-UI Components	Angular Material
-State	RxJS Observables
-Testing	Jasmine, Karma
-Build Tool	Angular CLI
-⚡ Getting Started
-Prerequisites
-
-    Node.js v18+
-
-    Angular CLI v19+
-
-    npm/yarn
-
-Installation
+Component	Technology
+Frontend Framework	Angular 19
+Payment Gateway	Stripe API
+State Management	RxJS
+Testing	Jasmine/Karma
+⚡ Quick Start
+1. Install Dependencies
 bash
 
-git clone https://github.com/your-repo/bookstoreapp.git
-cd bookstoreapp
 npm install
 
-Development Server
+2. Configure Environment
+env
+
+# .env
+STRIPE_PUB_KEY=pk_test_51...
+ANGULAR_API_URL=http://localhost:3000
+
+3. Run Development Server
 bash
 
 ng serve
 
-Visit http://localhost:4200
-Build for Production
-bash
+🔧 Payment Implementation
+Angular Service (Frontend)
+typescript
 
-ng build --configuration production
+@Injectable()
+export class PaymentService {
+  constructor(private http: HttpClient) {}
+
+  createCheckoutSession(items: CartItem[]) {
+    return this.http.post(`${environment.apiUrl}/checkout`, { items });
+  }
+}
+
+Node.js Backend
+javascript
+
+app.post('/checkout', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: req.body.items,
+    mode: 'payment',
+    success_url: `${process.env.DOMAIN}/success`,
+    cancel_url: `${process.env.DOMAIN}/cart`
+  });
+  res.json({ sessionId: session.id });
+});
 
 🏗️ Architecture
-Angular Structure
 
 src/
 ├── app/
-│   ├── components/     # Reusable UI components
-│   ├── services/       # Data layer
-│   ├── models/         # Type definitions
-│   └── pages/          # Route components
-├── assets/             # Static files
-└── environments/       # Build configurations
+│   ├── modules/
+│   │   ├── payment/        # Stripe integration
+│   │   └── catalog/        # Book features
+│   ├── core/
+│   │   ├── services        # Shared services
+│   │   └── models          # Type definitions
+└── assets/                 # Static files
 
-📜 License
+🚀 Deployment
+Platform	Command
+Vercel	vercel --prod
+Firebase	firebase deploy
 
-MIT License - See LICENSE
+📜 License: MIT
+🔗 Stripe Docs: stripe.com/docs
