@@ -7,7 +7,7 @@ A full-featured bookstore application with:
 
     Angular 19 frontend
 
-    Node.js backend API
+    API
 
     Stripe payment integration
 
