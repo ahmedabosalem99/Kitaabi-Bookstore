@@ -1,13 +1,15 @@
 BookstoreApp 📚
+Demo link :
+https://drive.google.com/file/d/1Fdij6y-glwDaedvc7ESuJZ6XQKQa5Nn3/view?usp=sharing
 
 *Angular 19 + Stripe E-Commerce Solution*
-Project Overview
-
+Project Overview 
 A full-featured bookstore application with:
 
     Angular 19 frontend
-
-    API
+    
+    
+    Node js 
 
     Stripe payment integration
 
