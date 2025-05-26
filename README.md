@@ -1,109 +1,129 @@
-BookstoreApp 📚
-Demo link :
-https://drive.google.com/file/d/1Fdij6y-glwDaedvc7ESuJZ6XQKQa5Nn3/view?usp=sharing
+# Kitaabi 📚  
+**Angular 19 + Stripe E-Commerce Solution**
 
-*Angular 19 + Stripe E-Commerce Solution*
-Project Overview 
-A full-featured bookstore application with:
+🔗 [Live Website](https://kitaabi-zeta.vercel.app/)  
+🎬 [Demo Video](https://www.youtube.com/watch?v=LVSavDxwY_Q)
 
-    Angular 19 frontend
-    
-    
-    Node js 
+---
 
-    Stripe payment integration
+## 🧾 Project Overview  
 
-    Responsive Material UI design
+**Kitaabi** is a modern, full-stack e-commerce web application for browsing, purchasing, and reviewing books. It features a responsive Angular frontend (**Client**), a lightweight Express backend (**Server**), and a mock JSON Server database (**Database**). The app integrates Stripe for secure online payments and is structured with maintainability and scalability in mind.
 
-🌟 Key Features
-📚 Book Management
+---
 
-    Browse books by category
+## 🌟 Key Features  
 
-    Search with filters
+- Browse books by category  
+- Filter and search functionality  
+- Shopping cart system  
+- Stripe Checkout integration  
+- Order and payment history  
+- Users can review purchased books  
 
-    Shopping cart system
+---
 
-💳 Secure Payments
+## 🧱 Architecture Overview  
 
-    Stripe Checkout integration
+To ensure scalability and maintainability, the project follows a modular structure across three main layers:
 
-    PCI-compliant flows
+### 🔹 Client (Angular 19)  
+Organized using Angular best practices:
+- `core/` – Global services, guards, models  
+- `shared/` – Reusable components (e.g., dialogs, UI elements)  
+- `features/` – Business modules (Books, Cart, Checkout, Orders, Reviews)  
+- `layouts/` – UI structure (Header, Footer, etc.)  
+- `auth/` and `dashboard/` – Authentication and admin views  
 
-    Order history tracking
+### 🔹 Server (Node.js + Express)  
+- All RESTful APIs are implemented in a single `server.js` file  
+- Handles Stripe payment processing  
+- Simple and clean Express setup  
 
-🛠️ Tech Stack
-Layer	Technology
-Frontend	Angular 19
-Backend	Node.js/Express
-Database	MongoDB
-Payments	Stripe API
-UI Components	Angular Material
-⚡ Setup Guide
-1. Install Dependencies
-bash
+### 🔹 Database (JSON Server)  
+- Contains a single file: `db.json`  
+- Simulates a RESTful API for storing books, users, orders, and reviews  
+- Used by Client for data operations  
 
-# Frontend
-cd bookstore-app
+---
+
+## 🛠️ Tech Stack  
+
+| Layer     | Technology          |
+|-----------|---------------------|
+| Client    | Angular 19          |
+| Server    | Node.js / Express   |
+| Database  | JSON Server         |
+| Payments  | Stripe API          |
+| UI        | Angular Material    |
+
+---
+
+## ⚡ Setup Guide  
+
+The project is divided into three folders: `Client`, `Database`, and `Server`. Follow these steps to run the project locally:
+
+---
+
+### 🔸 1. Client Setup (Angular Frontend)
+
+```bash
+cd Client
 npm install
+```
 
-# Backend 
-cd api
-npm install
-
-2. Configure Environment
-env
-
-# .env (Backend)
-STRIPE_KEY=sk_test_xyz
-DB_URI=mongodb://localhost:27017/bookstore
-
-3. Run Development Servers
-bash
-
-# Frontend (port 4200)
-ng serve
-
-# Backend (port 3000) 
+## Configure Environment
+Edit the file:
+`src/app/environments/environment.ts`
+Replace `jsonServerUrl` and `apiUrl` with your local URLs:
+``` ts
+export const environment = {
+  production: false,
+  jsonServerUrl: 'http://localhost:3000', // JSON Server URL
+  apiUrl: 'http://localhost:4242'         // Express server URL
+};
+```
+## Start the Angular App
+```bash
 npm start
+```
 
-🏗️ Architecture
+### 🔸 2. Database Setup (JSON Server)
+```bash
+cd Database
+npx json-server --watch db.json --port 3000
+```
+This will run the mock database on `http://localhost:3000`.
 
-bookstore-app/
-├── src/                   # Angular Frontend
-│   ├── app/
-│   │   ├── features/      # Book, Cart modules
-│   │   └── core/          # Services, interceptors
-│
-api/                       # Node.js Backend
-├── routes/
-│   ├── books.js           # Product routes
-│   └── payments.js        # Stripe routes
+### 🔸 3. Server Setup (Express Backend)
+```bash
+cd Server
+npm install
+```
 
-💻 Code Examples
-Angular Service
-typescript
+## Create a `.env` file
+In the `Server` folder, create a file named `.env` and add the following:
+``` .env
+STRIPE_SECRET_KEY=your_stripe_secret_key
+PORT=4242
+```
+Replace `your_stripe_secret_key` with your actual Stripe secret key.
 
-@Injectable()
-export class BookService {
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>('/api/books');
-  }
-}
+## Start the Express Server
+```bash
+npm start
+```
+The backend will run at `http://localhost:4242`.
 
-Stripe Checkout
-javascript
+Now the app is fully functional at `http://localhost:4200` (default Angular port).
 
-// Node.js Route
-router.post('/checkout', async (req, res) => {
-  const session = await stripe.checkout.sessions.create({
-    line_items: req.body.items,
-    mode: 'payment',
-    success_url: 'https://yourstore.com/success'
-  });
-  res.json({ url: session.url });
-});
+نسخ
+تحرير
 
-📜 License
+نسخ
+تحرير
 
-MIT - See LICENSE file
+نسخ
+تحرير
+
+
