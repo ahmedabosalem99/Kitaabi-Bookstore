@@ -65,14 +65,14 @@ The project is divided into three folders: `Client`, `Database`, and `Server`. F
 
 ---
 
-### 🔸 1. Client Setup (Angular Frontend)
+## 🔸 1. Client Setup (Angular Frontend)
 
 ```bash
 cd Client
 npm install
 ```
 
-## Configure Environment
+### Configure Environment
 Edit the file:
 `src/app/environments/environment.ts`
 Replace `jsonServerUrl` and `apiUrl` with your local URLs:
@@ -83,25 +83,25 @@ export const environment = {
   apiUrl: 'http://localhost:4242'         // Express server URL
 };
 ```
-## Start the Angular App
+### Start the Angular App
 ```bash
 npm start
 ```
 
-### 🔸 2. Database Setup (JSON Server)
+## 🔸 2. Database Setup (JSON Server)
 ```bash
 cd Database
 npx json-server --watch db.json --port 3000
 ```
 This will run the mock database on `http://localhost:3000`.
 
-### 🔸 3. Server Setup (Express Backend)
+## 🔸 3. Server Setup (Express Backend)
 ```bash
 cd Server
 npm install
 ```
 
-## Create a `.env` file
+### Create a `.env` file
 In the `Server` folder, create a file named `.env` and add the following:
 ``` .env
 STRIPE_SECRET_KEY=your_stripe_secret_key
@@ -109,7 +109,7 @@ PORT=4242
 ```
 Replace `your_stripe_secret_key` with your actual Stripe secret key.
 
-## Start the Express Server
+### Start the Express Server
 ```bash
 npm start
 ```
