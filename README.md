@@ -116,14 +116,3 @@ npm start
 The backend will run at `http://localhost:4242`.
 
 Now the app is fully functional at `http://localhost:4200` (default Angular port).
-
-نسخ
-تحرير
-
-نسخ
-تحرير
-
-نسخ
-تحرير
-
-
